@@ -1,120 +1,78 @@
 -----   Info   -----
-DateTime: 7/30/2023 11:00:14 AM
-Message: delete called with id 282
+DateTime: 7/31/2023 12:45:46 PM
+Message:  303    t FACES
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:00:14 AM
-Message: delete called with id 283
+DateTime: 7/31/2023 12:55:54 PM
+Message:  302    t STARS
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:00:47 AM
-Message: delete called with id 284
+DateTime: 7/31/2023 12:55:59 PM
+Message:  303    t FACES
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:01:31 AM
-Message: delete called with id 285
+DateTime: 7/31/2023 1:00:37 PM
+Message:  302    t STARS
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:02:01 AM
-Message: delete called with id 286
+DateTime: 7/31/2023 1:00:42 PM
+Message:  303    t FACES
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:02:50 AM
-Message: delete called with id 287
+DateTime: 7/31/2023 1:02:52 PM
+Message:  302    t STARS
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:04:58 AM
-Message: delete called with id 288
+DateTime: 7/31/2023 1:04:33 PM
+Message:  303    t FACES
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:06:08 AM
-Message: delete called with id 289
+DateTime: 7/31/2023 1:07:34 PM
+Message:  302    t STARS
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:06:32 AM
-Message: delete called with id 290
+DateTime: 7/31/2023 1:09:56 PM
+Message:  303    t FACES
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:08:55 AM
-Message: delete called with id 291
+DateTime: 7/31/2023 1:10:29 PM
+Message:  303    t FACES
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:09:14 AM
-Message: delete called with id 292
+DateTime: 7/31/2023 1:10:33 PM
+Message:  302    t STARS
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:14:56 AM
-Message: delete called with id 293
+DateTime: 7/31/2023 1:16:22 PM
+Message:  302    t STARS
 
 
 
 -----   Info   -----
-DateTime: 7/30/2023 11:19:23 AM
-Message: delete called with id 294
-
-
-
------   Info   -----
-DateTime: 7/30/2023 1:21:26 PM
-Message: delete called with id 295
-
-
-
------   Info   -----
-DateTime: 7/30/2023 1:21:29 PM
-Message: delete called with id 295
-
-
-
------   Info   -----
-DateTime: 7/30/2023 1:23:50 PM
-Message: delete called with id 296
-
-
-
------   Info   -----
-DateTime: 7/30/2023 1:29:22 PM
-Message: delete called with id 297
-
-
-
------   Info   -----
-DateTime: 7/30/2023 2:07:22 PM
-Message: delete called with id 298
-
-
-
------   Info   -----
-DateTime: 7/30/2023 2:07:50 PM
-Message: delete called with id 299
-
-
-
------   Info   -----
-DateTime: 7/30/2023 2:41:50 PM
-Message: delete called with id 300
+DateTime: 7/31/2023 1:19:47 PM
+Message:  302    t STARS
 
 
 

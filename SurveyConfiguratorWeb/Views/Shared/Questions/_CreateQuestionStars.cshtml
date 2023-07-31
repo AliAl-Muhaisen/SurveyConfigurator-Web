@@ -1,0 +1,6 @@
+﻿@model SurveyConfiguratorWeb.Models.QuestionModel
+@Html.Partial("Questions/_Create", Model.questionStars)
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Stars Number</label>
+    <input type="number" min="1" max="10" class="form-control" id="exampleFormControlInput1" placeholder="1">
+</div>

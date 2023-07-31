@@ -12,12 +12,19 @@ namespace SurveyConfiguratorWeb
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapMvcAttributeRoutes();
+            routes.MapRoute(
+            name: "Question",
+            url: "Question/{action}/{id}",
+            defaults: new { controller = "Question", action = "Index", id = UrlParameter.Optional }
+        );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

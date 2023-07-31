@@ -21,7 +21,13 @@
                 <div class="collapse navbar-collapse " id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                           @Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link active" })
+                            @Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link active" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Create", "Create", "Question", new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Question", "Index", "Question", new { @class = "nav-link" })
                         </li>
                     </ul>
                 </div>

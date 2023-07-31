@@ -25,19 +25,8 @@ namespace SurveyConfiguratorWeb.Controllers
         }
         public ActionResult Index()
         {
-           
             return View(homeModel);
         }
 
-       
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-       
     }
 }

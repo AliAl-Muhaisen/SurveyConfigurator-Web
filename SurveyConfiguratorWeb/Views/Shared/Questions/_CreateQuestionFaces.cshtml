@@ -1,0 +1,18 @@
+﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionFaces
+
+@using (Html.BeginForm("Create", "Question", FormMethod.Post))
+{
+
+    <div class="">
+        @Html.Partial("Questions/_Create", Model)
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Faces Number</label>
+            @Html.TextBoxFor(model => model.FacesNumber, new { @class = "form-control" })
+        </div>
+
+    </div>
+    <div class="row w-100 text-center justify-content-center">
+        <input type="submit" value="Save" class="btn btn-primary col-md-12 col-12 text-center" />
+
+    </div>
+}

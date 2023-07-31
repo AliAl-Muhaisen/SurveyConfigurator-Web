@@ -1,0 +1,67 @@
+﻿@using SurveyConfiguratorApp.Domain.Questions
+@model SurveyConfiguratorWeb.Models.QuestionModel
+@{
+    ViewBag.Title = "Create";
+}
+<div class="my-3">
+    <h2>Create Question</h2>
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Question Type</label>
+        <select class="form-select" id="inputGroupSelect01">
+            <option selected disabled>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </div>
+
+
+
+
+
+        <div id="questionFacesPartial" style="display: none">
+            @Html.Partial("Questions/_CreateQuestionFaces")
+        </div>
+
+        @*<div id="questionStarsPartial" style="display: none">
+            @Html.Partial("Questions/_CreateQuestionStars")
+        </div>
+        <div id="questionSliderPartial" style="display: none">
+            @Html.Partial("Questions/_CreateQuestionSlider")
+        </div>*@
+
+ 
+
+</div>
+
+@section scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var selectElement = document.getElementById('inputGroupSelect01');
+            var questionFacesPartial = document.getElementById('questionFacesPartial');
+            var questionStarsPartial = document.getElementById('questionStarsPartial');
+            var questionSliderPartial = document.getElementById('questionSliderPartial');
+
+            selectElement.addEventListener('change', function () {
+                var selectedValue = selectElement.value;
+                if (selectedValue === '1') {
+                    questionFacesPartial.style.display = 'block';
+                    questionStarsPartial.style.display = 'none';
+                    questionSliderPartial.style.display = 'none';
+                } else if (selectedValue === '2') {
+                    questionFacesPartial.style.display = 'none';
+                    questionStarsPartial.style.display = 'block';
+                    questionSliderPartial.style.display = 'none';
+
+                } else {
+                    questionFacesPartial.style.display = 'none';
+                    questionStarsPartial.style.display = 'none';
+                    questionSliderPartial.style.display = 'block';
+
+                }
+            });
+        });
+    </script>
+}
+
+

@@ -121,11 +121,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\Questions\QuestionController.cs" />
+    <Compile Include="Controllers\Questions\QuestionSliderController.cs" />
+    <Compile Include="Controllers\Questions\QuestionStarsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Controllers\Questions\QuestionFacesController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -201,7 +205,15 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Question\Add.cshtml" />
+    <Content Include="Views\Shared\Questions\_Create.cshtml" />
+    <Content Include="Views\Question\Create.cshtml" />
+    <Content Include="Views\Shared\Questions\_CreateQuestionFaces.cshtml" />
+    <Content Include="Views\Shared\Questions\_CreateQuestionStars.cshtml" />
+    <Content Include="Views\Shared\Questions\_CreateQuestionSlider.cshtml" />
+    <Content Include="Views\Question\Index.cshtml" />
+    <Content Include="Views\QuestionFaces\Detail.cshtml" />
+    <Content Include="Views\QuestionStars\Detail.cshtml" />
+    <Content Include="Views\QuestionSlider\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
