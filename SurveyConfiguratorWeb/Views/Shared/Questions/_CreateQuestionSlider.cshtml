@@ -1,24 +1,32 @@
-﻿@model SurveyConfiguratorWeb.Models.QuestionModel
+﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionSlider
 
-@Html.Partial("Questions/_Create", Model.questionFaces)
 
+@using (Html.BeginForm("Create", "QuestionSlider", FormMethod.Post))
+{ 
 <div class="row mb-3">
+    @Html.Partial("Questions/_Create", Model)
     <div class="col-6">
-        <label for="exampleFormControlInput1" class="form-label">Start Value</label>
-        <input type="number" min="0" max="99" class="form-control" id="" placeholder="1">
+        @Html.LabelFor(model => model.StartValue, new { @class = "form-label" })
+        @Html.TextAreaFor(model => model.StartValue, new { @class = "form-control" })
     </div>
     <div class="col-6">
-        <label for="exampleFormControlInput1" class="form-label">End Value</label>
-        <input type="number" min="1" max="100" class="form-control" id="" placeholder="1">
+        @Html.LabelFor(model => model.EndValue, new { @class = "form-label" })
+        @Html.TextAreaFor(model => model.EndValue, new { @class = "form-control" })
+
     </div>
 
     <div class="col-6">
-        <label for="exampleFormControlInput1" class="form-label">Start Caption</label>
-        <input type="number" min="1" max="10" class="form-control" id="exampleFormControlInput1" placeholder="1">
+        @Html.LabelFor(model => model.StartCaption, new { @class = "form-label" })
+        @Html.TextAreaFor(model => model.StartCaption, new { @class = "form-control" })
     </div>
     <div class="col-6">
-        <label for="exampleFormControlInput1" class="form-label">End Caption</label>
-        <input type="number" min="1" max="10" class="form-control" id="exampleFormControlInput1" placeholder="1">
+        @Html.LabelFor(model => model.EndCaption, new { @class = "form-label" })
+        @Html.TextAreaFor(model => model.EndCaption, new { @class = "form-control" })
+
     </div>
+
 </div>
-
+<div class="row w-100 text-center justify-content-center">
+    <input type="submit" value="Save" class="btn btn-primary col-md-12 col-12 text-center" />
+</div>
+}

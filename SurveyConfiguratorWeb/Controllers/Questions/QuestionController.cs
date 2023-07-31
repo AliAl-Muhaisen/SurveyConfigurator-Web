@@ -1,6 +1,7 @@
 ﻿using SurveyConfiguratorApp.Domain;
 using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
+using SurveyConfiguratorApp.Logic;
 using SurveyConfiguratorWeb.Controllers.Questions;
 using SurveyConfiguratorWeb.Models;
 using SurveyConfiguratorWeb.Models.Questions;
@@ -14,14 +15,15 @@ namespace SurveyConfiguratorWeb.Controllers
 {
     public class QuestionController : Controller
     {
-        readonly QuestionModel questionModel;
+        public readonly QuestionManager questionManager;
+
         readonly HomeModel homeModel;
         public QuestionController()
         {
             try
             {
                 homeModel = new HomeModel();
-                questionModel = new QuestionModel();
+                questionManager = new QuestionManager();
             }
             catch (Exception e)
             {
@@ -58,20 +60,21 @@ namespace SurveyConfiguratorWeb.Controllers
             return View();
         }
 
-        [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Create(QuestionFaces pQuestionModel)
-        {
+        //[HttpPost]
+        ////[ValidateAntiForgeryToken]
+        //public ActionResult Create(QuestionFaces pQuestionModel)
+        //{
 
-           
-            Log.Info("FacesNumber "+pQuestionModel.FacesNumber.ToString());
-            questionModel.questionManager.AddQuestionFaces(pQuestionModel);
-            return View();
-        }
+
+        //    Log.Info("FacesNumber "+pQuestionModel.FacesNumber.ToString());
+        //    questionModel.questionManager.AddQuestionFaces(pQuestionModel);
+        //    return View();
+        //}
+   
+
         public ActionResult Detail(int id,string type)
         {
 
-            Log.Info(" " + id + "    t " + type);
             Question.QuestionTypes questionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), type));
 
             switch (questionType)
@@ -81,16 +84,12 @@ namespace SurveyConfiguratorWeb.Controllers
                   
 
                 case Question.QuestionTypes.SLIDER:
-                    // Handle SLIDER type
-                    break;
+                    return RedirectToAction("Detail", "QuestionSlider", new { id = id });
 
                 case Question.QuestionTypes.STARS:
                     return RedirectToAction("Detail", "QuestionStars", new { id = id });
-                   
-
 
                 default:
-                    // Handle the default case if the enum value doesn't match any of the cases above
                     break;
             }
 

@@ -8,13 +8,13 @@ using System.Web;
 
 namespace SurveyConfiguratorWeb.Models
 {
-    public class QuestionModel
+    public class QuestionModel2
     {
        public readonly Question question;
-       public QuestionFaces questionFaces;
+       public QuestionFaces questionFaces { get; set; }
        public readonly QuestionStars questionStars;
         public readonly QuestionManager questionManager;
-        public QuestionModel()
+        public QuestionModel2()
         {
             try
             {

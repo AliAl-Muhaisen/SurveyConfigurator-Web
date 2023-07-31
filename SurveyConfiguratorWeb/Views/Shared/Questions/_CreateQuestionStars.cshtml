@@ -1,6 +1,13 @@
-﻿@model SurveyConfiguratorWeb.Models.QuestionModel
-@Html.Partial("Questions/_Create", Model.questionStars)
+﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionStars
+@using (Html.BeginForm("Create", "QuestionStars", FormMethod.Post))
+{
+    @Html.Partial("Questions/_Create", Model)
 <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Stars Number</label>
-    <input type="number" min="1" max="10" class="form-control" id="exampleFormControlInput1" placeholder="1">
-</div>
+    @Html.TextBoxFor(model => model.StarsNumber, new { @class = "form-control" })
+    </div>
+    <div class="row w-100 text-center justify-content-center">
+        <input type="submit" value="Save" class="btn btn-primary col-md-12 col-12 text-center" />
+
+    </div>
+}

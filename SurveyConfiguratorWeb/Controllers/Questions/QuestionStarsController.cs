@@ -1,5 +1,6 @@
 ﻿using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
+using SurveyConfiguratorApp.Logic;
 using SurveyConfiguratorWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,13 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
 {
     public class QuestionStarsController : Controller
     {
-        readonly QuestionModel questionModel;
+        public readonly QuestionManager questionManager;
 
         public QuestionStarsController()
         {
             try
             {
-                questionModel = new QuestionModel();
+                questionManager = new QuestionManager();
             }
             catch (Exception e)
             {
@@ -30,15 +31,24 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             return View();
         }
 
-        [Route("Question/Stars")]
+        [Route("Question/Detail/Stars")]
         public ActionResult Detail(int id)
         {
             QuestionStars tQuestionStars = new QuestionStars();
             tQuestionStars.SetId(id);
-            questionModel.questionManager.GetQuestionStars(ref tQuestionStars);
+            questionManager.GetQuestionStars(ref tQuestionStars);
 
 
             return View(tQuestionStars);
+        }
+
+        [HttpPost]
+        [Route("Question/Stars/Create")]
+        public ActionResult Create(QuestionStars pQuestionStars)
+        {
+           questionManager.AddQuestionStars(pQuestionStars);
+           
+            return RedirectToAction("Create", "Question");
         }
     }
 }

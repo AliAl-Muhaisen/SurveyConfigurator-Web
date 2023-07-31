@@ -1,5 +1,6 @@
 ﻿using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
+using SurveyConfiguratorApp.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,12 @@ namespace SurveyConfiguratorWeb.Models.Questions
 {
     public class QuestionFacesController : Controller
     {
-        readonly QuestionModel questionModel;
+        public readonly QuestionManager questionManager;
         public QuestionFacesController()
         {
             try
             {
-                questionModel = new QuestionModel();
+                questionManager = new QuestionManager();
             }
             catch (Exception e)
             {
@@ -27,12 +28,30 @@ namespace SurveyConfiguratorWeb.Models.Questions
         {
             return View();
         }
-        [Route("Question/Faces")]
+
+
+        [HttpPost]
+        [Route("Question/Faces/Create")]
+        public ActionResult Create(QuestionFaces pQuestionFaces)
+        {
+           int r= questionManager.AddQuestionFaces(pQuestionFaces);
+            string err = "";
+            for (int i = 0; i < questionManager.ValidationErrorList.Count; i++)
+            {
+                err = questionManager.ValidationErrorList[i].ToString()+"\n";
+            }
+            Log.Info("result " + err);
+
+            return RedirectToAction("Create", "Question");
+        }
+
+        [HttpGet]
+        [Route("Question/Detail/Faces")]
         public ActionResult Detail(int id)
         {
             QuestionFaces tQuestionFaces = new QuestionFaces();
             tQuestionFaces.SetId(id);
-            questionModel.questionManager.GetQuestionFaces(ref tQuestionFaces);
+            questionManager.GetQuestionFaces(ref tQuestionFaces);
 
 
             return View(tQuestionFaces);

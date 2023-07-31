@@ -1,5 +1,6 @@
 ﻿using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
+using SurveyConfiguratorApp.Logic;
 using SurveyConfiguratorWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,12 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
 {
     public class QuestionSliderController : Controller
     {
-        private QuestionModel questionModel;
+        public readonly QuestionManager questionManager;
         public QuestionSliderController()
         {
             try
             {
-                questionModel = new QuestionModel();
+                questionManager=new QuestionManager();
             }
             catch (Exception e)
             {
@@ -30,15 +31,25 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             return View();
         }
 
-        [Route("Question/Slider")]
+        [Route("Question/Detail/Slider")]
         public ActionResult Detail(int id)
         {
             QuestionSlider tQuestionSlider = new QuestionSlider();
             tQuestionSlider.SetId(id);
-            questionModel.questionManager.GetQuestionSlider(ref tQuestionSlider);
+            questionManager.GetQuestionSlider(ref tQuestionSlider);
 
 
             return View(tQuestionSlider);
         }
+
+        [HttpPost]
+        [Route("Question/Slider/Create")]
+        public ActionResult Create(QuestionSlider pQuestionSlider)
+        {
+            questionManager.AddQuestionSlider(pQuestionSlider);
+
+            return RedirectToAction("Create", "Question");
+        }
+
     }
 }
