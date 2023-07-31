@@ -76,3 +76,15 @@ Message:  302    t STARS
 
 
 
+-----   Info   -----
+DateTime: 7/31/2023 2:13:56 PM
+Message:  303    t FACES
+
+
+
+-----   Info   -----
+DateTime: 7/31/2023 2:15:16 PM
+Message:  302    t STARS
+
+
+

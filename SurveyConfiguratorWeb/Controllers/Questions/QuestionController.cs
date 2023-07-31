@@ -96,5 +96,9 @@ namespace SurveyConfiguratorWeb.Controllers
 
             return View("Error");
         }
+        public ActionResult CreateAdvance()
+        {
+            return View();
+        }
     }
 }

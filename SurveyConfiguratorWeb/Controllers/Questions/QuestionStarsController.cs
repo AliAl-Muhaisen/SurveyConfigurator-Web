@@ -30,6 +30,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             return View();
         }
 
+        [Route("Question/Stars")]
         public ActionResult Detail(int id)
         {
             QuestionStars tQuestionStars = new QuestionStars();

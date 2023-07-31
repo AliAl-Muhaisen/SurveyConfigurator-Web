@@ -214,6 +214,7 @@
     <Content Include="Views\QuestionFaces\Detail.cshtml" />
     <Content Include="Views\QuestionStars\Detail.cshtml" />
     <Content Include="Views\QuestionSlider\Detail.cshtml" />
+    <Content Include="Views\Question\CreateAdvance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

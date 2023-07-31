@@ -30,6 +30,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             return View();
         }
 
+        [Route("Question/Slider")]
         public ActionResult Detail(int id)
         {
             QuestionSlider tQuestionSlider = new QuestionSlider();

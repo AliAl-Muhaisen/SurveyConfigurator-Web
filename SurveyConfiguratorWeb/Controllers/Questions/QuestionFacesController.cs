@@ -27,6 +27,7 @@ namespace SurveyConfiguratorWeb.Models.Questions
         {
             return View();
         }
+        [Route("Question/Faces")]
         public ActionResult Detail(int id)
         {
             QuestionFaces tQuestionFaces = new QuestionFaces();
