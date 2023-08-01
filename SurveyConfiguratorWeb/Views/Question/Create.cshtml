@@ -5,47 +5,58 @@
 <div class="my-3">
     <h2>Create Question</h2>
     <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Question Type</label>
-      
-        <select class="form-select" id="inputGroupSelect01">
+        <label class="input-group-text" for="questionTypes">Question Type</label>
+
+        <select class="form-select" id="questionTypes">
             <option selected disabled>Choose...</option>
             @foreach (Question.QuestionTypes type in Enum.GetValues(typeof(Question.QuestionTypes)))
             {
-                 <option value="@type">@type</option>
+                <option value="@type">@type</option>
             }
-            
+
         </select>
     </div>
+</div>
+
+@{ 
+    QuestionFaces tQuestionFaces =Model is QuestionFaces?Model :new QuestionFaces();
+    QuestionStars tQuestionStars = Model is QuestionStars?Model :new QuestionStars();
+    QuestionSlider tQuestionSlider = Model is QuestionSlider?Model :new QuestionSlider();
+
+    Question tQuestion = Model is Question ? Model : new Question();
+}
+    <div id="questionFacesPartial" style="display: none">
+        @Html.Partial("Questions/_CreateQuestionFaces", tQuestionFaces)
     </div>
 
-        <div id="questionFacesPartial" style="display: none">
-            @Html.Partial("Questions/_CreateQuestionFaces")
-        </div>
+    <div id="questionStarsPartial" style="display: none">
+        @Html.Partial("Questions/_CreateQuestionStars", tQuestionStars)
+    </div>
+    <div id="questionSliderPartial" style="display: none">
+        @Html.Partial("Questions/_CreateQuestionSlider", tQuestionSlider)
+    </div>
 
-        <div id="questionStarsPartial" style="display: none">
-            @Html.Partial("Questions/_CreateQuestionStars")
-        </div>
-        <div id="questionSliderPartial" style="display: none">
-            @Html.Partial("Questions/_CreateQuestionSlider", new QuestionSlider())
-        </div>
 
- 
-@section scripts {
-    <script>
+    @section scripts {
+        <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var selectElement = document.getElementById('inputGroupSelect01');
+            var selectElement = document.getElementById('questionTypes');
             var questionFacesPartial = document.getElementById('questionFacesPartial');
             var questionStarsPartial = document.getElementById('questionStarsPartial');
             var questionSliderPartial = document.getElementById('questionSliderPartial');
-
-           
-
-            selectElement.addEventListener('change', function () {
-                questionSliderPartial.style.display = 'none';
-                questionFacesPartial.style.display = 'none';
-                questionStarsPartial.style.display = 'none';
-                var selectedValue = selectElement.value;
-                switch (selectedValue) {
+            let questionType = "@tQuestion.TypeName";
+            const SelectQuestionTypeView = (questionType) => {
+                const options = selectElement.options;
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].value === questionType) {
+                        options[i].selected = true;
+                        break; 
+                    }
+                }
+            }
+            const ChangeSelectedView = (selectedValue) => {
+                SelectQuestionTypeView(selectedValue);
+                    switch (selectedValue) {
                     case "@Question.QuestionTypes.FACES":
                         questionFacesPartial.style.display = 'block';
                         break;
@@ -57,10 +68,20 @@
                         break;
                     default:
                 }
-               
+            }
+            ChangeSelectedView(questionType || "@Question.QuestionTypes.FACES");
+
+            selectElement.addEventListener('change', function () {
+                questionSliderPartial.style.display = 'none';
+                questionFacesPartial.style.display = 'none';
+                questionStarsPartial.style.display = 'none';
+                var selectedValue = selectElement.value;
+                ChangeSelectedView(selectedValue);
+
             });
+
         });
-    </script>
-}
+        </script>
+    }
 
 

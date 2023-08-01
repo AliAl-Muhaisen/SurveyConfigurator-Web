@@ -33,15 +33,11 @@ namespace SurveyConfiguratorWeb.Models.Questions
 
         [HttpPost]
         [Route("Question/Faces/Create")]
-        public ActionResult Create(QuestionFaces pQuestionFaces)
+        public ActionResult Create(QuestionFaces pQuestionFaces,FormCollection formCollection)
         {
+
            int r= questionManager.AddQuestionFaces(pQuestionFaces);
-            string err = "";
-            for (int i = 0; i < questionManager.ValidationErrorList.Count; i++)
-            {
-                err = questionManager.ValidationErrorList[i].ToString()+"\n";
-            }
-            Log.Info("result " + err);
+     
 
             return RedirectToAction("Create", "Question");
         }
@@ -58,7 +54,7 @@ namespace SurveyConfiguratorWeb.Models.Questions
             return View(tQuestionFaces);
         }
 
-
+        [Route("Question/Edit/Faces")]
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -67,7 +63,7 @@ namespace SurveyConfiguratorWeb.Models.Questions
             questionManager.GetQuestionFaces(ref tQuestionFaces);
             return View(tQuestionFaces);
         }
-
+        [Route("Question/Edit/Faces")]
         [HttpPost]
         public ActionResult Edit(QuestionFaces pQuestionFaces)
         {

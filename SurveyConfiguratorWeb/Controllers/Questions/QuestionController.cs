@@ -3,14 +3,9 @@ using SurveyConfiguratorApp.Domain;
 using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
 using SurveyConfiguratorApp.Logic;
-using SurveyConfiguratorWeb.Controllers.Questions;
 using SurveyConfiguratorWeb.Hubs;
 using SurveyConfiguratorWeb.Models;
-using SurveyConfiguratorWeb.Models.Questions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SurveyConfiguratorWeb.Controllers
@@ -60,6 +55,58 @@ namespace SurveyConfiguratorWeb.Controllers
         public ActionResult Create()
         {
             
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Create(FormCollection pFormCollection)
+        {
+            
+            string tTypeName = pFormCollection["TypeName"];
+            Question.QuestionTypes tQuestionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), tTypeName));
+            int result = 0;
+
+
+            QuestionFaces tQuestionFaces;
+            QuestionStars tQuestionStars;
+            QuestionSlider tQuestionSlider;
+            switch (tQuestionType)
+            {
+                case Question.QuestionTypes.FACES:
+                    tQuestionFaces=FormToObj.QuestionFaces(pFormCollection);
+                        result= questionManager.AddQuestionFaces(tQuestionFaces);
+                    if (result!= ResultCode.SUCCESS)
+                    {
+                        ValidationMessages.FacesValidation(ref tQuestionFaces,ModelState,questionManager.ValidationErrorList);
+                        return View(tQuestionFaces);
+                    }
+           
+                    break;
+                case Question.QuestionTypes.SLIDER:
+                    tQuestionSlider = FormToObj.QuestionSlider(pFormCollection);
+                    result = questionManager.AddQuestionSlider(tQuestionSlider);
+                    if (result != ResultCode.SUCCESS)
+                    {
+                        ValidationMessages.SliderValidation(ref tQuestionSlider, ModelState, questionManager.ValidationErrorList);
+                        return View(tQuestionSlider);
+                    }
+
+                    break;
+                case Question.QuestionTypes.STARS:
+                    tQuestionStars = FormToObj.QuestionStars(pFormCollection);
+                    result = questionManager.AddQuestionStars(tQuestionStars);
+                    if (result != ResultCode.SUCCESS)
+                    {
+                        ValidationMessages.StarsValidation(ref tQuestionStars, ModelState, questionManager.ValidationErrorList);
+                        return View(tQuestionStars);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            if (result == ResultCode.SUCCESS)
+                return View("Index");
             return View();
         }
 

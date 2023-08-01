@@ -1,11 +1,13 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionStars
-@using (Html.BeginForm("Create", "QuestionStars", FormMethod.Post))
+@using (Html.BeginForm("Create", "Question", FormMethod.Post))
 {
     @Html.Partial("Questions/_Create", Model)
 <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Stars Number</label>
     @Html.TextBoxFor(model => model.StarsNumber, new { @class = "form-control" })
-    </div>
+    @Html.ValidationMessageFor(model => model.StarsNumber, "", new { @class = "text-danger" })
+
+</div>
     <div class="row w-100 text-center justify-content-center">
         <input type="submit" value="Save" class="btn btn-primary col-md-12 col-12 text-center" />
 

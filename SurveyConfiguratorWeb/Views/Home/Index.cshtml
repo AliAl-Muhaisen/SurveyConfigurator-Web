@@ -222,6 +222,7 @@
             console.log(body.success);
 
             removeElementById(questionId);
+
         }
     }
 
@@ -231,7 +232,13 @@
             const parentElement = element.parentNode;
             parentElement.removeChild(element);
         }
-    }
+        }
+        const removeTableBody = () => {
+
+            for (var index = 0; index < questionList.length; index++) {
+                removeElementById(questionList[index].Id);
+            }
+        }
     function handleSaveChanges() {
         console.log('Save changes button clicked!');
 
@@ -256,5 +263,13 @@
         modelText.classList.replace(dNone, dBlock);
     }
 
+
+
+        //Sort
+
+        const SortTable = (pColumnName,pSortType) => {
+
+        }
     </script>
+
 }

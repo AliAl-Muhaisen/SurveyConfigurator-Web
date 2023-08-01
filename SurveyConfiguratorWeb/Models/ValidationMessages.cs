@@ -53,6 +53,7 @@ namespace SurveyConfiguratorWeb.Models
             {
                 for (int index = 0; index < pErrorCode.Count; index++)
                 {
+
                     QuestionMessages( pQuestionSlider,ref pModelState, pErrorCode[index]);
                     switch (pErrorCode[index])
                     {
@@ -65,6 +66,7 @@ namespace SurveyConfiguratorWeb.Models
                         case ResultCode.VALIDATION_ERROR_SLIDER_CAPTION_START_EMPTY:
                             pModelState.AddModelError(nameof(pQuestionSlider.StartCaption), "Required");
                             break;
+
 
                         case ResultCode.VALIDATION_ERROR_SLIDER_CAPTION_END_EMPTY:
                             pModelState.AddModelError(nameof(pQuestionSlider.EndCaption), "Required");

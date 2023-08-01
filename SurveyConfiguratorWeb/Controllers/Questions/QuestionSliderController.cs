@@ -44,7 +44,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         }
 
         [HttpPost]
-        [Route("Question/Slider/Create")]
+        [Route("Question/Create/Slider")]
         public ActionResult Create(QuestionSlider pQuestionSlider)
         {
             questionManager.AddQuestionSlider(pQuestionSlider);
@@ -54,10 +54,9 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
                 return RedirectToAction("Create", "Question");
             }
             return View("Create", "Question", pQuestionSlider);
-            //return View(pQuestionSlider);
         }
 
-
+        [Route("Question/Edit/Slider")]
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -68,6 +67,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         }
 
         [HttpPost]
+        [Route("Question/Edit/Slider")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(QuestionSlider pQuestionSlider)
         {

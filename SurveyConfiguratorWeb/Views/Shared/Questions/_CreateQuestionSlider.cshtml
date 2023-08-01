@@ -1,27 +1,35 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionSlider
 
 
-@using (Html.BeginForm("Create", "QuestionSlider", FormMethod.Post))
+@using (Html.BeginForm("Create", "Question", FormMethod.Post))
 { 
 <div class="row mb-3">
     @Html.Partial("Questions/_Create", Model)
     <div class="col-6">
         @Html.LabelFor(model => model.StartValue, new { @class = "form-label" })
-        @Html.TextAreaFor(model => model.StartValue, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.StartValue, "", new { @class = "text-danger" })
+
     </div>
     <div class="col-6">
         @Html.LabelFor(model => model.EndValue, new { @class = "form-label" })
-        @Html.TextAreaFor(model => model.EndValue, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.EndValue, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.EndValue, "", new { @class = "text-danger" })
+
 
     </div>
 
     <div class="col-6">
         @Html.LabelFor(model => model.StartCaption, new { @class = "form-label" })
         @Html.TextAreaFor(model => model.StartCaption, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.StartCaption, "", new { @class = "text-danger" })
+
     </div>
     <div class="col-6">
         @Html.LabelFor(model => model.EndCaption, new { @class = "form-label" })
         @Html.TextAreaFor(model => model.EndCaption, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.EndCaption, "", new { @class = "text-danger" })
+
 
     </div>
 

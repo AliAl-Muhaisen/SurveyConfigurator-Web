@@ -140,6 +140,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Controllers\Db\DbConnectionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Questions\QuestionController.cs" />
     <Compile Include="Controllers\Questions\QuestionSliderController.cs" />
@@ -148,6 +149,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\QuestionHub.cs" />
+    <Compile Include="Models\FormToObj.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="Controllers\Questions\QuestionFacesController.cs" />
@@ -242,6 +244,7 @@
     <Content Include="Views\QuestionFaces\Edit.cshtml" />
     <Content Include="Views\QuestionStars\Edit.cshtml" />
     <Content Include="Views\QuestionSlider\Edit.cshtml" />
+    <Content Include="Views\DbConnection\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
