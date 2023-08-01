@@ -63,18 +63,6 @@ namespace SurveyConfiguratorWeb.Controllers
             return View();
         }
 
-        //[HttpPost]
-        ////[ValidateAntiForgeryToken]
-        //public ActionResult Create(QuestionFaces pQuestionModel)
-        //{
-
-
-        //    Log.Info("FacesNumber "+pQuestionModel.FacesNumber.ToString());
-        //    questionModel.questionManager.AddQuestionFaces(pQuestionModel);
-        //    return View();
-        //}
-   
-
         public ActionResult Detail(int id,string type)
         {
 

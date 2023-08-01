@@ -48,8 +48,13 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         public ActionResult Create(QuestionSlider pQuestionSlider)
         {
             questionManager.AddQuestionSlider(pQuestionSlider);
-
-            return RedirectToAction("Create", "Question");
+            ValidationMessages.Validate(pQuestionSlider, ModelState);
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Create", "Question");
+            }
+            return View("Create", "Question", pQuestionSlider);
+            //return View(pQuestionSlider);
         }
 
 
@@ -63,15 +68,21 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(QuestionSlider pQuestionSlider)
         {
-
+ 
+          
             int result = questionManager.UpdateQuestionSlider(pQuestionSlider);
-            if (result == ResultCode.SUCCESS)
-            {
-                return RedirectToAction("Index", "Home");
+            if (result != ResultCode.SUCCESS)
+            { 
+                ValidationMessages.SliderValidation(ref pQuestionSlider, ModelState, questionManager.ValidationErrorList);
+                return View(pQuestionSlider);
+                
             }
-            return View(pQuestionSlider);
+                return RedirectToAction("Index", "Home");
+
+           
         }
     }
 }

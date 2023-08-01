@@ -71,13 +71,14 @@ namespace SurveyConfiguratorWeb.Models.Questions
         [HttpPost]
         public ActionResult Edit(QuestionFaces pQuestionFaces)
         {
-   
             int result = questionManager.UpdateQuestionFaces(pQuestionFaces);
-            if (result==ResultCode.SUCCESS)
+            if (result != ResultCode.SUCCESS)
             {
-                return RedirectToAction("Index", "Home");
+                ValidationMessages.FacesValidation(ref pQuestionFaces, ModelState, questionManager.ValidationErrorList);
+                return View(pQuestionFaces);
+
             }
-            return View(pQuestionFaces);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

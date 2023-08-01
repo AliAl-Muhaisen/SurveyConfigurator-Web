@@ -66,11 +66,13 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         {
 
             int result = questionManager.UpdateQuestionStars(tQuestionStars);
-            if (result == ResultCode.SUCCESS)
+            if (result != ResultCode.SUCCESS)
             {
-                return RedirectToAction("Index", "Home");
+                ValidationMessages.StarsValidation(ref tQuestionStars, ModelState, questionManager.ValidationErrorList);
+                return View(tQuestionStars);
+
             }
-            return View(tQuestionStars);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

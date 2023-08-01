@@ -151,6 +151,7 @@
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="Controllers\Questions\QuestionFacesController.cs" />
+    <Compile Include="Models\ValidationMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,7 @@
     <div>
         @Html.LabelFor(model => model.Text)
         @Html.TextAreaFor(model => model.Text, new { @class = "md-textarea form-control" })
+        @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
     </div>
 
 

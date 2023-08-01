@@ -57,3 +57,27 @@ Message: id    303,303,303
 
 
 
+-----   Error   -----
+DateTime: 8/1/2023 11:49:59 AM
+Type: System.NullReferenceException
+Message: Object reference not set to an instance of an object.
+Stack Trace:    at SurveyConfiguratorApp.Domain.Questions.QuestionValidation.IsValidCaption(String pCaption) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Logic\Questions\QuestionValidation.cs:line 258
+
+
+
+-----   Error   -----
+DateTime: 8/1/2023 11:54:29 AM
+Type: System.NullReferenceException
+Message: Object reference not set to an instance of an object.
+Stack Trace:    at SurveyConfiguratorApp.Domain.Questions.QuestionValidation.IsValidCaption(String pCaption) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Logic\Questions\QuestionValidation.cs:line 258
+
+
+
+-----   Error   -----
+DateTime: 8/1/2023 11:55:38 AM
+Type: System.NullReferenceException
+Message: Object reference not set to an instance of an object.
+Stack Trace:    at SurveyConfiguratorApp.Domain.Questions.QuestionValidation.IsValidCaption(String pCaption) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Logic\Questions\QuestionValidation.cs:line 258
+
+
+
