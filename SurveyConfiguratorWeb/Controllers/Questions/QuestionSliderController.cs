@@ -1,4 +1,5 @@
-﻿using SurveyConfiguratorApp.Domain.Questions;
+﻿using SurveyConfiguratorApp.Domain;
+using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
 using SurveyConfiguratorApp.Logic;
 using SurveyConfiguratorWeb.Models;
@@ -51,5 +52,26 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             return RedirectToAction("Create", "Question");
         }
 
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            QuestionSlider tQuestionSlider = new QuestionSlider();
+            tQuestionSlider.SetId(id);
+            questionManager.GetQuestionSlider(ref tQuestionSlider);
+            return View(tQuestionSlider);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(QuestionSlider pQuestionSlider)
+        {
+
+            int result = questionManager.UpdateQuestionSlider(pQuestionSlider);
+            if (result == ResultCode.SUCCESS)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View(pQuestionSlider);
+        }
     }
 }

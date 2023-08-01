@@ -240,6 +240,7 @@
     <Content Include="Views\Shared\Questions\_QuestionTable.cshtml" />
     <Content Include="Views\QuestionFaces\Edit.cshtml" />
     <Content Include="Views\QuestionStars\Edit.cshtml" />
+    <Content Include="Views\QuestionSlider\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
