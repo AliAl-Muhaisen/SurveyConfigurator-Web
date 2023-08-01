@@ -1,4 +1,5 @@
-﻿using SurveyConfiguratorApp.Domain.Questions;
+﻿using SurveyConfiguratorApp.Domain;
+using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
 using SurveyConfiguratorApp.Logic;
 using SurveyConfiguratorWeb.Models;
@@ -49,6 +50,27 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
            questionManager.AddQuestionStars(pQuestionStars);
            
             return RedirectToAction("Create", "Question");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            QuestionStars tQuestionStars = new QuestionStars();
+            tQuestionStars.SetId(id);
+            questionManager.GetQuestionStars(ref tQuestionStars);
+            return View(tQuestionStars);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(QuestionStars tQuestionStars)
+        {
+
+            int result = questionManager.UpdateQuestionStars(tQuestionStars);
+            if (result == ResultCode.SUCCESS)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View(tQuestionStars);
         }
     }
 }

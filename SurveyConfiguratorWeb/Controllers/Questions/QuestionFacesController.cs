@@ -1,4 +1,5 @@
-﻿using SurveyConfiguratorApp.Domain.Questions;
+﻿using SurveyConfiguratorApp.Domain;
+using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
 using SurveyConfiguratorApp.Logic;
 using System;
@@ -55,6 +56,28 @@ namespace SurveyConfiguratorWeb.Models.Questions
 
 
             return View(tQuestionFaces);
+        }
+
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            QuestionFaces tQuestionFaces = new QuestionFaces();
+            tQuestionFaces.SetId(id);
+            questionManager.GetQuestionFaces(ref tQuestionFaces);
+            return View(tQuestionFaces);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(QuestionFaces pQuestionFaces)
+        {
+   
+            int result = questionManager.UpdateQuestionFaces(pQuestionFaces);
+            if (result==ResultCode.SUCCESS)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View(pQuestionFaces);
         }
     }
 }

@@ -85,3 +85,16 @@ C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\
 C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\obj\Debug\SurveyConfigurator.Web.csproj.CopyComplete
 C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\obj\Debug\SurveyConfiguratorWeb.dll
 C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\obj\Debug\SurveyConfiguratorWeb.pdb
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.Owin.dll
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.Owin.Security.dll
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Owin.dll
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.Owin.xml
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\bin\Microsoft.Owin.Security.xml

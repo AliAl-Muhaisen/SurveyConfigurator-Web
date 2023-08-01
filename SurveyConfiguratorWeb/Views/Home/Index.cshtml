@@ -4,6 +4,9 @@
     ViewBag.Title = "Home Page";
 }
 
+@*@Html.Partial("Questions/_QuestionTable", Model)*@
+
+
 <div class="row">
 
     <div id="tableQuestions" class="col-md-9 col-12">
@@ -42,8 +45,32 @@
     </div>
 </div>
 
-@section scripts {
 
+@section scripts {
+    <script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+
+    <script>
+        $(function () {
+            // Connect to the SignalR hub
+            var hub = $.connection.questionHub;
+
+            // Define a client-side function to be called when the hub sends a notification
+            hub.client.updateUI = function () {
+                console.log('SignalR connection established.2222222');
+
+                // Reload or update your web page here when the event occurs
+                location.reload(); // For example, you can reload the page
+            };
+
+            // Start the connection
+            $.connection.hub.start().done(function () {
+              // hub.server.notifyClients();
+                // You can do additional setup here if needed
+                console.log('SignalR connection established.');
+            });
+        });
+    </script>
     <script>
 
     const ColumnNames = ['Text', 'Type', 'Order', '  '];
@@ -137,7 +164,8 @@
 
         let updateTag = document.createElement('a');
         updateTag.classList.add(...classes);
-        updateTag.innerHTML = "Update";
+        updateTag.innerHTML = "Edit";
+        updateTag.href = '@Url.Action("Edit","Question")?id=' + id + '&type=' + typeName;
 
         let detailTag = document.createElement('a');
         detailTag.classList.add(...classes);
