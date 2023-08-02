@@ -14,11 +14,13 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
     public class QuestionStarsController : Controller
     {
         public readonly QuestionManager questionManager;
+        ErrorModel errorModel;
 
         public QuestionStarsController()
         {
             try
             {
+                errorModel = new ErrorModel();
                 questionManager = new QuestionManager();
             }
             catch (Exception e)
@@ -68,13 +70,20 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         {
 
             int result = questionManager.UpdateQuestionStars(tQuestionStars);
-            if (result != ResultCode.SUCCESS)
+            switch (result)
             {
-                ValidationMessages.StarsValidation(ref tQuestionStars, ModelState, questionManager.ValidationErrorList);
-                return View(tQuestionStars);
+                case ResultCode.SUCCESS:
+                    return RedirectToAction(Routes.INDEX, Routes.QUESTION);
+                case ResultCode.DB_RECORD_NOT_EXISTS:
+                    return View(Routes.CUSTOM_ERROR, errorModel);
 
+                case ResultCode.VALIDATION_ERROR:
+                    ValidationMessages.StarsValidation(ref tQuestionStars, ModelState, questionManager.ValidationErrorList);
+                    return View(tQuestionStars);
+                default:
+                    return View(Routes.ERROR);
             }
-            return RedirectToAction("Index", "Home");
+
         }
     }
 }

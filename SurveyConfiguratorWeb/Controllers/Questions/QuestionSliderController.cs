@@ -68,15 +68,20 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
  
           
             int result = questionManager.UpdateQuestionSlider(pQuestionSlider);
-            if (result != ResultCode.SUCCESS)
-            { 
-                ValidationMessages.SliderValidation(ref pQuestionSlider, ModelState, questionManager.ValidationErrorList);
-                return View(pQuestionSlider);
-                
-            }
-                return RedirectToAction("Index", "Home");
+            switch (result)
+            {
+                case ResultCode.SUCCESS:
+                    return RedirectToAction(Routes.INDEX, Routes.QUESTION);
+                case ResultCode.DB_RECORD_NOT_EXISTS:
+                    return View(Routes.CUSTOM_ERROR, errorModel);
 
-           
+                case ResultCode.VALIDATION_ERROR:
+                    ValidationMessages.SliderValidation(ref pQuestionSlider, ModelState, questionManager.ValidationErrorList);
+                    return View(pQuestionSlider);
+                default:
+                    return View(Routes.ERROR);
+            }
+            
         }
     }
 }

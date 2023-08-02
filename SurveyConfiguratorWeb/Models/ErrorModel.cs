@@ -9,5 +9,9 @@ namespace SurveyConfiguratorWeb.Models
     {
         public string Title { get; set; }
         public string Message { get; set; }
+        public ErrorModel(){
+            Title = "Error";
+            Message = "This Question does not exists";
+        }
     }
 }

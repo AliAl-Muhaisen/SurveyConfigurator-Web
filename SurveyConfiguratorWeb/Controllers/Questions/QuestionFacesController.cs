@@ -23,8 +23,7 @@ namespace SurveyConfiguratorWeb.Models.Questions
                 //errorModel.Title = Resource.ERROR;
                 //errorModel.Message = Resource.QUESTION_NOT_FOUND;
                 errorModel = new ErrorModel();
-                errorModel.Title = "Error";
-                errorModel.Message = "This Question does not exists";
+               
             }
             catch (Exception e)
             {
@@ -59,9 +58,6 @@ namespace SurveyConfiguratorWeb.Models.Questions
             tQuestionFaces.SetId(id);
             questionManager.GetQuestionFaces(ref tQuestionFaces);
             return View(tQuestionFaces);
-           
-           
-
             
         }
         [Route(Routes.QUESTION_FACES_EDIT)]

@@ -73,7 +73,7 @@ namespace SurveyConfiguratorWeb.Controllers
         public ActionResult Create(FormCollection pFormCollection)
         {
             
-            string tTypeName = pFormCollection["TypeName"];
+            string tTypeName = pFormCollection[FormToObj.TYPE_NAME];
             Question.QuestionTypes tQuestionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), tTypeName));
             int result = 0;
 
@@ -126,7 +126,6 @@ namespace SurveyConfiguratorWeb.Controllers
 
             Question.QuestionTypes questionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), type));
             int tResult = questionManager.IsQuestionExists(id);
-            errorModel.Title = "Not Found";
             errorModel.Message = "This Question does not exists or the connection failed";
             if (tResult!=ResultCode.SUCCESS)
             {
@@ -161,8 +160,7 @@ namespace SurveyConfiguratorWeb.Controllers
 
 
                 int result = questionManager.IsQuestionExists(id);
-                errorModel.Title = "Error";
-                errorModel.Message = "This Question does not exists";
+
                 switch (result)
                 {
                     case ResultCode.ERROR:
@@ -198,21 +196,6 @@ namespace SurveyConfiguratorWeb.Controllers
             return View(Routes.ERROR);
         }
        
-         public ActionResult HandleQuestionNotExists(int pId)
-        {
-            try
-            {
-
-            }
-            catch (Exception e)
-            {
-                Log.Error(e);
-                return View("Error");
-            }
-            return null;
-        }
-
-
 
         private void QuestionManager_DataChangedUI(object sender, EventArgs e)
         {

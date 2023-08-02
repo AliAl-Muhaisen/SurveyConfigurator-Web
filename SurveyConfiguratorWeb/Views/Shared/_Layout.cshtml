@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using SurveyConfiguratorWeb.Models
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,7 +15,7 @@
     <header class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                @Html.ActionLink("Survey Configurator", "Index", "Question", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink(linkText: "Survey Configurator",actionName: Routes.INDEX,controllerName: Routes.QUESTION,routeValues: new { area = "" }, htmlAttributes: new { @class = "navbar-brand" })
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,13 +23,27 @@
                 <div class="collapse navbar-collapse " id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            @Html.ActionLink("Home", "Index", "Question", new { @class = "nav-link active" })
+                            @Html.ActionLink(linkText: "Home", actionName: Routes.INDEX, controllerName: Routes.QUESTION, htmlAttributes: new { @class = "nav-link active" }, routeValues: null)
                         </li>
                         <li class="nav-item">
-                            @Html.ActionLink("Create", "Create", "Question", new { @class = "nav-link" })
+                            @Html.ActionLink(linkText: "Create", actionName: Routes.CREATE, controllerName: Routes.QUESTION, htmlAttributes: new { @class = "nav-link" }, routeValues: null)
                         </li>
-                       
+
                     </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Settings
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Language</a></li>
+                                <li>
+                                @Html.ActionLink(linkText:"DB Connection",actionName:Routes.CREATE,controllerName:Routes.DB_CONNECTION,htmlAttributes:new { @class = "dropdown-item" },routeValues:null)
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                   
                 </div>
             </div>
         </nav>

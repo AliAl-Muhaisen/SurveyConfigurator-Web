@@ -12,7 +12,7 @@ namespace SurveyConfiguratorWeb.Models
     {
         const string TEXT= "Text";
         const string ORDER= "Order";
-        const string TYPE_NAME= "TypeName";
+        public const string TYPE_NAME= "TypeName";
         const string FACES_NUMBER= "FacesNumber";
         const string STARS_NUMBER= "StarsNumber";
         const string START_VALUE= "StartValue";

@@ -43,6 +43,9 @@ namespace SurveyConfiguratorWeb.Models
         public const string QUESTION_SLIDER= "QuestionSlider";
         public const string QUESTION_STARS= "QuestionStars";
         public const string EDIT = "Edit";
+
+
+        public const string DB_CONNECTION= "DbConnection";
         #endregion
     }
 }
