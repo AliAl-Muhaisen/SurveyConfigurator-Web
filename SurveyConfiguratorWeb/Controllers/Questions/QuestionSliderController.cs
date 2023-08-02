@@ -32,7 +32,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             return View();
         }
 
-        [Route("Question/Detail/Slider")]
+        [Route(Routes.QUESTION_SLIDER_DETAIL)]
         public ActionResult Detail(int id)
         {
             QuestionSlider tQuestionSlider = new QuestionSlider();
@@ -44,7 +44,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         }
 
         [HttpPost]
-        [Route("Question/Create/Slider")]
+        [Route(Routes.QUESTION_SLIDER_CRAETE)]
         public ActionResult Create(QuestionSlider pQuestionSlider)
         {
             questionManager.AddQuestionSlider(pQuestionSlider);
@@ -56,7 +56,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             return View("Create", "Question", pQuestionSlider);
         }
 
-        [Route("Question/Edit/Slider")]
+        [Route(Routes.QUESTION_SLIDER_EDIT)]
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -67,7 +67,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         }
 
         [HttpPost]
-        [Route("Question/Edit/Slider")]
+        [Route(Routes.QUESTION_SLIDER_EDIT)]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(QuestionSlider pQuestionSlider)
         {

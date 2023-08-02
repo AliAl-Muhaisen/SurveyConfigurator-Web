@@ -32,7 +32,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             return View();
         }
 
-        [Route("Question/Detail/Stars")]
+        [Route(Routes.QUESTION_STARS_DETAIL)]
         public ActionResult Detail(int id)
         {
             QuestionStars tQuestionStars = new QuestionStars();
@@ -44,14 +44,14 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         }
 
         [HttpPost]
-        [Route("Question/Create/Stars")]
+        [Route(Routes.QUESTION_STARS_CRAETE)]
         public ActionResult Create(QuestionStars pQuestionStars)
         {
            questionManager.AddQuestionStars(pQuestionStars);
            
             return RedirectToAction("Create", "Question");
         }
-        [Route("Question/Edit/Stars")]
+        [Route(Routes.QUESTION_STARS_EDIT)]
 
         [HttpGet]
         public ActionResult Edit(int id)
@@ -62,7 +62,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             return View(tQuestionStars);
         }
 
-        [Route("Question/Edit/Stars")]
+        [Route(Routes.QUESTION_STARS_EDIT)]
         [HttpPost]
         public ActionResult Edit(QuestionStars tQuestionStars)
         {

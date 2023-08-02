@@ -32,7 +32,7 @@ namespace SurveyConfiguratorWeb.Models.Questions
 
 
         [HttpPost]
-        [Route("Question/Faces/Create")]
+        [Route(Routes.QUESTION_FACES_CRAETE)]
         public ActionResult Create(QuestionFaces pQuestionFaces,FormCollection formCollection)
         {
 
@@ -43,7 +43,7 @@ namespace SurveyConfiguratorWeb.Models.Questions
         }
 
         [HttpGet]
-        [Route("Question/Detail/Faces")]
+        [Route(Routes.QUESTION_FACES_DETAIL)]
         public ActionResult Detail(int id)
         {
             QuestionFaces tQuestionFaces = new QuestionFaces();
@@ -54,7 +54,7 @@ namespace SurveyConfiguratorWeb.Models.Questions
             return View(tQuestionFaces);
         }
 
-        [Route("Question/Edit/Faces")]
+        [Route(Routes.QUESTION_FACES_EDIT)]
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -63,7 +63,7 @@ namespace SurveyConfiguratorWeb.Models.Questions
             questionManager.GetQuestionFaces(ref tQuestionFaces);
             return View(tQuestionFaces);
         }
-        [Route("Question/Edit/Faces")]
+        [Route(Routes.QUESTION_FACES_EDIT)]
         [HttpPost]
         public ActionResult Edit(QuestionFaces pQuestionFaces)
         {

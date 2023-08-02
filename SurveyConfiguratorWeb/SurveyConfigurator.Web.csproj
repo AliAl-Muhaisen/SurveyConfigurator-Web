@@ -153,6 +153,7 @@
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="Controllers\Questions\QuestionFacesController.cs" />
+    <Compile Include="Models\Routes.cs" />
     <Compile Include="Models\ValidationMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -245,6 +246,7 @@
     <Content Include="Views\QuestionStars\Edit.cshtml" />
     <Content Include="Views\QuestionSlider\Edit.cshtml" />
     <Content Include="Views\DbConnection\Index.cshtml" />
+    <Content Include="Views\Shared\Questions\_BackToList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
