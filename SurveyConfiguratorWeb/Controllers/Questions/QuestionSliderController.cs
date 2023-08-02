@@ -14,11 +14,15 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
     public class QuestionSliderController : Controller
     {
         public readonly QuestionManager questionManager;
+        ErrorModel errorModel;
         public QuestionSliderController()
         {
             try
             {
                 questionManager=new QuestionManager();
+                errorModel = new ErrorModel();
+                errorModel.Title = "Error";
+                errorModel.Message = "This Question does not exists";
             }
             catch (Exception e)
             {
@@ -43,18 +47,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             return View(tQuestionSlider);
         }
 
-        [HttpPost]
-        [Route(Routes.QUESTION_SLIDER_CRAETE)]
-        public ActionResult Create(QuestionSlider pQuestionSlider)
-        {
-            questionManager.AddQuestionSlider(pQuestionSlider);
-            ValidationMessages.Validate(pQuestionSlider, ModelState);
-            if (ModelState.IsValid)
-            {
-                return RedirectToAction("Create", "Question");
-            }
-            return View("Create", "Question", pQuestionSlider);
-        }
+     
 
         [Route(Routes.QUESTION_SLIDER_EDIT)]
         [HttpGet]
@@ -64,6 +57,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             tQuestionSlider.SetId(id);
             questionManager.GetQuestionSlider(ref tQuestionSlider);
             return View(tQuestionSlider);
+           
         }
 
         [HttpPost]

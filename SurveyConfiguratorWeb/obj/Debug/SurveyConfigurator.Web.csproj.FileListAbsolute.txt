@@ -98,3 +98,5 @@ C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\
 C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\obj\Debug\SurveyConfigurator.Web.csproj.CopyComplete
 C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\obj\Debug\SurveyConfiguratorWeb.dll
 C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\obj\Debug\SurveyConfiguratorWeb.pdb
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\obj\Debug\SurveyConfiguratorWeb.Properties.Resource.resources
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\obj\Debug\SurveyConfigurator.Web.csproj.GenerateResource.cache

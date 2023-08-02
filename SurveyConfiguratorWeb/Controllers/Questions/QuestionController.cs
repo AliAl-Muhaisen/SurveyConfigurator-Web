@@ -15,7 +15,7 @@ namespace SurveyConfiguratorWeb.Controllers
     {
         public readonly QuestionManager questionManager;
         List<Question> questionList;
-        readonly HomeModel homeModel;
+        ErrorModel errorModel;
         public QuestionController()
         {
             try
@@ -23,6 +23,7 @@ namespace SurveyConfiguratorWeb.Controllers
                 questionManager = new QuestionManager();
                 questionList = new List<Question>();
                 questionManager.GetQuestions(ref questionList);
+                errorModel = new ErrorModel();
             }
             catch (Exception e)
             {
@@ -32,14 +33,21 @@ namespace SurveyConfiguratorWeb.Controllers
         // GET: Question
         public ActionResult Index()
         {
-
-            return View(questionList);
+            try
+            {
+                return View(questionList);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View(Routes.ERROR);
+            }
         }
         public JsonResult Delete(int pID)
         {
             try
             {
-                int result = homeModel.questionManager.Delete(pID);
+                int result = questionManager.Delete(pID);
                 if (result == ResultCode.SUCCESS)
                 {
                     return Json(new { success = true, Status = 200 }, JsonRequestBehavior.AllowGet);
@@ -76,6 +84,7 @@ namespace SurveyConfiguratorWeb.Controllers
             switch (tQuestionType)
             {
                 case Question.QuestionTypes.FACES:
+             
                     tQuestionFaces=FormToObj.QuestionFaces(pFormCollection);
                         result= questionManager.AddQuestionFaces(tQuestionFaces);
                     if (result!= ResultCode.SUCCESS)
@@ -108,7 +117,7 @@ namespace SurveyConfiguratorWeb.Controllers
                     break;
             }
             if (result == ResultCode.SUCCESS)
-                return View("Index");
+                return View(Routes.INDEX);
             return View();
         }
 
@@ -116,24 +125,31 @@ namespace SurveyConfiguratorWeb.Controllers
         {
 
             Question.QuestionTypes questionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), type));
+            int tResult = questionManager.IsQuestionExists(id);
+            errorModel.Title = "Not Found";
+            errorModel.Message = "This Question does not exists or the connection failed";
+            if (tResult!=ResultCode.SUCCESS)
+            {
+                return View(Routes.CUSTOM_ERROR, errorModel);
 
+            }
             switch (questionType)
             {
                 case Question.QuestionTypes.FACES:
-                    return RedirectToAction("Detail", "QuestionFaces", new { id = id });
+                    return RedirectToAction(Routes.DETAIL, Routes.QUESTION_FACES, new { id = id });
                   
 
                 case Question.QuestionTypes.SLIDER:
-                    return RedirectToAction("Detail", "QuestionSlider", new { id = id });
+                    return RedirectToAction(Routes.DETAIL,Routes.QUESTION_SLIDER , new { id = id });
 
                 case Question.QuestionTypes.STARS:
-                    return RedirectToAction("Detail", "QuestionStars", new { id = id });
+                    return RedirectToAction(Routes.DETAIL, Routes.QUESTION_STARS , new { id = id });
 
                 default:
-                    break;
+                    return View(Routes.ERROR);//TODO: IT SHOULD RETURN A CUSTOM ERROR VIEW,;
             }
 
-            return View("Error");
+            
         }
 
         [HttpGet]
@@ -141,18 +157,33 @@ namespace SurveyConfiguratorWeb.Controllers
         {
             try
             {
-                Question.QuestionTypes questionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), type));
-                switch (questionType)
+                Question.QuestionTypes tQuestionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), type));
+
+
+                int result = questionManager.IsQuestionExists(id);
+                errorModel.Title = "Error";
+                errorModel.Message = "This Question does not exists";
+                switch (result)
+                {
+                    case ResultCode.ERROR:
+                        return View(Routes.ERROR);
+                    case ResultCode.DB_RECORD_NOT_EXISTS:
+                        return View(Routes.CUSTOM_ERROR, errorModel);
+                    
+                }
+
+
+                switch (tQuestionType)
                 {
                     case Question.QuestionTypes.FACES:
-                        return RedirectToAction("Edit", "QuestionFaces", new { id = id });
+                        return RedirectToAction(Routes.EDIT, Routes.QUESTION_FACES, new { id = id });
 
 
                     case Question.QuestionTypes.SLIDER:
-                        return RedirectToAction("Edit", "QuestionSlider", new { id = id });
+                        return RedirectToAction(Routes.EDIT, Routes.QUESTION_SLIDER, new { id = id });
 
                     case Question.QuestionTypes.STARS:
-                        return RedirectToAction("Edit", "QuestionStars", new { id = id });
+                        return RedirectToAction(Routes.EDIT, Routes.QUESTION_STARS, new { id = id });
 
                     default:
                         break;
@@ -164,12 +195,23 @@ namespace SurveyConfiguratorWeb.Controllers
             {
                 Log.Error(e);
             }
-            return View("Error");
+            return View(Routes.ERROR);
         }
-        public ActionResult CreateAdvance()
+       
+         public ActionResult HandleQuestionNotExists(int pId)
         {
-            return View();
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View("Error");
+            }
+            return null;
         }
+
 
 
         private void QuestionManager_DataChangedUI(object sender, EventArgs e)

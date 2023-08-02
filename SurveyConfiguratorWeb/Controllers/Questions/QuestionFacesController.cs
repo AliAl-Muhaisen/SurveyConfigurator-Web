@@ -2,6 +2,7 @@
 using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
 using SurveyConfiguratorApp.Logic;
+using SurveyConfiguratorWeb.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,17 @@ namespace SurveyConfiguratorWeb.Models.Questions
     public class QuestionFacesController : Controller
     {
         public readonly QuestionManager questionManager;
+        ErrorModel errorModel;
         public QuestionFacesController()
         {
             try
             {
                 questionManager = new QuestionManager();
+                //errorModel.Title = Resource.ERROR;
+                //errorModel.Message = Resource.QUESTION_NOT_FOUND;
+                errorModel = new ErrorModel();
+                errorModel.Title = "Error";
+                errorModel.Message = "This Question does not exists";
             }
             catch (Exception e)
             {
@@ -31,16 +38,7 @@ namespace SurveyConfiguratorWeb.Models.Questions
         }
 
 
-        [HttpPost]
-        [Route(Routes.QUESTION_FACES_CRAETE)]
-        public ActionResult Create(QuestionFaces pQuestionFaces,FormCollection formCollection)
-        {
-
-           int r= questionManager.AddQuestionFaces(pQuestionFaces);
-     
-
-            return RedirectToAction("Create", "Question");
-        }
+        
 
         [HttpGet]
         [Route(Routes.QUESTION_FACES_DETAIL)]
@@ -49,7 +47,6 @@ namespace SurveyConfiguratorWeb.Models.Questions
             QuestionFaces tQuestionFaces = new QuestionFaces();
             tQuestionFaces.SetId(id);
             questionManager.GetQuestionFaces(ref tQuestionFaces);
-
 
             return View(tQuestionFaces);
         }
@@ -62,19 +59,30 @@ namespace SurveyConfiguratorWeb.Models.Questions
             tQuestionFaces.SetId(id);
             questionManager.GetQuestionFaces(ref tQuestionFaces);
             return View(tQuestionFaces);
+           
+           
+
+            
         }
         [Route(Routes.QUESTION_FACES_EDIT)]
         [HttpPost]
         public ActionResult Edit(QuestionFaces pQuestionFaces)
         {
             int result = questionManager.UpdateQuestionFaces(pQuestionFaces);
-            if (result != ResultCode.SUCCESS)
+            switch (result)
             {
-                ValidationMessages.FacesValidation(ref pQuestionFaces, ModelState, questionManager.ValidationErrorList);
-                return View(pQuestionFaces);
+                case ResultCode.SUCCESS:
+                    return RedirectToAction(Routes.INDEX, Routes.QUESTION);
+                case ResultCode.DB_RECORD_NOT_EXISTS:
+                    return View(Routes.CUSTOM_ERROR, errorModel);
 
+                case ResultCode.VALIDATION_ERROR:
+                    ValidationMessages.FacesValidation(ref pQuestionFaces, ModelState, questionManager.ValidationErrorList);
+                    return View(pQuestionFaces);
+                default:
+                    return View(Routes.ERROR);
             }
-            return RedirectToAction("Index", "Home");
+
         }
     }
 }
