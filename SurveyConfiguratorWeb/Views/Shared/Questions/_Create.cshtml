@@ -9,7 +9,7 @@
 
     <div class="mb-3">
         @Html.LabelFor(model => model.Order, new { @class = "form-label" })
-        @Html.TextBoxFor(model => model.Order, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.Order, new { @class = "form-control", type = "number", min = "1", max = "100" })
         @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
     </div>
     @Html.HiddenFor(model => model.TypeName)

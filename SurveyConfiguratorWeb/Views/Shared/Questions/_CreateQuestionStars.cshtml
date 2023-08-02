@@ -3,8 +3,8 @@
 {
     @Html.Partial("Questions/_Create", Model)
 <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Stars Number</label>
-    @Html.TextBoxFor(model => model.StarsNumber, new { @class = "form-control" })
+    <label for="@nameof(Model.StarsNumber)" class="form-label">Stars Number</label>
+    @Html.TextBoxFor(model => model.StarsNumber, new { @class = "form-control", type = "number", min = "1", max = "10" })
     @Html.ValidationMessageFor(model => model.StarsNumber, "", new { @class = "text-danger" })
 
 </div>

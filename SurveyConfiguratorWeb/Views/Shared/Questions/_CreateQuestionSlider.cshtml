@@ -3,30 +3,30 @@
 
 @using (Html.BeginForm("Create", "Question", FormMethod.Post))
 { 
-<div class="row mb-3">
+<div class="row mb-3 py-2">
     @Html.Partial("Questions/_Create", Model)
     <div class="col-6">
-        @Html.LabelFor(model => model.StartValue, new { @class = "form-label" })
-        @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control" })
+        <label for="@nameof(Model.StartValue)" class="form-label">Start Value</label>
+        @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control", type = "number", min = "0", max = "99" })
         @Html.ValidationMessageFor(model => model.StartValue, "", new { @class = "text-danger" })
 
     </div>
     <div class="col-6">
-        @Html.LabelFor(model => model.EndValue, new { @class = "form-label" })
-        @Html.TextBoxFor(model => model.EndValue, new { @class = "form-control" })
+        <label for="@nameof(Model.EndValue)" class="form-label">End Value</label>
+        @Html.TextBoxFor(model => model.EndValue, new { @class = "form-control", type = "number", min = "1", max = "100", value = "100" })
         @Html.ValidationMessageFor(model => model.EndValue, "", new { @class = "text-danger" })
 
 
     </div>
 
-    <div class="col-6">
-        @Html.LabelFor(model => model.StartCaption, new { @class = "form-label" })
+    <div class="col-md-6 mt-2">
+        <label for="@nameof(Model.StartCaption)" class="form-label">Start Caption</label>
         @Html.TextAreaFor(model => model.StartCaption, new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.StartCaption, "", new { @class = "text-danger" })
 
     </div>
-    <div class="col-6">
-        @Html.LabelFor(model => model.EndCaption, new { @class = "form-label" })
+    <div class="col-md-6 mt-2">
+        <label for="@nameof(Model.EndCaption)" class="form-label">End Caption</label>
         @Html.TextAreaFor(model => model.EndCaption, new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.EndCaption, "", new { @class = "text-danger" })
 

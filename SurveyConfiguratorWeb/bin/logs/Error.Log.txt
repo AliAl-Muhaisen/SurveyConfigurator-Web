@@ -1,0 +1,55 @@
+-----   Error   -----
+DateTime: 8/2/2023 9:32:54 AM
+Type: System.FormatException
+Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at SurveyConfiguratorWeb.Models.FormToObj.QuestionFaces(FormCollection pFormCollection) in C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\Models\FormToObj.cs:line 30
+
+
+
+-----   Error   -----
+DateTime: 8/2/2023 9:33:49 AM
+Type: System.FormatException
+Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at SurveyConfiguratorWeb.Models.FormToObj.QuestionFaces(FormCollection pFormCollection) in C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\Models\FormToObj.cs:line 30
+
+
+
+-----   Error   -----
+DateTime: 8/2/2023 9:35:28 AM
+Type: System.FormatException
+Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at SurveyConfiguratorWeb.Models.FormToObj.QuestionSlider(FormCollection pFormCollection) in C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\Models\FormToObj.cs:line 65
+
+
+
+-----   Error   -----
+DateTime: 8/2/2023 9:35:47 AM
+Type: System.FormatException
+Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at SurveyConfiguratorWeb.Models.FormToObj.QuestionSlider(FormCollection pFormCollection) in C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\Models\FormToObj.cs:line 65
+
+
+
+-----   Error   -----
+DateTime: 8/2/2023 9:36:44 AM
+Type: System.FormatException
+Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at SurveyConfiguratorWeb.Models.FormToObj.QuestionSlider(FormCollection pFormCollection) in C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorWeb\SurveyConfiguratorWeb\Models\FormToObj.cs:line 65
+
+
+
