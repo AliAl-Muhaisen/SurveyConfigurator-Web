@@ -18,6 +18,12 @@ namespace SurveyConfiguratorWeb.Models
                     case ResultCode.VALIDATION_ERROR_ORDER_EXIST:
                         pModelState.AddModelError(nameof(pQuestion.Order), "Order should be unique");
                         break;
+                    case ResultCode.VALIDATION_ERROR_ORDER_MIN:
+                        pModelState.AddModelError(nameof(pQuestion.Order), "Order should be greater than 0");
+                        break;
+                    case ResultCode.VALIDATION_ERROR_ORDER_MAX:
+                        pModelState.AddModelError(nameof(pQuestion.Order), "Order should be less than or equal 100");
+                        break;
                     case ResultCode.VALIDATION_ERROR_QUESTION_TEXT:
                         pModelState.AddModelError(nameof(pQuestion.Text), "The Text is Required!");
                         break;

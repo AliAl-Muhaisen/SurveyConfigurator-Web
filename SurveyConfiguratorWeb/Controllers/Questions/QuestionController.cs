@@ -6,6 +6,7 @@ using SurveyConfiguratorApp.Logic;
 using SurveyConfiguratorWeb.Hubs;
 using SurveyConfiguratorWeb.Models;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace SurveyConfiguratorWeb.Controllers
@@ -13,14 +14,15 @@ namespace SurveyConfiguratorWeb.Controllers
     public class QuestionController : Controller
     {
         public readonly QuestionManager questionManager;
-
+        List<Question> questionList;
         readonly HomeModel homeModel;
         public QuestionController()
         {
             try
             {
-                homeModel = new HomeModel();
                 questionManager = new QuestionManager();
+                questionList = new List<Question>();
+                questionManager.GetQuestions(ref questionList);
             }
             catch (Exception e)
             {
@@ -31,7 +33,7 @@ namespace SurveyConfiguratorWeb.Controllers
         public ActionResult Index()
         {
 
-            return View();
+            return View(questionList);
         }
         public JsonResult Delete(int pID)
         {
