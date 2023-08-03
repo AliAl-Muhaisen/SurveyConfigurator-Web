@@ -30,13 +30,14 @@ namespace SurveyConfiguratorWeb.Controllers.Db
         }
 
         [HttpPost]
-        public ActionResult Create(DbManager pDbManager)
+        public ActionResult Create(FormCollection pFormCollection)
         {
             try
             {
-                Log.Info("server " + pDbManager.Server);
-                pDbManager.SaveConnection();
-                return View(pDbManager);
+               
+                DbManager tDbManager = FormToObj.DbManager(pFormCollection);
+                tDbManager.SaveConnection();
+                return View(tDbManager);
             }
             catch (Exception e)
             {

@@ -180,6 +180,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\flash.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -212,6 +213,8 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\flash.js" />
+    <Content Include="Scripts\flashMessages.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -246,7 +249,6 @@
     <Content Include="Views\QuestionFaces\Detail.cshtml" />
     <Content Include="Views\QuestionStars\Detail.cshtml" />
     <Content Include="Views\QuestionSlider\Detail.cshtml" />
-    <Content Include="Views\Question\CreateAdvance.cshtml" />
     <Content Include="Views\Shared\Questions\_QuestionTable.cshtml" />
     <Content Include="Views\QuestionFaces\Edit.cshtml" />
     <Content Include="Views\QuestionStars\Edit.cshtml" />

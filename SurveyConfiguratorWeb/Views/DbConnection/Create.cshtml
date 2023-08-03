@@ -1,45 +1,95 @@
 ﻿@model SurveyConfiguratorApp.Logic.DbManager
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal py-4">
-    <h4>Connection</h4>
-    <hr />
-    <div class="my-1">
-        <label for="@nameof(Model.Server)">Server</label>
-        @Html.TextBoxFor(model => model.Server, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Server, "", new { @class = "text-danger" })
+
+    <div class="form-horizontal py-4">
+        <h4>Connection</h4>
+        <hr />
+        <div class="my-1">
+            <label for="@nameof(Model.Server)">Server</label>
+            @Html.TextBoxFor(model => model.Server, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Server, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="my-1">
+
+            <label for="@nameof(Model.Database)">Database</label>
+            @Html.TextBoxFor(model => model.Database, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Database, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="my-1">
+
+            <label for="@nameof(Model.Username)">User Name</label>
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="my-1">
+
+            <label for="@nameof(Model.Password)">Password</label>
+            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type = "password" })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
     </div>
+}
+<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;" >
+    <!-- Position it -->
+    <div style="position: absolute; top: 0; right: 0;" >
 
+        <!-- Then put toasts within -->
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="toastDbConnection">
+            <div class="toast-header">
+                <img src="..." class="rounded mr-2" alt="...">
+                <strong class="mr-auto">Bootstrap</strong>
+                <small class="text-muted">just now</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                See? Just like this.
+            </div>
+        </div>
 
-    <div class="my-1">
-
-        <label for="@nameof(Model.Database)">Database</label>
-        @Html.TextBoxFor(model => model.Database, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Database, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="my-1">
-
-        <label for="@nameof(Model.Username)">User Name</label>
-        @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="my-1">
-
-        <label for="@nameof(Model.Password)">Password</label>
-        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type = "password" })
-        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-    </div>
-
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-primary" />
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded mr-2" alt="...">
+                <strong class="mr-auto">Bootstrap</strong>
+                <small class="text-muted">2 seconds ago</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Heads up, toasts will stack automatically
+            </div>
         </div>
     </div>
 </div>
-    }
 
+<button onclick="ShowToast()">toast</button>
+@section scripts
+{
+    <script>
+        function ShowToast() {
+            var tOptions = {
+                animatio: true,
+                delay: 2000,
+            };
+            let tToastDbConnection = document.getElementById("toastDbConnection");
+            let tToastElement = new bootstrap.Toast(tToastDbConnection, tOptions);
+            tToastElement.show();
+        }
+    </script>
+    
+    }

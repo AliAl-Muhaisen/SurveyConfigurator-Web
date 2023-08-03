@@ -1,5 +1,6 @@
 ﻿using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
+using SurveyConfiguratorApp.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +11,19 @@ namespace SurveyConfiguratorWeb.Models
 {
     public class FormToObj
     {
-        const string TEXT= "Text";
-        const string ORDER= "Order";
-        public const string TYPE_NAME= "TypeName";
-        const string FACES_NUMBER= "FacesNumber";
-        const string STARS_NUMBER= "StarsNumber";
-        const string START_VALUE= "StartValue";
-        const string END_VALUE= "EndValue";
-        const string START_CAPTION= "StartCaption";
-        const string END_CAPTION= "EndCaption";
 
+
+
+        #region Questions
+        const string TEXT = "Text";
+        const string ORDER = "Order";
+        public const string TYPE_NAME = "TypeName";
+        const string FACES_NUMBER = "FacesNumber";
+        const string STARS_NUMBER = "StarsNumber";
+        const string START_VALUE = "StartValue";
+        const string END_VALUE = "EndValue";
+        const string START_CAPTION = "StartCaption";
+        const string END_CAPTION = "EndCaption";
         static public QuestionFaces QuestionFaces(FormCollection pFormCollection)
         {
             try
@@ -71,5 +75,32 @@ namespace SurveyConfiguratorWeb.Models
             }
             return new QuestionSlider();
         }
+        #endregion
+
+
+        #region DB Connection
+
+        const string SERVER= "Server";
+        const string DB= "Database";
+        const string USER_NAME= "Username";
+        const string PASSWORD= "Password";
+        static public DbManager DbManager(FormCollection pFormCollection)
+        {
+            try
+            {
+                string tServer = pFormCollection[SERVER];
+                string tDb = pFormCollection[DB];
+                string tUserName = pFormCollection[USER_NAME];
+                string tPassword = pFormCollection[PASSWORD];
+                DbManager tDbManager = new DbManager(tServer, tDb, tUserName, tPassword);
+                return tDbManager;
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return new DbManager();
+            }
+        }
+        #endregion
     }
 }
