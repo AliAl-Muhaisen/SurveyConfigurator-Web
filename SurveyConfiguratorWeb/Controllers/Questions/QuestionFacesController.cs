@@ -33,7 +33,15 @@ namespace SurveyConfiguratorWeb.Models.Questions
         // GET: QuestionFaces
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+             return View();
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View(Routes.ERROR);
+            }
         }
 
 
@@ -43,29 +51,49 @@ namespace SurveyConfiguratorWeb.Models.Questions
         [Route(Routes.QUESTION_FACES_DETAIL)]
         public ActionResult Detail(int id)
         {
-            QuestionFaces tQuestionFaces = new QuestionFaces();
-            tQuestionFaces.SetId(id);
-            questionManager.GetQuestionFaces(ref tQuestionFaces);
+            try
+            {
+                QuestionFaces tQuestionFaces = new QuestionFaces();
+                tQuestionFaces.SetId(id);
+                questionManager.GetQuestionFaces(ref tQuestionFaces);
 
-            return View(tQuestionFaces);
+                return View(tQuestionFaces);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View(Routes.ERROR);
+            }
+           
         }
 
         [Route(Routes.QUESTION_FACES_EDIT)]
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            QuestionFaces tQuestionFaces = new QuestionFaces();
-            tQuestionFaces.SetId(id);
-            questionManager.GetQuestionFaces(ref tQuestionFaces);
-            return View(tQuestionFaces);
+            try
+            {
+                QuestionFaces tQuestionFaces = new QuestionFaces();
+                tQuestionFaces.SetId(id);
+                questionManager.GetQuestionFaces(ref tQuestionFaces);
+                return View(tQuestionFaces);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View(Routes.ERROR);
+            }
+           
             
         }
         [Route(Routes.QUESTION_FACES_EDIT)]
         [HttpPost]
         public ActionResult Edit(QuestionFaces pQuestionFaces)
         {
-            int result = questionManager.UpdateQuestionFaces(pQuestionFaces);
-            switch (result)
+            try
+            {
+             int tResult = questionManager.UpdateQuestionFaces(pQuestionFaces);
+            switch (tResult)
             {
                 case ResultCode.SUCCESS:
                     return RedirectToAction(Routes.INDEX, Routes.QUESTION);
@@ -78,6 +106,13 @@ namespace SurveyConfiguratorWeb.Models.Questions
                 default:
                     return View(Routes.ERROR);
             }
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View(Routes.ERROR);
+            }
+           
 
         }
     }

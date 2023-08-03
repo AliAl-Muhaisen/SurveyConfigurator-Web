@@ -33,18 +33,34 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         // GET: QuestionSlider
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View(Routes.ERROR);
+            }
+          
         }
 
         [Route(Routes.QUESTION_SLIDER_DETAIL)]
         public ActionResult Detail(int id)
         {
-            QuestionSlider tQuestionSlider = new QuestionSlider();
-            tQuestionSlider.SetId(id);
-            questionManager.GetQuestionSlider(ref tQuestionSlider);
-
-
-            return View(tQuestionSlider);
+            try
+            {
+                QuestionSlider tQuestionSlider = new QuestionSlider();
+                tQuestionSlider.SetId(id);
+                questionManager.GetQuestionSlider(ref tQuestionSlider);
+                return View(tQuestionSlider);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View(Routes.ERROR);
+            }
+           
         }
 
      
@@ -53,10 +69,19 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            QuestionSlider tQuestionSlider = new QuestionSlider();
-            tQuestionSlider.SetId(id);
-            questionManager.GetQuestionSlider(ref tQuestionSlider);
-            return View(tQuestionSlider);
+            try
+            {
+                     QuestionSlider tQuestionSlider = new QuestionSlider();
+                    tQuestionSlider.SetId(id);
+                    questionManager.GetQuestionSlider(ref tQuestionSlider);
+                    return View(tQuestionSlider);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View(Routes.ERROR);
+            }
+          
            
         }
 
@@ -65,23 +90,31 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
         [ValidateAntiForgeryToken]
         public ActionResult Edit(QuestionSlider pQuestionSlider)
         {
- 
-          
-            int result = questionManager.UpdateQuestionSlider(pQuestionSlider);
-            switch (result)
+            try
             {
-                case ResultCode.SUCCESS:
-                    return RedirectToAction(Routes.INDEX, Routes.QUESTION);
-                case ResultCode.DB_RECORD_NOT_EXISTS:
-                    return View(Routes.CUSTOM_ERROR, errorModel);
+                int tResult = questionManager.UpdateQuestionSlider(pQuestionSlider);
+                switch (tResult)
+                {
+                    case ResultCode.SUCCESS:
+                        return RedirectToAction(Routes.INDEX, Routes.QUESTION);
+                    case ResultCode.DB_RECORD_NOT_EXISTS:
+                        return View(Routes.CUSTOM_ERROR, errorModel);
 
-                case ResultCode.VALIDATION_ERROR:
-                    ValidationMessages.SliderValidation(ref pQuestionSlider, ModelState, questionManager.ValidationErrorList);
-                    return View(pQuestionSlider);
-                default:
-                    return View(Routes.ERROR);
-            }
+                    case ResultCode.VALIDATION_ERROR:
+                        ValidationMessages.SliderValidation(ref pQuestionSlider, ModelState, questionManager.ValidationErrorList);
+                        return View(pQuestionSlider);
+                    default:
+                        return View(Routes.ERROR);
+                }
             
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View(Routes.ERROR);
+            }
+
+           
         }
     }
 }

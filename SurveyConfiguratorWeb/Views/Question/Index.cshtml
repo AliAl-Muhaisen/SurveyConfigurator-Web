@@ -1,6 +1,7 @@
 ﻿
 @using SurveyConfiguratorApp.Domain.Questions
 @using SurveyConfiguratorWeb.Models 
+@using SurveyConfiguratorWeb.Properties
 @model  List<Question>
 
 @{
@@ -9,7 +10,9 @@
 
 @*@Html.Partial("Questions/_QuestionTable", Model)*@
 
-
+<h1>
+    @Resource.ERROR
+</h1>
 <div class="row">
 
     <div id="tableQuestions" class="col-md-12 col-12 table-responsive">
@@ -293,7 +296,7 @@
                     questionList.sort((a, b) => a.Text.localeCompare(b.Text));
                     break;
                 case "Type":
-                    questionList.sort((a, b) => a.Text.localeCompare(b.Text));
+                    questionList.sort((a, b) => a.TypeName.localeCompare(b.TypeName));
                     break;
                 case "Order":
                     questionList.sort(function (a, b) { return (a.Order - b.Order) });

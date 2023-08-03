@@ -17,5 +17,10 @@ namespace SurveyConfiguratorWeb
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_BignRequest(object obj,EventArgs e)
+        {
+
+        }
     }
 }

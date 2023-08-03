@@ -64,8 +64,15 @@ namespace SurveyConfiguratorWeb.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View(Routes.ERROR);
+            }
         }
 
 
@@ -131,8 +138,9 @@ namespace SurveyConfiguratorWeb.Controllers
 
         public ActionResult Detail(int id,string type)
         {
-
-            Question.QuestionTypes questionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), type));
+            try
+            {
+         Question.QuestionTypes questionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), type));
             int tResult = questionManager.IsQuestionExists(id);
             errorModel.Message = "This Question does not exists or the connection failed";
             if (tResult!=ResultCode.SUCCESS)
@@ -156,6 +164,13 @@ namespace SurveyConfiguratorWeb.Controllers
                     return View(Routes.ERROR);
             }
 
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return View(Routes.ERROR);
+            }
+          
             
         }
 
@@ -207,20 +222,36 @@ namespace SurveyConfiguratorWeb.Controllers
 
         private void QuestionManager_DataChangedUI(object sender, EventArgs e)
         {
+            try
+            {
             var hubContext = GlobalHost.ConnectionManager.GetHubContext<QuestionHub>();
 
             hubContext.Clients.All.NotifyClients();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+            
         }
 
 
         //The Initialize method is a method of the Controller class in ASP.NET MVC. It is called automatically before any action method is executed for a controller
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
-            base.Initialize(requestContext);
-
+            try
+            {
             var questionManager = new QuestionManager(); 
             questionManager.DataChangedUI += QuestionManager_DataChangedUI;
             questionManager.FollowDbChanges();
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+            }
+            base.Initialize(requestContext);
+
+           
         }
     }
 }
