@@ -12,6 +12,7 @@ namespace SurveyConfiguratorWeb.Models
         public const string QUESTION_CRAETE = "Question/Create";
         public const string QUESTION_DETAIL = "Question/Detail";
         public const string QUESTION_EDIT = "Question/Edit";
+        public const string QUESTION_DELETE= "Question/Delete";
 
         public const string QUESTION_FACES_CRAETE = QUESTION_CRAETE + "/Faces";
         public const string QUESTION_FACES_DETAIL = QUESTION_DETAIL + "/Faces";
@@ -45,7 +46,19 @@ namespace SurveyConfiguratorWeb.Models
         public const string EDIT = "Edit";
 
 
-        public const string DB_CONNECTION= "DbConnection";
+
+
+        #endregion
+
+        #region Sttings
+
+        #region DB_CONNECTION
+        public const string DB_CONNECTION = "DbConnection";
+        public const string DB_CONNECTION_CREATE = "DbConnection/Create";
+        public const string DB_CONNECTION_TEST = "DbConnection/TestConnection";
+        #endregion
+
+
         #endregion
     }
 }

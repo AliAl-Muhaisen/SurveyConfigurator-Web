@@ -1,6 +1,6 @@
 ﻿
 @using SurveyConfiguratorApp.Domain.Questions
-
+@using SurveyConfiguratorWeb.Models 
 @model  List<Question>
 
 @{
@@ -168,12 +168,12 @@
         let updateTag = document.createElement('a');
         updateTag.classList.add(...classes);
         updateTag.innerHTML = "Edit";
-        updateTag.href = '@Url.Action("Edit","Question")?id=' + id + '&type=' + typeName;
+        updateTag.href = '@Url.Action(Routes.EDIT, Routes.QUESTION)?id=' + id + '&type=' + typeName;
 
         let detailTag = document.createElement('a');
         detailTag.classList.add(...classes);
         detailTag.innerHTML = "Detail";
-        detailTag.href = '@Url.Action("Detail", "Question")?id=' + id + '&type=' + typeName;
+        detailTag.href = '@Url.Action(Routes.DETAIL, Routes.QUESTION)?id=' + id + '&type=' + typeName;
 
         let deleteTag = document.createElement('a');
         deleteTag.classList.add(...classes);
@@ -205,8 +205,9 @@
 
 
     };
-    const deleteTableRow = async (questionId) => {
-        const url = "/Question/Delete";
+        const deleteTableRow = async (questionId) => {
+            try {
+                  const url = "/@Routes.QUESTION_DELETE";
 
 
         const data = { pID: questionId };
@@ -219,14 +220,19 @@
             body: JSON.stringify(data),
         });
 
-        const body = await response.json();
-        console.log(body);
-        if (body.success) {
-            console.log(body.success);
-
+                const body = await response.json();
+            if (body.success) {
+                SuccessFlash("Delete Successfully")
             removeElementById(questionId);
+            }
+            else {
+                ErrorFlash("Delete Failed")
+                }
+            } catch (e) {
+                ErrorFlash("Something went wrong (!_!)")
 
-        }
+            }
+
     }
 
     function removeElementById(id) {

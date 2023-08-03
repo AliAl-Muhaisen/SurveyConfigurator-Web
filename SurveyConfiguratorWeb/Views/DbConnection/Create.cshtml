@@ -1,5 +1,6 @@
 ﻿@model SurveyConfiguratorApp.Logic.DbManager
-@using (Html.BeginForm())
+@using SurveyConfiguratorWeb.Models
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "ConfigForm" }))
 {
     @Html.AntiForgeryToken()
 
@@ -35,61 +36,112 @@
         </div>
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
+        <div class="form-group d-flex">
+            <div class="col-md-2 m-1">
+                <input type="button" value="Save" class="btn btn-primary w-100" onclick="HandleSaveConnection()" />
+            </div>
+            <div class="col-md-2 m-1">
+                <input type="reset" value="Reset" class="btn btn-danger w-100" />
             </div>
         </div>
     </div>
 }
-<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;" >
-    <!-- Position it -->
-    <div style="position: absolute; top: 0; right: 0;" >
 
-        <!-- Then put toasts within -->
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="toastDbConnection">
-            <div class="toast-header">
-                <img src="..." class="rounded mr-2" alt="...">
-                <strong class="mr-auto">Bootstrap</strong>
-                <small class="text-muted">just now</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                See? Just like this.
-            </div>
-        </div>
 
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="..." class="rounded mr-2" alt="...">
-                <strong class="mr-auto">Bootstrap</strong>
-                <small class="text-muted">2 seconds ago</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<!-- Modal -->
+<div class="modal fade" id="ConfirmSave" data-bs-backdrop="static" tabindex="-1" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title " id="exampleModalLabel">Confirm</h5>
+                <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="toast-body">
-                Heads up, toasts will stack automatically
+            <div class="modal-body">
+                <div id="modelText" class="d-block">
+                    <p>
+                        Connection failed, do you still want to save it?
+                    </p>
+
+                </div>
+
+                <div class="spinner-border text-primary d-none justify-content-center " role="status" id="loadSpinner">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btnConfirmDelete" onclick="SaveConnection()">Save</button>
             </div>
         </div>
     </div>
 </div>
 
-<button onclick="ShowToast()">toast</button>
+
+
+
 @section scripts
 {
     <script>
-        function ShowToast() {
-            var tOptions = {
-                animatio: true,
-                delay: 2000,
-            };
-            let tToastDbConnection = document.getElementById("toastDbConnection");
-            let tToastElement = new bootstrap.Toast(tToastDbConnection, tOptions);
-            tToastElement.show();
+        const ConfirmModal = new bootstrap.Modal(document.getElementById('ConfirmSave'), {});
+
+        const HandleSaveConnection = async () => {
+            try {
+
+                const tUrlTest = "/@Routes.DB_CONNECTION_TEST";
+                var formData = new FormData(document.getElementById('ConfigForm'));
+                ShowOverlay();
+                const tResponse = await fetch(tUrlTest, {
+                    method: "POST",
+                    body: formData,
+                })
+                const tData = await tResponse.json();
+               await HideOverlay();
+                HandleFlashConnectionMsg(tData);
+
+                console.log(tData);
+                if (!tData?.Success) {
+                    ConfirmModal.show();
+                }
+            } catch (e) {
+                ErrorFlash("Something went wrong, Please try again later")
+            }
+
+        }
+
+        const SaveConnection = async() => {
+            try {
+                ConfirmModal.hide();
+                const tUrlSave = "/@Routes.DB_CONNECTION_CREATE";
+
+                var formData = new FormData(document.getElementById('ConfigForm'));
+                ShowOverlay();
+
+                const tResponse = await fetch(tUrlSave, {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const tData = await tResponse.json();
+                HideOverlay()
+
+                HandleFlashConnectionMsg(tData);
+            } catch (e) {
+                ErrorFlash("Something went wrong, Please try again later")
+
+            }
+        }
+
+        const HandleFlashConnectionMsg = (data) => {
+            if (data?.Success) {
+                SuccessFlash("Save Successfully");
+            }
+            else if (!data?.Success) {
+                ErrorFlash("Save Fialed");
+            }
+            else if (data?.Error){
+                ErrorFlash("Something went wrong, Please try again later")
+            }
         }
     </script>
-    
-    }
+
+}

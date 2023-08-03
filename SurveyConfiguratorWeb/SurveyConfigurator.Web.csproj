@@ -140,7 +140,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
-    <Compile Include="Controllers\Db\DbConnectionController.cs" />
+    <Compile Include="Controllers\Settings\Db\DbConnectionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Questions\QuestionController.cs" />
     <Compile Include="Controllers\Questions\QuestionSliderController.cs" />
@@ -152,6 +152,7 @@
     <Compile Include="Models\ErrorModel.cs" />
     <Compile Include="Models\FormToObj.cs" />
     <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\HttpResponseCustom.cs" />
     <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="Controllers\Questions\QuestionFacesController.cs" />
     <Compile Include="Models\Routes.cs" />
@@ -256,6 +257,7 @@
     <Content Include="Views\Shared\Questions\_BackToList.cshtml" />
     <Content Include="Views\Shared\CustomError.cshtml" />
     <Content Include="Views\DbConnection\Create.cshtml" />
+    <Content Include="Views\Shared\_Overlay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

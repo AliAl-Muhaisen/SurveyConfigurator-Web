@@ -1,0 +1,37 @@
+﻿<style>
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        display: none;
+    }
+    .overlay-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+
+<div id="overlay">
+    <div class="overlay-content">
+        <div class="spinner-border text-light" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function ShowOverlay() {
+        document.getElementById('overlay').style.display = 'block';
+    }
+    function HideOverlay() {
+        document.getElementById('overlay').style.display = 'none';
+    }
+</script>
