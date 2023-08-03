@@ -84,41 +84,34 @@
 
         const div = document.getElementById('tableQuestions');
         const table = document.createElement("table");
-        table.classList.add("table", "table-striped", "table-hover");
+        table.classList.add("table", "table-striped", "table-hover","my-3","w-100");
         div.classList.add("container")
         div.appendChild(table);
         CreateTableHeader(table);
         CreateTableBody(table);
     }
 
-    const CreateTableHeader = (table) => {
-        let thead = document.createElement('thead');
-        let tr = document.createElement('tr');
-        tr.classList.add("row")
-        for (var ColumnIndex = 0; ColumnIndex < ColumnNames.length; ColumnIndex++) {
-            let th = document.createElement('th');
-            if (ColumnIndex === 0) {
-                th.classList.add('col-6')
-            }
-            else if (ColumnIndex + 1 == ColumnNames.length)
-            {
-                th.classList.add('col-4')
-            }
-            else {
-                th.classList.add('col-1')
 
+        const CreateTableHeader = (table) => {
+            const thead = document.createElement('thead');
+            const tr = document.createElement('tr');
+            tr.classList.add("row");
+            for (const columnName of ColumnNames) {
+                const th = document.createElement('th');
+                th.classList.add(columnName === 'Text' ? 'col-5' : 'col');
+                th.classList.add("btn", "btn-default", "text-bold", "border");
+                th.innerHTML = columnName;
+                th.addEventListener('click', () => SortTable(columnName));
+                tr.appendChild(th);
             }
-
-            th.innerHTML = ColumnNames[ColumnIndex];
-            tr.appendChild(th);
+            thead.appendChild(tr);
+            table.appendChild(thead);
         }
-        thead.appendChild(tr);
-        table.appendChild(thead);
 
-
-    }
-
-    const CreateTableBody = (table) => {
+        const CreateTableBody = (table) => {
+            if (!table) {
+                table = document.getElementsByTagName("table")[0];
+            }
         let tbody = document.createElement("tbody");
         for (var questionIndex = 0; questionIndex < questionList.length; questionIndex++) {
             CreateTableRow(questionList[questionIndex], tbody);
@@ -132,20 +125,24 @@
         tr.id = question.Id;
 
         let tdText = document.createElement('td');
-        tdText.classList.add('col-6');
-        tdText.innerHTML = question.Text;
+        tdText.classList.add('col-5');
+        let tQuestionText = question.Text;
+        if (tQuestionText.length > 30) {
+            tQuestionText = tQuestionText.substr(0,27)+"..."
+        }
+        tdText.innerHTML = tQuestionText;
          tr.appendChild(tdText);
 
 
 
         let tdTypeNumber = document.createElement('td');
-        tdTypeNumber.classList.add('col-1');
+        tdTypeNumber.classList.add('col',"text-center");
         tdTypeNumber.innerHTML = question.TypeName;
         tr.appendChild(tdTypeNumber);
 
 
         let tdOrder = document.createElement('td');
-        tdOrder.classList.add('col-1');
+        tdOrder.classList.add('col',"text-center");
         tdOrder.innerHTML = question.Order;
         tr.appendChild(tdOrder);
 
@@ -161,9 +158,9 @@
     const CreateRecordOperation = (parentTag, id,typeName) => {
 
 
-        const classes = ["btn", "btn-link", "col","col-md-3"];
+        const classes = ["btn", "btn-link", "col-12","col-md-3","p-0","m-1","m-md-0"];
         let tdOps = document.createElement('td');
-        tdOps.classList.add("row", "col-3");
+        tdOps.classList.add("row", "col");
 
         let updateTag = document.createElement('a');
         updateTag.classList.add(...classes);
@@ -223,7 +220,14 @@
                 const body = await response.json();
             if (body.success) {
                 SuccessFlash("Delete Successfully")
-            removeElementById(questionId);
+                removeElementById(questionId);
+                // Find the index of the question with the specified Id in the array
+                const index = questionList.findIndex((question) => question.Id === questionId);
+
+                // If the question with the specified Id is found, remove it from the array
+                if (index !== -1) {
+                    questionList.splice(index, 1);
+                }
             }
             else {
                 ErrorFlash("Delete Failed")
@@ -240,12 +244,17 @@
         if (element) {
             const parentElement = element.parentNode;
             parentElement.removeChild(element);
-        }
+            }
         }
         const removeTableBody = () => {
 
             for (var index = 0; index < questionList.length; index++) {
                 removeElementById(questionList[index].Id);
+            }
+            const tTbody = document.getElementsByTagName("tbody")[0];
+            if (tTbody) {
+                const parentElement = tTbody.parentNode;
+                parentElement.removeChild(tTbody);
             }
         }
     function handleSaveChanges() {
@@ -275,9 +284,32 @@
 
 
         //Sort
+        let lastColumnName;
+        const SortTable = (pColumnName) => {
 
-        const SortTable = (pColumnName,pSortType) => {
-
+            removeTableBody();
+            switch (pColumnName) {
+                case "Text":
+                    questionList.sort((a, b) => a.Text.localeCompare(b.Text));
+                    break;
+                case "Type":
+                    questionList.sort((a, b) => a.Text.localeCompare(b.Text));
+                    break;
+                case "Order":
+                    questionList.sort(function (a, b) { return (a.Order - b.Order) });
+                    break;
+                default:
+                    break;
+            }
+            if (pColumnName == lastColumnName) {
+                questionList.reverse();
+                lastColumnName = "";
+            }
+            else
+             lastColumnName = pColumnName;
+          
+                CreateTableBody();
+            
         }
     </script>
 
