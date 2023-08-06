@@ -1,6 +1,7 @@
 ﻿using SurveyConfiguratorApp.Domain;
 using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
+using SurveyConfiguratorWeb.Languages;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -9,29 +10,29 @@ namespace SurveyConfiguratorWeb.Models
 {
     public class ValidationMessages
     {
-        static void QuestionMessages( Question pQuestion, ref ModelStateDictionary pModelState,int pResultCode)
+        static void QuestionMessages(Question pQuestion, ref ModelStateDictionary pModelState,int pResultCode)
         {
             try
             {
                 switch (pResultCode)
                 {
                     case ResultCode.VALIDATION_ERROR_ORDER_EXIST:
-                        pModelState.AddModelError(nameof(pQuestion.Order), "Order should be unique");
+                        pModelState.AddModelError(nameof(pQuestion.Order), Language.VALIDATION_ERROR_ORDER_EXIST);
                         break;
                     case ResultCode.VALIDATION_ERROR_ORDER_MIN:
-                        pModelState.AddModelError(nameof(pQuestion.Order), "Order should be greater than 0");
+                        pModelState.AddModelError(nameof(pQuestion.Order), Language.VALIDATION_ERROR_ORDER_MIN);
                         break;
                     case ResultCode.VALIDATION_ERROR_ORDER_MAX:
-                        pModelState.AddModelError(nameof(pQuestion.Order), "Order should be less than or equal 100");
+                        pModelState.AddModelError(nameof(pQuestion.Order), Language.VALIDATION_ERROR_ORDER_MAX);
                         break;
                     case ResultCode.VALIDATION_ERROR_QUESTION_TEXT:
-                        pModelState.AddModelError(nameof(pQuestion.Text), "The Text is Required!");
+                        pModelState.AddModelError(nameof(pQuestion.Text), Language.VALIDATION_ERROR_QUESTION_TEXT);
                         break;
                     case ResultCode.VALIDATION_ERROR_LONG_TEXT:
-                        pModelState.AddModelError(nameof(pQuestion.Text), "Too long");
+                        pModelState.AddModelError(nameof(pQuestion.Text), Language.VALIDATION_ERROR_SHORT_TEXT);
                         break;
                     case ResultCode.VALIDATION_ERROR_SHORT_TEXT:
-                        pModelState.AddModelError(nameof(pQuestion.Text), "Too short");
+                        pModelState.AddModelError(nameof(pQuestion.Text), Language.VALIDATION_ERROR_LONG_TEXT);
                         break;
                     default:
                         break;
@@ -42,16 +43,7 @@ namespace SurveyConfiguratorWeb.Models
                 Log.Error(e);
             }
         }
-      static  public void Validate(Question pQuestionSlider, ModelStateDictionary modelState)
-        {
-            // Perform validation and add errors to the ModelState
-            if (string.IsNullOrEmpty(pQuestionSlider.Text))
-            {
-                modelState.AddModelError(nameof(pQuestionSlider.Text), "The Text is Required!");
-            }
-
-            // Add more validation rules as needed...
-        }
+     
 
         static public void SliderValidation(ref QuestionSlider pQuestionSlider, ModelStateDictionary pModelState,List<int>pErrorCode)
         {
@@ -64,34 +56,34 @@ namespace SurveyConfiguratorWeb.Models
                     switch (pErrorCode[index])
                     {
                         case ResultCode.VALIDATION_ERROR_SLIDER_END_VALUE:
-                            pModelState.AddModelError(nameof(pQuestionSlider.EndValue), "End value should be greater than the Min value");
+                            pModelState.AddModelError(nameof(pQuestionSlider.EndValue), Language.VALIDATION_ERROR_SLIDER_END_VALUE);
                             break;
                         case ResultCode.VALIDATION_ERROR_SLIDER_START_VALUE:
-                            pModelState.AddModelError(nameof(pQuestionSlider.StartValue), " Min value should be less than the End value");
+                            pModelState.AddModelError(nameof(pQuestionSlider.StartValue), Language.VALIDATION_ERROR_SLIDER_START_VALUE);
                             break;
                         case ResultCode.VALIDATION_ERROR_SLIDER_CAPTION_START_EMPTY:
-                            pModelState.AddModelError(nameof(pQuestionSlider.StartCaption), "Required");
+                            pModelState.AddModelError(nameof(pQuestionSlider.StartCaption), Language.VALIDATION_ERROR_SLIDER_CAPTION);
                             break;
 
 
                         case ResultCode.VALIDATION_ERROR_SLIDER_CAPTION_END_EMPTY:
-                            pModelState.AddModelError(nameof(pQuestionSlider.EndCaption), "Required");
+                            pModelState.AddModelError(nameof(pQuestionSlider.EndCaption), Language.VALIDATION_ERROR_SLIDER_CAPTION);
                             break;
 
                         case ResultCode.VALIDATION_ERROR_SLIDER_CAPTION_START_SHORT:
-                            pModelState.AddModelError(nameof(pQuestionSlider.StartCaption), "Too Short");
+                            pModelState.AddModelError(nameof(pQuestionSlider.StartCaption), Language.STRING_LENGTH_SHORT);
                             break;
 
                         case ResultCode.VALIDATION_ERROR_SLIDER_CAPTION_START_LONG:
-                            pModelState.AddModelError(nameof(pQuestionSlider.StartCaption), "Too Long");
+                            pModelState.AddModelError(nameof(pQuestionSlider.StartCaption), Language.STRING_LENGTH_LONG);
                             break;
 
                         case ResultCode.VALIDATION_ERROR_SLIDER_CAPTION_END_SHORT:
-                            pModelState.AddModelError(nameof(pQuestionSlider.EndCaption), "Too Short");
+                            pModelState.AddModelError(nameof(pQuestionSlider.EndCaption), Language.STRING_LENGTH_SHORT);
                             break;
 
                         case ResultCode.VALIDATION_ERROR_SLIDER_CAPTION_END_LONG:
-                            pModelState.AddModelError(nameof(pQuestionSlider.EndCaption), "Too Long");
+                            pModelState.AddModelError(nameof(pQuestionSlider.EndCaption), Language.STRING_LENGTH_LONG);
                             break;
 
                         default:
@@ -115,7 +107,7 @@ namespace SurveyConfiguratorWeb.Models
                     switch (pErrorCode[index])
                     {
                         case ResultCode.VALIDATION_ERROR_FACES_NUMBER:
-                            pModelState.AddModelError(nameof(pQuestionFaces.FacesNumber), "Faces number should be between 1 to 5");
+                            pModelState.AddModelError(nameof(pQuestionFaces.FacesNumber), Language.VALIDATION_ERROR_QUESTION_FACES);
                             break;
 
                         default:
@@ -139,7 +131,7 @@ namespace SurveyConfiguratorWeb.Models
                     switch (pErrorCode[index])
                     {
                         case ResultCode.VALIDATION_ERROR_STARS_NUMBER:
-                            pModelState.AddModelError(nameof(pQuestionStars.StarsNumber), "Stars number should be between 1 to 10");
+                            pModelState.AddModelError(nameof(pQuestionStars.StarsNumber), Language.VALIDATION_ERROR_QUESTION_STARS);
                             break;
 
                         default:

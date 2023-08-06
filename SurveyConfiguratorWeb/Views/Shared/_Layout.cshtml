@@ -1,27 +1,28 @@
 ﻿@using SurveyConfiguratorWeb.Models
-
+@using SurveyConfiguratorWeb.Languages
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title -  @Language.APP_NAME</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="~/Content/flash.css" rel="stylesheet" />
     <style>
-        *{
-            box-sizing:content-box;
+        * {
+            box-sizing: content-box;
         }
     </style>
 </head>
-<body>
-    <header class="">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                @Html.ActionLink(linkText: "Survey Configurator", actionName: Routes.INDEX, controllerName: Routes.QUESTION, routeValues: new { area = "" }, htmlAttributes: new { @class = "navbar-brand" })
+<body dir="auto">
+    <header class="" dir="auto">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" dir="auto">
+            <div class="container" dir="auto">
+                @Html.ActionLink(linkText: Language.APP_NAME, actionName: Routes.INDEX, controllerName: Routes.QUESTION, routeValues: new { area = "" }, htmlAttributes: new { @class = "navbar-brand" })
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,22 +30,38 @@
                 <div class="collapse navbar-collapse " id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            @Html.ActionLink(linkText: "Home", actionName: Routes.INDEX, controllerName: Routes.QUESTION, htmlAttributes: new { @class = "nav-link active" }, routeValues: null)
+                            @Html.ActionLink(linkText: Language.HOME, actionName: Routes.INDEX, controllerName: Routes.QUESTION, htmlAttributes: new { @class = "nav-link active" }, routeValues: null)
                         </li>
                         <li class="nav-item">
-                            @Html.ActionLink(linkText: "Create", actionName: Routes.CREATE, controllerName: Routes.QUESTION, htmlAttributes: new { @class = "nav-link" }, routeValues: null)
+                            @Html.ActionLink(linkText: Language.CREATE, actionName: Routes.CREATE, controllerName: Routes.QUESTION, htmlAttributes: new { @class = "nav-link" }, routeValues: null)
                         </li>
 
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Settings
+                                <i class="fa-regular fa-globe" style="color: #ffffff;"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Language</a></li>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink1" dir="auto">
                                 <li>
-                                    @Html.ActionLink(linkText: "DB Connection", actionName: Routes.CREATE, controllerName: Routes.DB_CONNECTION, htmlAttributes: new { @class = "dropdown-item" }, routeValues: null)
+                                    @Html.ActionLink(linkText: Language.ENGLISH, actionName: Routes.INDEX, controllerName: Routes.LANGUAGE, htmlAttributes: new { @class = "nav-link" }, routeValues: new { lang = "en" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink(linkText: Language.ARABIC, actionName: Routes.INDEX, controllerName: Routes.LANGUAGE, htmlAttributes: new { @class = "nav-link" }, routeValues: new { lang = "ar" })
+                                </li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown" >
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @Language.SETTINGS
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink2" dir="auto">
+                                <li>
+                                    @Html.ActionLink(linkText: Language.DB_CONNECTION, actionName: Routes.CREATE, controllerName: Routes.DB_CONNECTION, htmlAttributes: new { @class = "nav-link" }, routeValues: null)
                                 </li>
                             </ul>
                         </li>
@@ -54,12 +71,13 @@
             </div>
         </nav>
     </header>
-    <main>
-        <div class="container body-content">
+    <main dir="auto">
+
+        <div class="container body-content" dir="auto">
             @RenderBody()
             <hr />
             <footer>
-                <p>&copy; @DateTime.Now.Year - Survey Configurator</p>
+                <p>&copy; @DateTime.Now.Year -  @Language.APP_NAME</p>
             </footer>
         </div>
     </main>

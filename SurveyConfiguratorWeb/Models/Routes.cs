@@ -46,6 +46,7 @@ namespace SurveyConfiguratorWeb.Models
         public const string EDIT = "Edit";
 
 
+        public const string LANGUAGE = "Language";
 
 
         #endregion

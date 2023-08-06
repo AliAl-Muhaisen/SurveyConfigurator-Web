@@ -145,6 +145,7 @@
     <Compile Include="Controllers\Questions\QuestionController.cs" />
     <Compile Include="Controllers\Questions\QuestionSliderController.cs" />
     <Compile Include="Controllers\Questions\QuestionStarsController.cs" />
+    <Compile Include="Controllers\Settings\LanguageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

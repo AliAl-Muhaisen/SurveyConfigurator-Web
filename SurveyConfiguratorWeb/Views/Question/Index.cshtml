@@ -1,6 +1,7 @@
 ﻿
 @using SurveyConfiguratorApp.Domain.Questions
 @using SurveyConfiguratorWeb.Models 
+@using SurveyConfiguratorWeb.Languages
 @using SurveyConfiguratorWeb.Properties
 @model  List<Question>
 
@@ -10,9 +11,7 @@
 
 @*@Html.Partial("Questions/_QuestionTable", Model)*@
 
-<h1>
-    @Resource.ERROR
-</h1>
+
 <div class="row">
 
     <div id="tableQuestions" class="col-md-12 col-12 table-responsive">
@@ -34,7 +33,7 @@
             <div class="modal-body">
                 <div id="modelText" class="d-block">
                     <p>
-                        Are you sure you want to delete this question?
+                        @Language.DELETE_MESSAGE
                     </p>
 
                 </div>
@@ -79,7 +78,7 @@
     </script>
     <script>
 
-    const ColumnNames = ['Text', 'Type', 'Order', '  '];
+        const ColumnNames = ['@Language.TEXT', '@Language.TYPE', '@Language.ORDER', '  '];
         var questionList = @Html.Raw(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
 
 
@@ -101,7 +100,7 @@
             tr.classList.add("row");
             for (const columnName of ColumnNames) {
                 const th = document.createElement('th');
-                th.classList.add(columnName === 'Text' ? 'col-5' : 'col');
+                th.classList.add(columnName === '@Language.TEXT' ? 'col-5' : 'col');
                 th.classList.add("btn", "btn-default", "text-bold", "border");
                 th.innerHTML = columnName;
                 th.addEventListener('click', () => SortTable(columnName));
@@ -167,17 +166,17 @@
 
         let updateTag = document.createElement('a');
         updateTag.classList.add(...classes);
-        updateTag.innerHTML = "Edit";
+        updateTag.innerHTML = "@Language.EDIT";
         updateTag.href = '@Url.Action(Routes.EDIT, Routes.QUESTION)?id=' + id + '&type=' + typeName;
 
         let detailTag = document.createElement('a');
         detailTag.classList.add(...classes);
-        detailTag.innerHTML = "Detail";
+        detailTag.innerHTML = "@Language.DETAIL";
         detailTag.href = '@Url.Action(Routes.DETAIL, Routes.QUESTION)?id=' + id + '&type=' + typeName;
 
         let deleteTag = document.createElement('a');
         deleteTag.classList.add(...classes);
-        deleteTag.innerHTML = "Delete";
+        deleteTag.innerHTML = "@Language.DELETE";
         deleteTag.onclick = () => handelDeleteTableRow(id);
 
         tdOps.appendChild(deleteTag);
@@ -292,13 +291,13 @@
 
             removeTableBody();
             switch (pColumnName) {
-                case "Text":
+                case "@Language.TEXT":
                     questionList.sort((a, b) => a.Text.localeCompare(b.Text));
                     break;
-                case "Type":
+                case "@Language.TYPE":
                     questionList.sort((a, b) => a.TypeName.localeCompare(b.TypeName));
                     break;
-                case "Order":
+                case "@Language.ORDER":
                     questionList.sort(function (a, b) { return (a.Order - b.Order) });
                     break;
                 default:
@@ -310,9 +309,9 @@
             }
             else
              lastColumnName = pColumnName;
-          
+
                 CreateTableBody();
-            
+
         }
     </script>
 

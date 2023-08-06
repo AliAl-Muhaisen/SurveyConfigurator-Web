@@ -1,13 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@using SurveyConfiguratorWeb.Languages 
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
+    <title>@Language.ERROR</title>
 </head>
 <body>
     <hgroup class="alert alert-danger my-3">
-            <h1>Error.</h1>
-            <h2>An error occurred while processing your request.</h2>        
+        <h1>@Language.ERROR</h1>
+        <h2>@Language.ERROR_GENERAL_MESSAGE_REQUEST</h2>        
     </hgroup>
 </body>
 </html>

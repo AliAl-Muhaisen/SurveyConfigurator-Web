@@ -61,7 +61,25 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to اغلق.
+        ///   Looks up a localized string similar to Survey Configurator.
+        /// </summary>
+        public static string APP_NAME {
+            get {
+                return ResourceManager.GetString("APP_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to عربي.
+        /// </summary>
+        public static string ARABIC {
+            get {
+                return ResourceManager.GetString("ARABIC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string CANCEL {
             get {
@@ -70,7 +88,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to تاكيد.
+        ///   Looks up a localized string similar to Confirm.
         /// </summary>
         public static string CONFIRM {
             get {
@@ -79,7 +97,34 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to حدث خطأ ما ، اطلب المساعدة من المسؤول.
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string CREATE {
+            get {
+                return ResourceManager.GetString("CREATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Database.
+        /// </summary>
+        public static string DATABASE {
+            get {
+                return ResourceManager.GetString("DATABASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection.
+        /// </summary>
+        public static string DB_CONNECTION {
+            get {
+                return ResourceManager.GetString("DB_CONNECTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong, Ask the Admin for help.
         /// </summary>
         public static string DB_FAILED_NERORK_CONNECTION {
             get {
@@ -88,7 +133,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to هذا السؤال غير موجود.
+        ///   Looks up a localized string similar to This Question does not exists.
         /// </summary>
         public static string DB_RECORD_NOT_EXISTS {
             get {
@@ -97,7 +142,16 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to هل انت متاكد من حذف هذا السؤال؟.
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string DELETE {
+            get {
+                return ResourceManager.GetString("DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this question?.
         /// </summary>
         public static string DELETE_MESSAGE {
             get {
@@ -106,7 +160,34 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to خطا.
+        ///   Looks up a localized string similar to Detail.
+        /// </summary>
+        public static string DETAIL {
+            get {
+                return ResourceManager.GetString("DETAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string EDIT {
+            get {
+                return ResourceManager.GetString("EDIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string ENGLISH {
+            get {
+                return ResourceManager.GetString("ENGLISH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string ERROR {
             get {
@@ -115,7 +196,16 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to اوجه.
+        ///   Looks up a localized string similar to An error occurred while processing your request..
+        /// </summary>
+        public static string ERROR_GENERAL_MESSAGE_REQUEST {
+            get {
+                return ResourceManager.GetString("ERROR_GENERAL_MESSAGE_REQUEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faces.
         /// </summary>
         public static string FACES {
             get {
@@ -124,7 +214,16 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to فشل الاتصال.
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string HOME {
+            get {
+                return ResourceManager.GetString("HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection Failed.
         /// </summary>
         public static string LABEL_STATUS {
             get {
@@ -133,7 +232,16 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to حسنا.
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string LANGUAGE {
+            get {
+                return ResourceManager.GetString("LANGUAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
         /// </summary>
         public static string OK {
             get {
@@ -142,7 +250,43 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to حفظ.
+        ///   Looks up a localized string similar to Order.
+        /// </summary>
+        public static string ORDER {
+            get {
+                return ResourceManager.GetString("ORDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string PASSWORD {
+            get {
+                return ResourceManager.GetString("PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question Type.
+        /// </summary>
+        public static string QUESTION_TYPE {
+            get {
+                return ResourceManager.GetString("QUESTION_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This field is required.
+        /// </summary>
+        public static string REQUIRED {
+            get {
+                return ResourceManager.GetString("REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string SAVE {
             get {
@@ -151,7 +295,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to فشل الاتصال ، هل ما زلت تريد حفظه؟.
+        ///   Looks up a localized string similar to Connection failed, do you still want to save it?.
         /// </summary>
         public static string SAVE_CONNECTION_FAILED {
             get {
@@ -160,7 +304,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to فشل عملية الحفظ.
+        ///   Looks up a localized string similar to Save Failed.
         /// </summary>
         public static string SAVE_FAILED {
             get {
@@ -169,7 +313,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to تم الحفظ بنجاح.
+        ///   Looks up a localized string similar to Save Successful.
         /// </summary>
         public static string SAVE_SUCCESSFULLY {
             get {
@@ -178,7 +322,25 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to شريط.
+        ///   Looks up a localized string similar to Server.
+        /// </summary>
+        public static string SERVER {
+            get {
+                return ResourceManager.GetString("SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string SETTINGS {
+            get {
+                return ResourceManager.GetString("SETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slider.
         /// </summary>
         public static string SLIDER {
             get {
@@ -187,7 +349,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to نجوم.
+        ///   Looks up a localized string similar to Stars.
         /// </summary>
         public static string STARS {
             get {
@@ -196,7 +358,25 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to نجح.
+        ///   Looks up a localized string similar to Too Long.
+        /// </summary>
+        public static string STRING_LENGTH_LONG {
+            get {
+                return ResourceManager.GetString("STRING_LENGTH_LONG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Too Short.
+        /// </summary>
+        public static string STRING_LENGTH_SHORT {
+            get {
+                return ResourceManager.GetString("STRING_LENGTH_SHORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
         /// </summary>
         public static string SUCCESS {
             get {
@@ -205,7 +385,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to تم الاتصال بنجاح.
+        ///   Looks up a localized string similar to Connected Successfully.
         /// </summary>
         public static string TEST_CONNECTION {
             get {
@@ -214,7 +394,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to فشل الاتصال.
+        ///   Looks up a localized string similar to Connection Failed.
         /// </summary>
         public static string TEST_CONNECTION_FAILED {
             get {
@@ -223,7 +403,25 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to تعديل.
+        ///   Looks up a localized string similar to Text.
+        /// </summary>
+        public static string TEXT {
+            get {
+                return ResourceManager.GetString("TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string TYPE {
+            get {
+                return ResourceManager.GetString("TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update.
         /// </summary>
         public static string UPDATE {
             get {
@@ -232,7 +430,16 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to أخطاء التحقق من الصحة ، يرجى التحقق من المدخلات.
+        ///   Looks up a localized string similar to User Name.
+        /// </summary>
+        public static string USER_NAME {
+            get {
+                return ResourceManager.GetString("USER_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation errors, Please check the inputs.
         /// </summary>
         public static string VALIDATION_ERROR {
             get {
@@ -241,7 +448,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to نص سؤال طويل جدًا.
+        ///   Looks up a localized string similar to Very long question text.
         /// </summary>
         public static string VALIDATION_ERROR_LONG_TEXT {
             get {
@@ -250,7 +457,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to هذا الترتيب مستخدم من قبل.
+        ///   Looks up a localized string similar to Order Should be unique.
         /// </summary>
         public static string VALIDATION_ERROR_ORDER_EXIST {
             get {
@@ -259,7 +466,43 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to نص السؤال مطلوب.
+        ///   Looks up a localized string similar to Order should be less than or equal 100.
+        /// </summary>
+        public static string VALIDATION_ERROR_ORDER_MAX {
+            get {
+                return ResourceManager.GetString("VALIDATION_ERROR_ORDER_MAX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order should be greater than 0.
+        /// </summary>
+        public static string VALIDATION_ERROR_ORDER_MIN {
+            get {
+                return ResourceManager.GetString("VALIDATION_ERROR_ORDER_MIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faces number should be between 2 to 5.
+        /// </summary>
+        public static string VALIDATION_ERROR_QUESTION_FACES {
+            get {
+                return ResourceManager.GetString("VALIDATION_ERROR_QUESTION_FACES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stars number should be between 1 to 10.
+        /// </summary>
+        public static string VALIDATION_ERROR_QUESTION_STARS {
+            get {
+                return ResourceManager.GetString("VALIDATION_ERROR_QUESTION_STARS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question text Required.
         /// </summary>
         public static string VALIDATION_ERROR_QUESTION_TEXT {
             get {
@@ -268,7 +511,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to نص سؤال قصير جدًا.
+        ///   Looks up a localized string similar to Very short question text.
         /// </summary>
         public static string VALIDATION_ERROR_SHORT_TEXT {
             get {
@@ -277,7 +520,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to مطلوب نص التسمية التوضيحية.
+        ///   Looks up a localized string similar to Caption Text Is Required.
         /// </summary>
         public static string VALIDATION_ERROR_SLIDER_CAPTION {
             get {
@@ -286,11 +529,20 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يجب أن تكون القيمة الدنيا أقل من القيمة القصوى.
+        ///   Looks up a localized string similar to End Value should be greater than the Min Value.
         /// </summary>
-        public static string VALIDATION_ERROR_SLIDER_VALUE {
+        public static string VALIDATION_ERROR_SLIDER_END_VALUE {
             get {
-                return ResourceManager.GetString("VALIDATION_ERROR_SLIDER_VALUE", resourceCulture);
+                return ResourceManager.GetString("VALIDATION_ERROR_SLIDER_END_VALUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min Value should be less than Max Value.
+        /// </summary>
+        public static string VALIDATION_ERROR_SLIDER_START_VALUE {
+            get {
+                return ResourceManager.GetString("VALIDATION_ERROR_SLIDER_START_VALUE", resourceCulture);
             }
         }
     }

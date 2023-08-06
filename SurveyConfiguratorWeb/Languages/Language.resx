@@ -117,82 +117,166 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="APP_NAME" xml:space="preserve">
+    <value>Survey Configurator</value>
+  </data>
+  <data name="ARABIC" xml:space="preserve">
+    <value>عربي</value>
+  </data>
   <data name="CANCEL" xml:space="preserve">
-    <value>اغلق</value>
+    <value>Close</value>
   </data>
   <data name="CONFIRM" xml:space="preserve">
-    <value>تاكيد</value>
+    <value>Confirm</value>
+  </data>
+  <data name="CREATE" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="DATABASE" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="DB_CONNECTION" xml:space="preserve">
+    <value>Connection</value>
   </data>
   <data name="DB_FAILED_NERORK_CONNECTION" xml:space="preserve">
-    <value>حدث خطأ ما ، اطلب المساعدة من المسؤول</value>
+    <value>Something went wrong, Ask the Admin for help</value>
   </data>
   <data name="DB_RECORD_NOT_EXISTS" xml:space="preserve">
-    <value>هذا السؤال غير موجود</value>
+    <value>This Question does not exists</value>
+  </data>
+  <data name="DELETE" xml:space="preserve">
+    <value>Delete</value>
   </data>
   <data name="DELETE_MESSAGE" xml:space="preserve">
-    <value>هل انت متاكد من حذف هذا السؤال؟</value>
+    <value>Are you sure you want to delete this question?</value>
+  </data>
+  <data name="DETAIL" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="EDIT" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ENGLISH" xml:space="preserve">
+    <value>English</value>
   </data>
   <data name="ERROR" xml:space="preserve">
-    <value>خطا</value>
+    <value>Error</value>
+  </data>
+  <data name="ERROR_GENERAL_MESSAGE_REQUEST" xml:space="preserve">
+    <value>An error occurred while processing your request.</value>
   </data>
   <data name="FACES" xml:space="preserve">
-    <value>اوجه</value>
+    <value>Faces</value>
+  </data>
+  <data name="HOME" xml:space="preserve">
+    <value>Home</value>
   </data>
   <data name="LABEL_STATUS" xml:space="preserve">
-    <value>فشل الاتصال</value>
+    <value>Connection Failed</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>Language</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>حسنا</value>
+    <value>Ok</value>
+  </data>
+  <data name="ORDER" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="QUESTION_TYPE" xml:space="preserve">
+    <value>Question Type</value>
+  </data>
+  <data name="REQUIRED" xml:space="preserve">
+    <value>This field is required</value>
   </data>
   <data name="SAVE" xml:space="preserve">
-    <value>حفظ</value>
+    <value>Save</value>
   </data>
   <data name="SAVE_CONNECTION_FAILED" xml:space="preserve">
-    <value>فشل الاتصال ، هل ما زلت تريد حفظه؟</value>
+    <value>Connection failed, do you still want to save it?</value>
   </data>
   <data name="SAVE_FAILED" xml:space="preserve">
-    <value>فشل عملية الحفظ</value>
+    <value>Save Failed</value>
   </data>
   <data name="SAVE_SUCCESSFULLY" xml:space="preserve">
-    <value>تم الحفظ بنجاح</value>
+    <value>Save Successful</value>
+  </data>
+  <data name="SERVER" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="SETTINGS" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="SLIDER" xml:space="preserve">
-    <value>شريط</value>
+    <value>Slider</value>
   </data>
   <data name="STARS" xml:space="preserve">
-    <value>نجوم</value>
+    <value>Stars</value>
+  </data>
+  <data name="STRING_LENGTH_LONG" xml:space="preserve">
+    <value>Too Long</value>
+  </data>
+  <data name="STRING_LENGTH_SHORT" xml:space="preserve">
+    <value>Too Short</value>
   </data>
   <data name="SUCCESS" xml:space="preserve">
-    <value>نجح</value>
+    <value>Success</value>
   </data>
   <data name="TEST_CONNECTION" xml:space="preserve">
-    <value>تم الاتصال بنجاح</value>
+    <value>Connected Successfully</value>
   </data>
   <data name="TEST_CONNECTION_FAILED" xml:space="preserve">
-    <value>فشل الاتصال</value>
+    <value>Connection Failed</value>
+  </data>
+  <data name="TEXT" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>Type</value>
   </data>
   <data name="UPDATE" xml:space="preserve">
-    <value>تعديل</value>
+    <value>Update</value>
+  </data>
+  <data name="USER_NAME" xml:space="preserve">
+    <value>User Name</value>
   </data>
   <data name="VALIDATION_ERROR" xml:space="preserve">
-    <value>أخطاء التحقق من الصحة ، يرجى التحقق من المدخلات</value>
+    <value>Validation errors, Please check the inputs</value>
   </data>
   <data name="VALIDATION_ERROR_LONG_TEXT" xml:space="preserve">
-    <value>نص سؤال طويل جدًا</value>
+    <value>Very long question text</value>
   </data>
   <data name="VALIDATION_ERROR_ORDER_EXIST" xml:space="preserve">
-    <value>هذا الترتيب مستخدم من قبل</value>
+    <value>Order Should be unique</value>
+  </data>
+  <data name="VALIDATION_ERROR_ORDER_MAX" xml:space="preserve">
+    <value>Order should be less than or equal 100</value>
+  </data>
+  <data name="VALIDATION_ERROR_ORDER_MIN" xml:space="preserve">
+    <value>Order should be greater than 0</value>
+  </data>
+  <data name="VALIDATION_ERROR_QUESTION_FACES" xml:space="preserve">
+    <value>Faces number should be between 2 to 5</value>
+  </data>
+  <data name="VALIDATION_ERROR_QUESTION_STARS" xml:space="preserve">
+    <value>Stars number should be between 1 to 10</value>
   </data>
   <data name="VALIDATION_ERROR_QUESTION_TEXT" xml:space="preserve">
-    <value>نص السؤال مطلوب</value>
+    <value>Question text Required</value>
   </data>
   <data name="VALIDATION_ERROR_SHORT_TEXT" xml:space="preserve">
-    <value>نص سؤال قصير جدًا</value>
+    <value>Very short question text</value>
   </data>
   <data name="VALIDATION_ERROR_SLIDER_CAPTION" xml:space="preserve">
-    <value>مطلوب نص التسمية التوضيحية</value>
+    <value>Caption Text Is Required</value>
   </data>
-  <data name="VALIDATION_ERROR_SLIDER_VALUE" xml:space="preserve">
-    <value>يجب أن تكون القيمة الدنيا أقل من القيمة القصوى</value>
+  <data name="VALIDATION_ERROR_SLIDER_END_VALUE" xml:space="preserve">
+    <value>End Value should be greater than the Min Value</value>
+  </data>
+  <data name="VALIDATION_ERROR_SLIDER_START_VALUE" xml:space="preserve">
+    <value>Min Value should be less than Max Value</value>
   </data>
 </root>

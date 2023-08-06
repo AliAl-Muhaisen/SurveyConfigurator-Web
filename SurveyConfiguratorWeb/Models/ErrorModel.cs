@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SurveyConfiguratorWeb.Languages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,8 +11,8 @@ namespace SurveyConfiguratorWeb.Models
         public string Title { get; set; }
         public string Message { get; set; }
         public ErrorModel(){
-            Title = "Error";
-            Message = "This Question does not exists";
+            Title = Language.ERROR;
+            Message = Language.DB_RECORD_NOT_EXISTS;
         }
     }
 }

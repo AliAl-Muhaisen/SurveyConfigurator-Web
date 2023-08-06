@@ -1,36 +1,37 @@
 ﻿@model SurveyConfiguratorApp.Logic.DbManager
 @using SurveyConfiguratorWeb.Models
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "ConfigForm" }))
+@using SurveyConfiguratorWeb.Languages
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "ConfigForm",@dir="auto" }))
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal py-4">
+    <div class="form-horizontal py-4" dir="auto">
         <h4>Connection</h4>
         <hr />
-        <div class="my-1">
-            <label for="@nameof(Model.Server)">Server</label>
+        <div class="my-1" dir="auto">
+            <label for="@nameof(Model.Server)">@Language.SERVER</label>
             @Html.TextBoxFor(model => model.Server, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Server, "", new { @class = "text-danger" })
         </div>
 
 
-        <div class="my-1">
+        <div class="my-1" dir="auto">
 
-            <label for="@nameof(Model.Database)">Database</label>
+            <label for="@nameof(Model.Database)">@Language.DATABASE</label>
             @Html.TextBoxFor(model => model.Database, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Database, "", new { @class = "text-danger" })
         </div>
 
-        <div class="my-1">
+        <div class="my-1" dir="auto">
 
-            <label for="@nameof(Model.Username)">User Name</label>
+            <label for="@nameof(Model.Username)">@Language.USER_NAME</label>
             @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
         </div>
 
-        <div class="my-1">
+        <div class="my-1" dir="auto">
 
-            <label for="@nameof(Model.Password)">Password</label>
+            <label for="@nameof(Model.Password)">@Language.PASSWORD</label>
             @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type = "password" })
             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
         </div>
@@ -38,9 +39,9 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group d-flex">
             <div class="col-md-2 m-1">
-                <input type="button" value="Save" class="btn btn-primary w-100" onclick="HandleSaveConnection()" />
+                <input type="button" value="Save" class="btn btn-primary w-100 d-block" onclick="HandleSaveConnection()" />
             </div>
-            <div class="col-md-2 m-1">
+            <div class="col-md-2 m-1 mx-3">
                 <input type="reset" value="Reset" class="btn btn-danger w-100" />
             </div>
         </div>
