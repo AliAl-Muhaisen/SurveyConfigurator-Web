@@ -1,6 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 using SurveyConfiguratorApp.Helper;
+using SurveyConfiguratorWeb.Hubs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace SurveyConfiguratorWeb
             {
                     // Enable SignalR hubs
                      app.MapSignalR();
+                   //  app.MapSignalR<QuestionHub>("/questionHub");
             }
             catch (Exception e)
             {

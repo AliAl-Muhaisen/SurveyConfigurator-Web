@@ -16,11 +16,11 @@ namespace SurveyConfiguratorWeb.Hubs
             await Clients.All.updateUI();
         }
 
-        public void RefreshQuestions(ref List<Question> pQuestionsList)
+        public void RefreshQuestions(List<Question> pQuestionsList)
         {
             try
             {
-                Clients.All.refreshQuestions(pQuestionsList);
+                Clients.All.RefreshQuestionsClient(pQuestionsList);
             }
             catch (Exception e)
             {

@@ -4,6 +4,7 @@ using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
 using SurveyConfiguratorApp.Logic;
 using SurveyConfiguratorWeb.Hubs;
+using SurveyConfiguratorWeb.Languages;
 using SurveyConfiguratorWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -26,8 +27,6 @@ namespace SurveyConfiguratorWeb.Controllers
 
                 QuestionManager.DataChangedUIWeb += RefreshUI;
                   questionManager.FollowDbChangesWeb(questionList);
-            //   questionManager.DataChangedUI+=
-              //  questionManager.FollowDbChanges();
                 
                 errorModel = new ErrorModel();
             }
@@ -148,7 +147,7 @@ namespace SurveyConfiguratorWeb.Controllers
             {
          Question.QuestionTypes questionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), type));
             int tResult = questionManager.IsQuestionExists(id);
-            errorModel.Message = "This Question does not exists or the connection failed";
+            errorModel.Message =Language.DB_RECORD_NOT_EXISTS;
             if (tResult!=ResultCode.SUCCESS)
             {
                 return View(Routes.CUSTOM_ERROR, errorModel);
@@ -247,9 +246,7 @@ namespace SurveyConfiguratorWeb.Controllers
         {
             try
             {
-            var questionManager = new QuestionManager(); 
-            questionManager.DataChangedUI += QuestionManager_DataChangedUI;
-            questionManager.FollowDbChanges();
+           
             }
             catch (Exception e)
             {
@@ -266,7 +263,7 @@ namespace SurveyConfiguratorWeb.Controllers
             {
                 var hubContext = GlobalHost.ConnectionManager.GetHubContext<QuestionHub>();
 
-                hubContext.Clients.All.RefreshQuestions(pQuestions);
+                hubContext.Clients.All.RefreshQuestionsClient(pQuestions);
             }
             catch (Exception ex)
             {

@@ -88,13 +88,16 @@
             table.appendChild(thead);
         }
 
-        const CreateTableBody = (table) => {
+        const CreateTableBody = (table, pQuestionList) => {
             if (!table) {
                 table = document.getElementsByTagName("table")[0];
             }
+            if (!pQuestionList) {
+                pQuestionList = questionList;
+            }
         let tbody = document.createElement("tbody");
-        for (var questionIndex = 0; questionIndex < questionList.length; questionIndex++) {
-            CreateTableRow(questionList[questionIndex], tbody);
+            for (var questionIndex = 0; questionIndex < pQuestionList.length; questionIndex++) {
+                CreateTableRow(pQuestionList[questionIndex], tbody);
         }
         table.appendChild(tbody);
     }
@@ -304,33 +307,28 @@
                 CreateTableBody();
 
         }
-    </script>
 
-    <script>
-        $(function () {
-            // Connect to the SignalR hub
-            var hub = $.connection.questionHub;
 
-            // Define a client-side function to be called when the hub sends a notification
-            hub.client.refreshQuestions = function (questionList)) {
+        var hub = $.connection.questionHub;
+          
+        hub.client.refreshQuestionsClient = function (questionList) {
                 removeTableBody();
-                CreateTableBody();
-                console.log("refreshQuestions called")
+            CreateTableBody(null,questionList);
             }
-            hub.client.updateUI = function () {
-                console.log('SignalR connection established.2222222');
-
-                // Reload or update your web page here when the event occurs
-                location.reload(); // For example, you can reload the page
-            };
-
-            // Start the connection
+        $(function () {
+ 
             $.connection.hub.start(function () {
-                // hub.server.notifyClients();
-                // You can do additional setup here if needed
                 console.log('SignalR connection established.');
             });
         });
+
+
+
+    </script>
+
+    <script>
+    
+      
     </script>
 
 }
