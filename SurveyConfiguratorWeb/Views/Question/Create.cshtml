@@ -1,17 +1,32 @@
 ﻿@using SurveyConfiguratorApp.Domain.Questions
+@using SurveyConfiguratorWeb.Languages
 @{
     ViewBag.Title = "Create";
 }
-<div class="my-3">
-    <h2>Create Question</h2>
-    <div class="input-group mb-3">
-        <label class="input-group-text" for="questionTypes">Question Type</label>
+<div class="my-3 row">
+    <h2>@Language.CREATE</h2>
+    <div class="input-group mb-3 col-12">
+        <label class="input-group-text" for="questionTypes">@Language.QUESTION_TYPE</label>
 
         <select class="form-select" id="questionTypes">
-            <option selected disabled>Choose...</option>
+            <option selected disabled>@(Language.CHOOSE)...</option>
             @foreach (Question.QuestionTypes type in Enum.GetValues(typeof(Question.QuestionTypes)))
             {
-                <option value="@type">@type</option>
+                switch (type)
+                {
+                    case Question.QuestionTypes.FACES:
+        <option value="@type">@Language.FACES</option>
+                        break;
+                    case Question.QuestionTypes.SLIDER:
+        <option value="@type">@Language.SLIDER</option>
+                        break;
+                    case Question.QuestionTypes.STARS:
+        <option value="@type">@Language.STARS</option>
+                        break;
+                    default:
+                        break;
+                }
+
             }
 
         </select>

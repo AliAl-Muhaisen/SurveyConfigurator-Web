@@ -1,40 +1,46 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionSlider
+@using SurveyConfiguratorWeb.Languages
+@using SurveyConfiguratorWeb.Models
+@using (Html.BeginForm(Routes.CREATE, Routes.QUESTION, FormMethod.Post))
+{
+    <div class=" mb-3 py-2" dir="auto">
+        @Html.Partial("Questions/_Create", Model)
+        <div class="col-12 w-100" dir="auto">
+            <label for="@nameof(Model.StartValue)" class="form-label">@Language.START_VALUE</label>
+            @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control", type = "number", min = "0", max = "99" })
+            @Html.ValidationMessageFor(model => model.StartValue, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="col-12" dir="auto">
+            <label for="@nameof(Model.EndValue)" class="form-label">@Language.END_VALUE</label>
+            @Html.TextBoxFor(model => model.EndValue, new { @class = "form-control", type = "number", min = "1", max = "100", value = "100" })
+            @Html.ValidationMessageFor(model => model.EndValue, "", new { @class = "text-danger" })
 
 
-@using (Html.BeginForm("Create", "Question", FormMethod.Post))
-{ 
-<div class="row mb-3 py-2">
-    @Html.Partial("Questions/_Create", Model)
-    <div class="col-6">
-        <label for="@nameof(Model.StartValue)" class="form-label">Start Value</label>
-        @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control", type = "number", min = "0", max = "99" })
-        @Html.ValidationMessageFor(model => model.StartValue, "", new { @class = "text-danger" })
+        </div>
+ 
+        <div  class="col-md-12 mt-2">
+            <div class="form-group" dir="auto">
+                <label for="@nameof(Model.StartCaption)" class="form-label">@Language.START_CAPTION</label>
+                @Html.TextAreaFor(model => model.StartCaption, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StartCaption, "", new { @class = "text-danger" })
 
+            </div>
+        </div>
+        <div  class="col-md-12 mt-2">
+            <div class="form-group" dir="auto">
+                <label for="@nameof(Model.EndCaption)" class="form-label">@Language.END_CAPTION</label>
+                @Html.TextAreaFor(model => model.EndCaption, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EndCaption, "", new { @class = "text-danger" })
+
+
+            </div>
+        </div>
+        
+        
+        <div class="w-100 col-12 my-3">
+            <input type="submit" value="@Language.SAVE" class="btn btn-primary col-12 text-center" />
+        </div>
     </div>
-    <div class="col-6">
-        <label for="@nameof(Model.EndValue)" class="form-label">End Value</label>
-        @Html.TextBoxFor(model => model.EndValue, new { @class = "form-control", type = "number", min = "1", max = "100", value = "100" })
-        @Html.ValidationMessageFor(model => model.EndValue, "", new { @class = "text-danger" })
-
-
-    </div>
-
-    <div class="col-md-6 mt-2">
-        <label for="@nameof(Model.StartCaption)" class="form-label">Start Caption</label>
-        @Html.TextAreaFor(model => model.StartCaption, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.StartCaption, "", new { @class = "text-danger" })
-
-    </div>
-    <div class="col-md-6 mt-2">
-        <label for="@nameof(Model.EndCaption)" class="form-label">End Caption</label>
-        @Html.TextAreaFor(model => model.EndCaption, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.EndCaption, "", new { @class = "text-danger" })
-
-
-    </div>
-
-</div>
-<div class="row w-100 text-center justify-content-center">
-    <input type="submit" value="Save" class="btn btn-primary col-md-12 col-12 text-center" />
-</div>
+    
 }

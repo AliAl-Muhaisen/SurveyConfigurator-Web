@@ -5,31 +5,31 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal py-4" dir="auto">
-        <h4>Connection</h4>
+    <div class="form-horizontal py-4 row px-2" dir="auto">
+        <h4> @Language.DB_CONNECTION</h4>
         <hr />
-        <div class="my-1" dir="auto">
+        <div class="my-1 col-12" dir="auto">
             <label for="@nameof(Model.Server)">@Language.SERVER</label>
             @Html.TextBoxFor(model => model.Server, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Server, "", new { @class = "text-danger" })
         </div>
 
 
-        <div class="my-1" dir="auto">
+        <div class="my-1 col-12" dir="auto">
 
             <label for="@nameof(Model.Database)">@Language.DATABASE</label>
             @Html.TextBoxFor(model => model.Database, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Database, "", new { @class = "text-danger" })
         </div>
 
-        <div class="my-1" dir="auto">
+        <div class="my-1 col-12" dir="auto">
 
             <label for="@nameof(Model.Username)">@Language.USER_NAME</label>
             @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
         </div>
 
-        <div class="my-1" dir="auto">
+        <div class="my-1 col-12" dir="auto">
 
             <label for="@nameof(Model.Password)">@Language.PASSWORD</label>
             @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type = "password" })
@@ -37,12 +37,12 @@
         </div>
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group d-flex">
-            <div class="col-md-2 m-1">
-                <input type="button" value="Save" class="btn btn-primary w-100 d-block" onclick="HandleSaveConnection()" />
+        <div class="form-group row">
+            <div class="col-md-2 my-sm-1 my-0">
+                <input type="button" value=" @Language.SAVE" class="btn btn-primary w-100 d-block" onclick="HandleSaveConnection()" />
             </div>
-            <div class="col-md-2 m-1 mx-3">
-                <input type="reset" value="Reset" class="btn btn-danger w-100" />
+            <div class="col-md-2 mx-md-2 my-xs-1 my-0">
+                <input type="reset" value="@Language.RESET" class="btn btn-danger w-100" />
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@
             <div class="modal-body">
                 <div id="modelText" class="d-block">
                     <p>
-                        Connection failed, do you still want to save it?
+                        @Language.SAVE_CONNECTION_FAILED
                     </p>
 
                 </div>
@@ -70,8 +70,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btnConfirmDelete" onclick="SaveConnection()">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> @Language.CANCEL</button>
+                <button type="button" class="btn btn-primary" id="btnConfirmDelete" onclick="SaveConnection()"> @Language.SAVE</button>
             </div>
         </div>
     </div>
@@ -104,7 +104,7 @@
                     ConfirmModal.show();
                 }
             } catch (e) {
-                ErrorFlash("Something went wrong, Please try again later")
+                ErrorFlash("@Language.DB_FAILED_NERORK_CONNECTION")
             }
 
         }
@@ -127,20 +127,20 @@
 
                 HandleFlashConnectionMsg(tData);
             } catch (e) {
-                ErrorFlash("Something went wrong, Please try again later")
+                ErrorFlash("@Language.DB_FAILED_NERORK_CONNECTION")
 
             }
         }
 
         const HandleFlashConnectionMsg = (data) => {
             if (data?.Success) {
-                SuccessFlash("Save Successfully");
+                SuccessFlash("@Language.SAVE_SUCCESSFULLY");
             }
             else if (!data?.Success) {
-                ErrorFlash("Save Fialed");
+                ErrorFlash("@Language.SAVE_FAILED");
             }
             else if (data?.Error){
-                ErrorFlash("Something went wrong, Please try again later")
+                ErrorFlash("@Language.DB_FAILED_NERORK_CONNECTION")
             }
         }
     </script>

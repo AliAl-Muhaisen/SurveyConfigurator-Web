@@ -1,4 +1,5 @@
 ﻿using SurveyConfiguratorApp.Helper;
+using SurveyConfiguratorApp.Logic;
 using SurveyConfiguratorWeb.Controllers.Settings;
 using System;
 using System.Collections.Generic;
@@ -27,8 +28,7 @@ namespace SurveyConfiguratorWeb
         protected void Application_BeginRequest(object obj,EventArgs e)
         {
             try
-            {
-               
+            {               
                 HttpCookie tHttpCookie = HttpContext.Current.Request.Cookies[LanguageController.LANGAUGE_NAME_COOKIE];
                 if (tHttpCookie !=null && tHttpCookie.Value!=null)
                 {
@@ -40,6 +40,7 @@ namespace SurveyConfiguratorWeb
                     Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en");
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
                 }
+               
             }
             catch (Exception ex)
             {

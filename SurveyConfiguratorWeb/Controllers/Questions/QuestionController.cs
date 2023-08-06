@@ -23,6 +23,12 @@ namespace SurveyConfiguratorWeb.Controllers
                 questionManager = new QuestionManager();
                 questionList = new List<Question>();
                 questionManager.GetQuestions(ref questionList);
+
+                QuestionManager.DataChangedUIWeb += RefreshUI;
+                  questionManager.FollowDbChangesWeb(questionList);
+            //   questionManager.DataChangedUI+=
+              //  questionManager.FollowDbChanges();
+                
                 errorModel = new ErrorModel();
             }
             catch (Exception e)
@@ -252,6 +258,33 @@ namespace SurveyConfiguratorWeb.Controllers
             base.Initialize(requestContext);
 
            
+        }
+
+        public void RefreshUI(List<Question> pQuestions)
+        {
+            try
+            {
+                var hubContext = GlobalHost.ConnectionManager.GetHubContext<QuestionHub>();
+
+                hubContext.Clients.All.RefreshQuestions(pQuestions);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+        public void RefreshUI2(object pSender,EventArgs e)
+        {
+            try
+            {
+                var hubContext = GlobalHost.ConnectionManager.GetHubContext<QuestionHub>();
+
+                hubContext.Clients.All.NotifyClients();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
     }
 }

@@ -1,27 +1,21 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionStars
-
-<div>
-    <h4>QuestionStars</h4>
+@using SurveyConfiguratorWeb.Models
+@using SurveyConfiguratorWeb.Languages
+<div class="my-3">
+    <h4> @Language.QUESTION_STARS</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Text)
+            @Language.TEXT
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Text)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TypeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TypeName)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Order)
+            @Language.ORDER
         </dt>
 
         <dd>
@@ -29,7 +23,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StarsNumber)
+            @Language.STARS_NUMBER
         </dt>
 
         <dd>

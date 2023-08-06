@@ -79,11 +79,29 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back to list.
+        /// </summary>
+        public static string BACK_TO_LIST {
+            get {
+                return ResourceManager.GetString("BACK_TO_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string CANCEL {
             get {
                 return ResourceManager.GetString("CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose.
+        /// </summary>
+        public static string CHOOSE {
+            get {
+                return ResourceManager.GetString("CHOOSE", resourceCulture);
             }
         }
         
@@ -151,11 +169,29 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Failed.
+        /// </summary>
+        public static string DELETE_FAILED {
+            get {
+                return ResourceManager.GetString("DELETE_FAILED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete this question?.
         /// </summary>
         public static string DELETE_MESSAGE {
             get {
                 return ResourceManager.GetString("DELETE_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Successfully.
+        /// </summary>
+        public static string DELETE_SUCCESSFUL {
+            get {
+                return ResourceManager.GetString("DELETE_SUCCESSFUL", resourceCulture);
             }
         }
         
@@ -174,6 +210,24 @@ namespace SurveyConfiguratorWeb.Languages {
         public static string EDIT {
             get {
                 return ResourceManager.GetString("EDIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End Caption.
+        /// </summary>
+        public static string END_CAPTION {
+            get {
+                return ResourceManager.GetString("END_CAPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End Value.
+        /// </summary>
+        public static string END_VALUE {
+            get {
+                return ResourceManager.GetString("END_VALUE", resourceCulture);
             }
         }
         
@@ -210,6 +264,15 @@ namespace SurveyConfiguratorWeb.Languages {
         public static string FACES {
             get {
                 return ResourceManager.GetString("FACES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faces Number.
+        /// </summary>
+        public static string FACES_NUMBER {
+            get {
+                return ResourceManager.GetString("FACES_NUMBER", resourceCulture);
             }
         }
         
@@ -268,6 +331,33 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Faces Question.
+        /// </summary>
+        public static string QUESTION_FACES {
+            get {
+                return ResourceManager.GetString("QUESTION_FACES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slider Question.
+        /// </summary>
+        public static string QUESTION_SLIDER {
+            get {
+                return ResourceManager.GetString("QUESTION_SLIDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stars Question.
+        /// </summary>
+        public static string QUESTION_STARS {
+            get {
+                return ResourceManager.GetString("QUESTION_STARS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Question Type.
         /// </summary>
         public static string QUESTION_TYPE {
@@ -282,6 +372,15 @@ namespace SurveyConfiguratorWeb.Languages {
         public static string REQUIRED {
             get {
                 return ResourceManager.GetString("REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string RESET {
+            get {
+                return ResourceManager.GetString("RESET", resourceCulture);
             }
         }
         
@@ -354,6 +453,33 @@ namespace SurveyConfiguratorWeb.Languages {
         public static string STARS {
             get {
                 return ResourceManager.GetString("STARS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stars Number.
+        /// </summary>
+        public static string STARS_NUMBER {
+            get {
+                return ResourceManager.GetString("STARS_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Caption.
+        /// </summary>
+        public static string START_CAPTION {
+            get {
+                return ResourceManager.GetString("START_CAPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Value.
+        /// </summary>
+        public static string START_VALUE {
+            get {
+                return ResourceManager.GetString("START_VALUE", resourceCulture);
             }
         }
         

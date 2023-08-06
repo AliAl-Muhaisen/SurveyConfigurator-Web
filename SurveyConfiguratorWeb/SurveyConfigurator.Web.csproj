@@ -251,7 +251,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Questions\_Create.cshtml" />
     <Content Include="Views\Question\Create.cshtml" />
     <Content Include="Views\Shared\Questions\_CreateQuestionFaces.cshtml" />
@@ -272,6 +271,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Home\" />
     <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>

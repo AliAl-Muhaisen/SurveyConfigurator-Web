@@ -123,8 +123,14 @@
   <data name="ARABIC" xml:space="preserve">
     <value>عربي</value>
   </data>
+  <data name="BACK_TO_LIST" xml:space="preserve">
+    <value>الرجوع للقائمة</value>
+  </data>
   <data name="CANCEL" xml:space="preserve">
     <value>اغلق</value>
+  </data>
+  <data name="CHOOSE" xml:space="preserve">
+    <value>اختار</value>
   </data>
   <data name="CONFIRM" xml:space="preserve">
     <value>تاكيد</value>
@@ -147,14 +153,26 @@
   <data name="DELETE" xml:space="preserve">
     <value>حذف</value>
   </data>
+  <data name="DELETE_FAILED" xml:space="preserve">
+    <value>فشل الحذف</value>
+  </data>
   <data name="DELETE_MESSAGE" xml:space="preserve">
     <value>هل انت متاكد من حذف هذا السؤال؟</value>
+  </data>
+  <data name="DELETE_SUCCESSFUL" xml:space="preserve">
+    <value>تم الحذف بنجاح</value>
   </data>
   <data name="DETAIL" xml:space="preserve">
     <value>تفاصيل</value>
   </data>
   <data name="EDIT" xml:space="preserve">
     <value>تعديل</value>
+  </data>
+  <data name="END_CAPTION" xml:space="preserve">
+    <value>نهاية التسمية التوضيحية</value>
+  </data>
+  <data name="END_VALUE" xml:space="preserve">
+    <value>قيمة النهاية</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
     <value>English</value>
@@ -167,6 +185,9 @@
   </data>
   <data name="FACES" xml:space="preserve">
     <value>اوجه</value>
+  </data>
+  <data name="FACES_NUMBER" xml:space="preserve">
+    <value>عدد الاوجه</value>
   </data>
   <data name="HOME" xml:space="preserve">
     <value>الرئيسية</value>
@@ -186,11 +207,23 @@
   <data name="PASSWORD" xml:space="preserve">
     <value>كلمة السر</value>
   </data>
+  <data name="QUESTION_FACES" xml:space="preserve">
+    <value>سؤال الاوجه</value>
+  </data>
+  <data name="QUESTION_SLIDER" xml:space="preserve">
+    <value>سؤال الشريط</value>
+  </data>
+  <data name="QUESTION_STARS" xml:space="preserve">
+    <value>سؤال النجوم</value>
+  </data>
   <data name="QUESTION_TYPE" xml:space="preserve">
     <value>نوع السؤال</value>
   </data>
   <data name="REQUIRED" xml:space="preserve">
     <value>هذا الحقل مطلوب</value>
+  </data>
+  <data name="RESET" xml:space="preserve">
+    <value>اعادة</value>
   </data>
   <data name="SAVE" xml:space="preserve">
     <value>حفظ</value>
@@ -215,6 +248,15 @@
   </data>
   <data name="STARS" xml:space="preserve">
     <value>نجوم</value>
+  </data>
+  <data name="STARS_NUMBER" xml:space="preserve">
+    <value>عدد النجوم</value>
+  </data>
+  <data name="START_CAPTION" xml:space="preserve">
+    <value>بدء التسمية التوضيحية</value>
+  </data>
+  <data name="START_VALUE" xml:space="preserve">
+    <value>قيمه البدايه</value>
   </data>
   <data name="STRING_LENGTH_LONG" xml:space="preserve">
     <value>طويل جدا</value>

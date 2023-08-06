@@ -1,8 +1,7 @@
 ﻿
 @using SurveyConfiguratorApp.Domain.Questions
-@using SurveyConfiguratorWeb.Models 
+@using SurveyConfiguratorWeb.Models
 @using SurveyConfiguratorWeb.Languages
-@using SurveyConfiguratorWeb.Properties
 @model  List<Question>
 
 @{
@@ -27,7 +26,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-danger text-white">
-                <h5 class="modal-title " id="exampleModalLabel">Delete</h5>
+                <h5 class="modal-title " id="exampleModalLabel"> @Language.DELETE</h5>
                 <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -43,8 +42,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btnConfirmDelete">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> @Language.CANCEL</button>
+                <button type="button" class="btn btn-primary" id="btnConfirmDelete"> @Language.SAVE</button>
             </div>
         </div>
     </div>
@@ -55,27 +54,6 @@
     <script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
     <script src="~/signalr/hubs"></script>
 
-    <script>
-        $(function () {
-            // Connect to the SignalR hub
-            var hub = $.connection.questionHub;
-
-            // Define a client-side function to be called when the hub sends a notification
-            hub.client.updateUI = function () {
-                console.log('SignalR connection established.2222222');
-
-                // Reload or update your web page here when the event occurs
-                location.reload(); // For example, you can reload the page
-            };
-
-            // Start the connection
-            $.connection.hub.start().done(function () {
-                // hub.server.notifyClients();
-                // You can do additional setup here if needed
-                console.log('SignalR connection established.');
-            });
-        });
-    </script>
     <script>
 
         const ColumnNames = ['@Language.TEXT', '@Language.TYPE', '@Language.ORDER', '  '];
@@ -138,8 +116,21 @@
 
 
         let tdTypeNumber = document.createElement('td');
-        tdTypeNumber.classList.add('col',"text-center");
-        tdTypeNumber.innerHTML = question.TypeName;
+        tdTypeNumber.classList.add('col', "text-center");
+        switch (String(question.TypeName)) {
+            case "@Question.QuestionTypes.FACES.ToString()":
+                tdTypeNumber.innerHTML ="@Language.FACES"
+                break;
+            case "@Question.QuestionTypes.STARS.ToString()":
+                tdTypeNumber.innerHTML ="@Language.STARS"
+                break;
+            case "@Question.QuestionTypes.SLIDER.ToString()":
+                tdTypeNumber.innerHTML ="@Language.SLIDER"
+                break;
+            default:
+                break;
+
+        }
         tr.appendChild(tdTypeNumber);
 
 
@@ -220,8 +211,8 @@
         });
 
                 const body = await response.json();
-            if (body.success) {
-                SuccessFlash("Delete Successfully")
+                if (body.success) {
+                    SuccessFlash("@Language.DELETE_SUCCESSFUL")
                 removeElementById(questionId);
                 // Find the index of the question with the specified Id in the array
                 const index = questionList.findIndex((question) => question.Id === questionId);
@@ -231,11 +222,11 @@
                     questionList.splice(index, 1);
                 }
             }
-            else {
-                ErrorFlash("Delete Failed")
+                else {
+                    ErrorFlash("@Language.DELETE_FAILED")
                 }
             } catch (e) {
-                ErrorFlash("Something went wrong (!_!)")
+                ErrorFlash(" @Language.DB_FAILED_NERORK_CONNECTION")
 
             }
 
@@ -313,6 +304,33 @@
                 CreateTableBody();
 
         }
+    </script>
+
+    <script>
+        $(function () {
+            // Connect to the SignalR hub
+            var hub = $.connection.questionHub;
+
+            // Define a client-side function to be called when the hub sends a notification
+            hub.client.refreshQuestions = function (questionList)) {
+                removeTableBody();
+                CreateTableBody();
+                console.log("refreshQuestions called")
+            }
+            hub.client.updateUI = function () {
+                console.log('SignalR connection established.2222222');
+
+                // Reload or update your web page here when the event occurs
+                location.reload(); // For example, you can reload the page
+            };
+
+            // Start the connection
+            $.connection.hub.start(function () {
+                // hub.server.notifyClients();
+                // You can do additional setup here if needed
+                console.log('SignalR connection established.');
+            });
+        });
     </script>
 
 }

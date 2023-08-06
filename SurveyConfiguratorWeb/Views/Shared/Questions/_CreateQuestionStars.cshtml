@@ -1,15 +1,17 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionStars
+@using SurveyConfiguratorWeb.Languages
+
 @using (Html.BeginForm("Create", "Question", FormMethod.Post))
 {
     @Html.Partial("Questions/_Create", Model)
-<div class="mb-3">
-    <label for="@nameof(Model.StarsNumber)" class="form-label">Stars Number</label>
-    @Html.TextBoxFor(model => model.StarsNumber, new { @class = "form-control", type = "number", min = "1", max = "10" })
-    @Html.ValidationMessageFor(model => model.StarsNumber, "", new { @class = "text-danger" })
+    <div class="mb-3">
+        <label for="@nameof(Model.StarsNumber)" class="form-label">@Language.STARS_NUMBER</label>
+        @Html.TextBoxFor(model => model.StarsNumber, new { @class = "form-control", type = "number", min = "1", max = "10" })
+        @Html.ValidationMessageFor(model => model.StarsNumber, "", new { @class = "text-danger" })
 
-</div>
-    <div class="row w-100 text-center justify-content-center">
-        <input type="submit" value="Save" class="btn btn-primary col-md-12 col-12 text-center" />
+    </div>
+    <div class="w-100 col-12 text-center justify-content-center">
+        <input type="submit" value="@Language.SAVE" class="btn btn-primary col-md-12  text-center" />
 
     </div>
 }

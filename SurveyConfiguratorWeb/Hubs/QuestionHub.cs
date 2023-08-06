@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.SignalR;
+using SurveyConfiguratorApp.Domain.Questions;
+using SurveyConfiguratorApp.Helper;
+
 namespace SurveyConfiguratorWeb.Hubs
 {    
     public class QuestionHub : Hub
@@ -11,6 +14,18 @@ namespace SurveyConfiguratorWeb.Hubs
         public async Task NotifyClients()
         {
             await Clients.All.updateUI();
+        }
+
+        public void RefreshQuestions(ref List<Question> pQuestionsList)
+        {
+            try
+            {
+                Clients.All.refreshQuestions(pQuestionsList);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+            }
         }
     }
 }

@@ -1,11 +1,13 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionFaces
-
+@using SurveyConfiguratorWeb.Languages
+@using SurveyConfiguratorWeb.Models
 <div>
-    <h4>QuestionFaces</h4>
+    <h4>@Language.QUESTION_FACES</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal my-2" dir="auto">
         <dt>
-            @Html.DisplayNameFor(model => model.Text)
+            @Language.TEXT
+          
         </dt>
 
         <dd>
@@ -13,7 +15,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TypeName)
+            @Language.TYPE
         </dt>
 
         <dd>
@@ -21,7 +23,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Order)
+            @Language.ORDER
         </dt>
 
         <dd>
@@ -29,7 +31,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FacesNumber)
+            @Language.FACES_NUMBER
         </dt>
 
         <dd>
@@ -39,6 +41,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink(Language.EDIT, Routes.EDIT, new { id = Model.Id }) |
     @Html.Partial("Questions/_BackToList")
 </p>
