@@ -214,6 +214,24 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Survey is empty.
+        /// </summary>
+        public static string EMPTY_TABLE {
+            get {
+                return ResourceManager.GetString("EMPTY_TABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No data to display..
+        /// </summary>
+        public static string EMPTY_TABLE_MESSAGE {
+            get {
+                return ResourceManager.GetString("EMPTY_TABLE_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to End Caption.
         /// </summary>
         public static string END_CAPTION {

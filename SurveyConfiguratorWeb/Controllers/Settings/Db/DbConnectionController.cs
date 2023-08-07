@@ -1,5 +1,7 @@
-﻿using SurveyConfiguratorApp.Helper;
+﻿using Microsoft.AspNet.SignalR;
+using SurveyConfiguratorApp.Helper;
 using SurveyConfiguratorApp.Logic;
+using SurveyConfiguratorWeb.Hubs;
 using SurveyConfiguratorWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -51,7 +53,7 @@ namespace SurveyConfiguratorWeb.Controllers.Db
                
                bool tResult= tDbManager.SaveConnection();
                 httpResponseCustom = HttpResponseCustom.Build(tResult);
-
+                RefreshUI(tDbManager.IsConnect());
                 return Json(httpResponseCustom);
             }
             catch (Exception e)
@@ -73,8 +75,10 @@ namespace SurveyConfiguratorWeb.Controllers.Db
                 bool isConnect = tDbManager.IsConnect();
                 if (tDbManager.IsConnect())
                 {
-                   return this.Create(pFormCollection);
-                }
+                   
+                    return this.Create(pFormCollection);
+                } 
+                RefreshUI(isConnect);
                 return Json(httpResponseCustom);
 
             }
@@ -84,6 +88,21 @@ namespace SurveyConfiguratorWeb.Controllers.Db
                 return Json(httpResponseCustom);
             }
         }
-    
+
+        public void RefreshUI(bool pIsConnected)
+        {
+            try
+            {
+                var hubContext = GlobalHost.ConnectionManager.GetHubContext<DbHub>();
+                hubContext.Clients.All.UpdateConfigClient(pIsConnected);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
     }
+
+   
 }

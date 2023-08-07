@@ -8,12 +8,15 @@
     ViewBag.Title = "Home Page";
 }
 
-@*@Html.Partial("Questions/_QuestionTable", Model)*@
 
-
+<div class="alert alert-warning" role="alert" id="emptyTableWarning">
+    <h4 class="alert-heading">@Language.EMPTY_TABLE</h4>
+    <p>@Language.EMPTY_TABLE_MESSAGE</p>
+    
+</div>
 <div class="row">
 
-    <div id="tableQuestions" class="col-md-12 col-12 table-responsive">
+    <div id="tableQuestions" class="col-md-12 col-12 ">
 
     </div>
 </div>
@@ -59,143 +62,201 @@
         const ColumnNames = ['@Language.TEXT', '@Language.TYPE', '@Language.ORDER', '  '];
         var questionList = @Html.Raw(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
 
+        const HandleEmptyTable = () => {
+            try {
+                const tAlert = document.getElementById("emptyTableWarning");
+                const tQuestionTable = document.getElementById("tableQuestions");
+                
+                if (questionList.length > 0) {
+                    tAlert.style.display = "none";
+                    tQuestionTable.style.display = "block";
+                }
+                else {
+                    tAlert.style.display = "block";
+                   tQuestionTable.style.display = "none";
+                }
+            } catch(e) {
+                console.log(e);
+            }
+        }
+        const HandleCreateTable = () => {
+            try {
+                HandleEmptyTable();
+                if (questionList.length > 0) {
+                    CreateTable();
+                }
+            } catch (e) {
+                console.log(e);
+            }
 
-    const CreateTable = () => {
 
-        const div = document.getElementById('tableQuestions');
-        const table = document.createElement("table");
-        table.classList.add("table", "table-striped", "table-hover","my-3","w-100");
-        div.classList.add("container")
-        div.appendChild(table);
-        CreateTableHeader(table);
-        CreateTableBody(table);
+        }
+        const CreateTable = () => {
+            try {
+                const div = document.getElementById('tableQuestions');
+                const table = document.createElement("table");
+                table.classList.add("table", "table-striped", "table-hover", "my-3", "w-100");
+                table.id = "mainQuestionTable";
+                div.classList.add("container");
+                table.setAttribute("dir","auto")
+                div.appendChild(table);
+                CreateTableHeader(table);
+                CreateTableBody(table);
+            } catch (e) {
+                console.log(e);
+            }
     }
 
 
         const CreateTableHeader = (table) => {
-            const thead = document.createElement('thead');
-            const tr = document.createElement('tr');
-            tr.classList.add("row");
-            for (const columnName of ColumnNames) {
-                const th = document.createElement('th');
-                th.classList.add(columnName === '@Language.TEXT' ? 'col-5' : 'col');
-                th.classList.add("btn", "btn-default", "text-bold", "border");
-                th.innerHTML = columnName;
-                th.addEventListener('click', () => SortTable(columnName));
-                tr.appendChild(th);
+            try {
+                const thead = document.createElement('thead');
+                const tr = document.createElement('tr');
+                tr.classList.add("row");
+                for (const columnName of ColumnNames) {
+                    const th = document.createElement('th');
+                    th.classList.add(columnName === '@Language.TEXT' ? 'col-5' : 'col');
+                   
+                        th.classList.add("btn", "btn-default", "text-bold");
+                        th.innerHTML = columnName;
+                        th.addEventListener('click', () => SortTable(columnName));
+                   
+                  
+                    tr.appendChild(th);
+                }
+                thead.appendChild(tr);
+                table.appendChild(thead);
+            } catch (e) {
+                console.log(e);
             }
-            thead.appendChild(tr);
-            table.appendChild(thead);
+
         }
 
         const CreateTableBody = (table, pQuestionList) => {
-            if (!table) {
-                table = document.getElementsByTagName("table")[0];
+            try {
+                HandleEmptyTable();
+                if (!table) {
+                    table = document.getElementsByTagName("table")[0];
+                }
+                if (!pQuestionList) {
+                    pQuestionList = questionList;
+                }
+                let tbody = document.createElement("tbody");
+                for (var questionIndex = 0; questionIndex < pQuestionList.length; questionIndex++) {
+                    CreateTableRow(pQuestionList[questionIndex], tbody);
+                }
+                table.appendChild(tbody);
+            } catch (e) {
+                console.log(e);
             }
-            if (!pQuestionList) {
-                pQuestionList = questionList;
-            }
-        let tbody = document.createElement("tbody");
-            for (var questionIndex = 0; questionIndex < pQuestionList.length; questionIndex++) {
-                CreateTableRow(pQuestionList[questionIndex], tbody);
-        }
-        table.appendChild(tbody);
-    }
-
-    const CreateTableRow= (question, tbody) => {
-        let tr = document.createElement('tr');
-        tr.classList.add("row");
-        tr.id = question.Id;
-
-        let tdText = document.createElement('td');
-        tdText.classList.add('col-5');
-        let tQuestionText = question.Text;
-        if (tQuestionText.length > 30) {
-            tQuestionText = tQuestionText.substr(0,27)+"..."
-        }
-        tdText.innerHTML = tQuestionText;
-         tr.appendChild(tdText);
-
-
-
-        let tdTypeNumber = document.createElement('td');
-        tdTypeNumber.classList.add('col', "text-center");
-        switch (String(question.TypeName)) {
-            case "@Question.QuestionTypes.FACES.ToString()":
-                tdTypeNumber.innerHTML ="@Language.FACES"
-                break;
-            case "@Question.QuestionTypes.STARS.ToString()":
-                tdTypeNumber.innerHTML ="@Language.STARS"
-                break;
-            case "@Question.QuestionTypes.SLIDER.ToString()":
-                tdTypeNumber.innerHTML ="@Language.SLIDER"
-                break;
-            default:
-                break;
-
-        }
-        tr.appendChild(tdTypeNumber);
-
-
-        let tdOrder = document.createElement('td');
-        tdOrder.classList.add('col',"text-center");
-        tdOrder.innerHTML = question.Order;
-        tr.appendChild(tdOrder);
-
-
-        CreateRecordOperation(tr, question.Id, question.TypeName);
-        tbody.appendChild(tr);
 
     }
 
-    document.addEventListener('DOMContentLoaded', CreateTable);
+        const CreateTableRow = (question, tbody) => {
+            try {
+                let tr = document.createElement('tr');
+                tr.classList.add("row");
+                tr.id = question.Id;
+
+                let tdText = document.createElement('td');
+                tdText.classList.add('col-5');
+                let tQuestionText = question.Text;
+                if (tQuestionText.length > 30) {
+                    tQuestionText = tQuestionText.substr(0, 27) + "..."
+                }
+                tdText.innerHTML = tQuestionText;
+                tr.appendChild(tdText);
+
+             let tdTypeNumber = document.createElement('td');
+                    tdTypeNumber.classList.add('col', "text-center");
+                    switch (String(question.TypeName)) {
+                        case "@Question.QuestionTypes.FACES.ToString()":
+                            tdTypeNumber.innerHTML ="@Language.FACES"
+                            break;
+                        case "@Question.QuestionTypes.STARS.ToString()":
+                            tdTypeNumber.innerHTML ="@Language.STARS"
+                            break;
+                        case "@Question.QuestionTypes.SLIDER.ToString()":
+                            tdTypeNumber.innerHTML ="@Language.SLIDER"
+                            break;
+                        default:
+                            break;
+
+                }
+                tr.appendChild(tdTypeNumber);
+
+
+                let tdOrder = document.createElement('td');
+                tdOrder.classList.add('col', "text-center");
+                tdOrder.innerHTML = question.Order;
+                tr.appendChild(tdOrder);
+
+
+                CreateRecordOperation(tr, question.Id, question.TypeName);
+                tbody.appendChild(tr);
+
+            } catch (e) {
+                console.log(e);
+            }
+
+
+    }
+
+
+
+        document.addEventListener('DOMContentLoaded', HandleCreateTable);
 
 
     const CreateRecordOperation = (parentTag, id,typeName) => {
 
+        try {
+                const classes = ["btn", "btn-link", "col-12","col-md-3","p-0","m-1","m-md-0"];
+                let tdOps = document.createElement('td');
+                tdOps.classList.add("row", "col");
 
-        const classes = ["btn", "btn-link", "col-12","col-md-3","p-0","m-1","m-md-0"];
-        let tdOps = document.createElement('td');
-        tdOps.classList.add("row", "col");
+                let updateTag = document.createElement('a');
+                updateTag.classList.add(...classes);
+                updateTag.innerHTML = "@Language.EDIT";
+                updateTag.href = '@Url.Action(Routes.EDIT, Routes.QUESTION)?id=' + id + '&type=' + typeName;
 
-        let updateTag = document.createElement('a');
-        updateTag.classList.add(...classes);
-        updateTag.innerHTML = "@Language.EDIT";
-        updateTag.href = '@Url.Action(Routes.EDIT, Routes.QUESTION)?id=' + id + '&type=' + typeName;
+                let detailTag = document.createElement('a');
+                detailTag.classList.add(...classes);
+                detailTag.innerHTML = "@Language.DETAIL";
+                detailTag.href = '@Url.Action(Routes.DETAIL, Routes.QUESTION)?id=' + id + '&type=' + typeName;
 
-        let detailTag = document.createElement('a');
-        detailTag.classList.add(...classes);
-        detailTag.innerHTML = "@Language.DETAIL";
-        detailTag.href = '@Url.Action(Routes.DETAIL, Routes.QUESTION)?id=' + id + '&type=' + typeName;
+                let deleteTag = document.createElement('a');
+                deleteTag.classList.add(...classes);
+                deleteTag.innerHTML = "@Language.DELETE";
+                deleteTag.onclick = () => handelDeleteTableRow(id);
 
-        let deleteTag = document.createElement('a');
-        deleteTag.classList.add(...classes);
-        deleteTag.innerHTML = "@Language.DELETE";
-        deleteTag.onclick = () => handelDeleteTableRow(id);
+                tdOps.appendChild(deleteTag);
+                tdOps.appendChild(updateTag);
+                tdOps.appendChild(detailTag);
+                parentTag.appendChild(tdOps);
+        } catch (e) {
+            console.log(e);
+        }
 
-        tdOps.appendChild(deleteTag);
-        tdOps.appendChild(updateTag);
-        tdOps.appendChild(detailTag);
-        parentTag.appendChild(tdOps);
     }
 
 
-    const handelDeleteTableRow = async (questionId) => {
+        const handelDeleteTableRow = async (questionId) => {
+            try {
+                const myModal = new bootstrap.Modal(document.getElementById('deleteModel'), {});
+                myModal.show();
 
+                const deleteButton = document.getElementById('btnConfirmDelete');
+                deleteButton.addEventListener('click', async () => {
+                    toggleSpinnerModel(false);
+                    await deleteTableRow(questionId);
+                    toggleSpinnerModel(true);
+                    myModal.hide();
 
-        const myModal = new bootstrap.Modal(document.getElementById('deleteModel'), {});
-        myModal.show();
+                });
 
-        const deleteButton = document.getElementById('btnConfirmDelete');
-        deleteButton.addEventListener('click', async () => {
-            toggleSpinnerModel(false);
-            await deleteTableRow(questionId);
-            toggleSpinnerModel(true);
-            myModal.hide();
-
-        });
-
-
+            } catch (e) {
+                console.log(e);
+            }
 
     };
         const deleteTableRow = async (questionId) => {
@@ -203,28 +264,28 @@
                   const url = "/@Routes.QUESTION_DELETE";
 
 
-        const data = { pID: questionId };
+                const data = { pID: questionId };
 
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        });
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                });
 
                 const body = await response.json();
                 if (body.success) {
-                    SuccessFlash("@Language.DELETE_SUCCESSFUL")
-                removeElementById(questionId);
-                // Find the index of the question with the specified Id in the array
-                const index = questionList.findIndex((question) => question.Id === questionId);
+                            SuccessFlash("@Language.DELETE_SUCCESSFUL")
+                        removeElementById(questionId);
+                        // Find the index of the question with the specified Id in the array
+                        const index = questionList.findIndex((question) => question.Id === questionId);
 
-                // If the question with the specified Id is found, remove it from the array
-                if (index !== -1) {
-                    questionList.splice(index, 1);
-                }
-            }
+                        // If the question with the specified Id is found, remove it from the array
+                        if (index !== -1) {
+                            questionList.splice(index, 1);
+                        }
+                   }
                 else {
                     ErrorFlash("@Language.DELETE_FAILED")
                 }
@@ -235,23 +296,34 @@
 
     }
 
-    function removeElementById(id) {
-        const element = document.getElementById(id);
-        if (element) {
-            const parentElement = element.parentNode;
-            parentElement.removeChild(element);
+        function removeElementById(id) {
+            try {
+                const element = document.getElementById(id);
+                if (element) {
+                    const parentElement = element.parentNode;
+                    parentElement.removeChild(element);
+                }
+            } catch (e) {
+                console.log(e);
             }
-        }
-        const removeTableBody = () => {
 
-            for (var index = 0; index < questionList.length; index++) {
-                removeElementById(questionList[index].Id);
+        }
+
+
+        const removeTableBody = () => {
+            try {
+                for (var index = 0; index < questionList.length; index++) {
+                    removeElementById(questionList[index].Id);
+                }
+                const tTbody = document.getElementsByTagName("tbody")[0];
+                if (tTbody) {
+                    const parentElement = tTbody.parentNode;
+                    parentElement.removeChild(tTbody);
+                }
+            } catch (e) {
+                console.log(e);
             }
-            const tTbody = document.getElementsByTagName("tbody")[0];
-            if (tTbody) {
-                const parentElement = tTbody.parentNode;
-                parentElement.removeChild(tTbody);
-            }
+
         }
     function handleSaveChanges() {
         console.log('Save changes button clicked!');
@@ -282,41 +354,45 @@
         //Sort
         let lastColumnName;
         const SortTable = (pColumnName) => {
+            try {
+                    removeTableBody();
+                    switch (pColumnName) {
+                        case "@Language.TEXT":
+                            questionList.sort((a, b) => a.Text.localeCompare(b.Text));
+                            break;
+                        case "@Language.TYPE":
+                            questionList.sort((a, b) => a.TypeName.localeCompare(b.TypeName));
+                            break;
+                        case "@Language.ORDER":
+                            questionList.sort(function (a, b) { return (a.Order - b.Order) });
+                            break;
+                        default:
+                            break;
+                    }
+                    if (pColumnName == lastColumnName) {
+                        questionList.reverse();
+                        lastColumnName = "";
+                    }
+                    else
+                     lastColumnName = pColumnName;
 
-            removeTableBody();
-            switch (pColumnName) {
-                case "@Language.TEXT":
-                    questionList.sort((a, b) => a.Text.localeCompare(b.Text));
-                    break;
-                case "@Language.TYPE":
-                    questionList.sort((a, b) => a.TypeName.localeCompare(b.TypeName));
-                    break;
-                case "@Language.ORDER":
-                    questionList.sort(function (a, b) { return (a.Order - b.Order) });
-                    break;
-                default:
-                    break;
+                        CreateTableBody();
+            } catch (e) {
+                console.log(e);
             }
-            if (pColumnName == lastColumnName) {
-                questionList.reverse();
-                lastColumnName = "";
-            }
-            else
-             lastColumnName = pColumnName;
 
-                CreateTableBody();
 
         }
 
 
         var hub = $.connection.questionHub;
-          
+
         hub.client.refreshQuestionsClient = function (questionList) {
                 removeTableBody();
             CreateTableBody(null,questionList);
             }
         $(function () {
- 
+
             $.connection.hub.start(function () {
                 console.log('SignalR connection established.');
             });
@@ -326,9 +402,6 @@
 
     </script>
 
-    <script>
-    
-      
-    </script>
+   
 
 }

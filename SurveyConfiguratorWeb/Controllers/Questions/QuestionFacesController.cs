@@ -55,8 +55,12 @@ namespace SurveyConfiguratorWeb.Models.Questions
             {
                 QuestionFaces tQuestionFaces = new QuestionFaces();
                 tQuestionFaces.SetId(id);
-                questionManager.GetQuestionFaces(ref tQuestionFaces);
+               int tResult= questionManager.GetQuestionFaces(ref tQuestionFaces);
+                if (tResult != ResultCode.SUCCESS)
+                {
+                    return View(Routes.CUSTOM_ERROR, errorModel);
 
+                }
                 return View(tQuestionFaces);
             }
             catch (Exception e)

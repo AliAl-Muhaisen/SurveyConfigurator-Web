@@ -149,6 +149,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\DbHub.cs" />
     <Compile Include="Hubs\QuestionHub.cs" />
     <Compile Include="Languages\Language.ar.Designer.cs">
       <DependentUpon>Language.ar.resx</DependentUpon>

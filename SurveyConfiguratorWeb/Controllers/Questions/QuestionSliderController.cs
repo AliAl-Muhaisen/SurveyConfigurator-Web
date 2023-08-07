@@ -52,7 +52,11 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             {
                 QuestionSlider tQuestionSlider = new QuestionSlider();
                 tQuestionSlider.SetId(id);
-                questionManager.GetQuestionSlider(ref tQuestionSlider);
+                int tResult=questionManager.GetQuestionSlider(ref tQuestionSlider);
+                if (tResult != ResultCode.SUCCESS)
+                {
+                    return View(Routes.CUSTOM_ERROR, errorModel);
+                }
                 return View(tQuestionSlider);
             }
             catch (Exception e)

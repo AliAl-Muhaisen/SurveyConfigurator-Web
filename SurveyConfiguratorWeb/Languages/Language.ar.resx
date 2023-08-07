@@ -168,6 +168,12 @@
   <data name="EDIT" xml:space="preserve">
     <value>تعديل</value>
   </data>
+  <data name="EMPTY_TABLE" xml:space="preserve">
+    <value>الاستطلاع فارغ</value>
+  </data>
+  <data name="EMPTY_TABLE_MESSAGE" xml:space="preserve">
+    <value>لا توجد بيانات لعرض.</value>
+  </data>
   <data name="END_CAPTION" xml:space="preserve">
     <value>نهاية التسمية التوضيحية</value>
   </data>

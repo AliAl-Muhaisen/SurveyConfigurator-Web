@@ -50,8 +50,11 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             {
                  QuestionStars tQuestionStars = new QuestionStars();
                 tQuestionStars.SetId(id);
-                questionManager.GetQuestionStars(ref tQuestionStars);
-
+                int tResult=questionManager.GetQuestionStars(ref tQuestionStars);
+                if (tResult != ResultCode.SUCCESS)
+                {
+                    return View(Routes.CUSTOM_ERROR, errorModel);
+                }
 
                 return View(tQuestionStars);
             }

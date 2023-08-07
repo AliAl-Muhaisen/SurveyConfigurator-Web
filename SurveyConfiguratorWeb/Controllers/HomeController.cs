@@ -24,20 +24,11 @@ namespace SurveyConfiguratorWeb.Controllers
                 Log.Error(e);
             }
         }
-        public ActionResult Index()
+        public ActionResult Error()
         {
-            return View(homeModel);
+            return View();
         }
 
-        public ActionResult SetCulture(string culture)
-        {
-            if (!string.IsNullOrEmpty(culture))
-            {
-                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
-                System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
-            }
 
-            return RedirectToAction(Routes.INDEX,Routes.QUESTION);
-        }
     }
 }

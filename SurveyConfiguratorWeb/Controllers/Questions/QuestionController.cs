@@ -29,6 +29,7 @@ namespace SurveyConfiguratorWeb.Controllers
                   questionManager.FollowDbChangesWeb(questionList);
                 
                 errorModel = new ErrorModel();
+              
             }
             catch (Exception e)
             {
@@ -270,18 +271,12 @@ namespace SurveyConfiguratorWeb.Controllers
                 Log.Error(ex);
             }
         }
-        public void RefreshUI2(object pSender,EventArgs e)
-        {
-            try
-            {
-                var hubContext = GlobalHost.ConnectionManager.GetHubContext<QuestionHub>();
 
-                hubContext.Clients.All.NotifyClients();
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex);
-            }
+        public ActionResult Error()
+        {
+            return View();
         }
+
+
     }
 }
