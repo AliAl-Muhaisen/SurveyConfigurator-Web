@@ -1,21 +1,34 @@
 ﻿
 @using SurveyConfiguratorApp.Domain.Questions
+@using SurveyConfiguratorApp.Domain
 @using SurveyConfiguratorWeb.Models
 @using SurveyConfiguratorWeb.Languages
-@model  List<Question>
+@model  SurveyConfiguratorWeb.Models.QuestionModel
 
 @{
     ViewBag.Title = "Home Page";
 }
 
 
-<div class="alert alert-warning" role="alert" id="emptyTableWarning">
-    <h4 class="alert-heading">@Language.EMPTY_TABLE</h4>
-    <p>@Language.EMPTY_TABLE_MESSAGE</p>
-    
+
+<div class="row">
+    @{ if (Model.IsDbConnected == ResultCode.SUCCESS)
+        {
+                <div class="alert alert-warning" role="alert" id="emptyTableWarning">
+                    <h4 class="alert-heading">@Language.EMPTY_TABLE</h4>
+                    <p>@Language.EMPTY_TABLE_MESSAGE</p>
+
+                </div>
+                <a class="btn btn-dark col-12 col-lg-2 col-md-4 mt-2" href="/@Routes.QUESTION_CRAETE"><i class="fa-solid fa-plus"></i> @Language.ADD </a>           }
+            else
+            {
+                @Html.Partial("_DbConnectionFailed")
+            }
+        }
 </div>
 <div class="row">
-
+   
+    
     <div id="tableQuestions" class="col-md-12 col-12 ">
 
     </div>
@@ -25,12 +38,12 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="deleteModel" data-bs-backdrop="static" tabindex="-1" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModel" data-bs-backdrop="static" tabindex="-1" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true" dir="auto">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header bg-danger text-white">
-                <h5 class="modal-title " id="exampleModalLabel"> @Language.DELETE</h5>
-                <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header bg-danger text-white" dir="auto">
+                <h5 class="modal-title"  id="exampleModalLabel"> @Language.DELETE</h5>
+                @*<button type="button"  class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>*@
             </div>
             <div class="modal-body">
                 <div id="modelText" class="d-block">
@@ -40,18 +53,17 @@
 
                 </div>
 
-                <div class="spinner-border text-primary d-none justify-content-center " role="status" id="loadSpinner">
+                <div class="spinner-border text-primary text-center align-content-center d-none justify-content-center " role="status" id="loadSpinner">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" dir="auto">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> @Language.CANCEL</button>
-                <button type="button" class="btn btn-primary" id="btnConfirmDelete"> @Language.SAVE</button>
+                <button type="button" class="btn btn-primary" id="btnConfirmDelete"> @Language.DELETE</button>
             </div>
         </div>
     </div>
 </div>
-
 
 @section scripts {
     <script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
@@ -60,7 +72,7 @@
     <script>
 
         const ColumnNames = ['@Language.TEXT', '@Language.TYPE', '@Language.ORDER', '  '];
-        var questionList = @Html.Raw(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var questionList = @Html.Raw(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model.QuestionList));
 
         const HandleEmptyTable = () => {
             try {
@@ -95,7 +107,7 @@
             try {
                 const div = document.getElementById('tableQuestions');
                 const table = document.createElement("table");
-                table.classList.add("table", "table-striped", "table-hover", "my-3", "w-100");
+                table.classList.add("table", "table-striped", "table-hover", "my-3", "w-100","border","shadow");
                 table.id = "mainQuestionTable";
                 div.classList.add("container");
                 table.setAttribute("dir","auto")
@@ -116,10 +128,13 @@
                 for (const columnName of ColumnNames) {
                     const th = document.createElement('th');
                     th.classList.add(columnName === '@Language.TEXT' ? 'col-5' : 'col');
-                   
-                        th.classList.add("btn", "btn-default", "text-bold");
-                        th.innerHTML = columnName;
+                    if (columnName != '  ') {
+                        th.classList.add("btn", "btn-default", "text-bold", "border");
                         th.addEventListener('click', () => SortTable(columnName));
+                    }
+                    th.innerHTML = columnName;
+
+                       
                    
                   
                     tr.appendChild(th);

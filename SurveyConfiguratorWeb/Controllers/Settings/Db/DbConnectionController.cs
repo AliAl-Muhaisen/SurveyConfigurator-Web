@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.SignalR;
+using SurveyConfiguratorApp.Domain;
 using SurveyConfiguratorApp.Helper;
 using SurveyConfiguratorApp.Logic;
 using SurveyConfiguratorWeb.Hubs;
@@ -102,6 +103,29 @@ namespace SurveyConfiguratorWeb.Controllers.Db
             }
         }
 
+        [Route(Routes.DB_CONNECTION_CHECK_CONNECTION)]
+        [HttpGet]
+        public JsonResult CheckConnection()
+        {
+            try
+            {
+                if (DbManager.IsDbConnected()!=ResultCode.SUCCESS)
+                {
+                httpResponseCustom = HttpResponseCustom.BuildError();
+                }
+                else
+                {
+                    httpResponseCustom = HttpResponseCustom.BuildSuccess();
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                httpResponseCustom = HttpResponseCustom.BuildError();
+                Log.Error(ex);
+            }
+            return Json(httpResponseCustom);
+        }
     }
 
    

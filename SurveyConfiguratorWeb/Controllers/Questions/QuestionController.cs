@@ -17,19 +17,24 @@ namespace SurveyConfiguratorWeb.Controllers
         public readonly QuestionManager questionManager;
         List<Question> questionList;
         ErrorModel errorModel;
+        QuestionModel questionModel;
         public QuestionController()
         {
             try
             {
+                questionModel = new QuestionModel();
                 questionManager = new QuestionManager();
                 questionList = new List<Question>();
                 questionManager.GetQuestions(ref questionList);
 
                 QuestionManager.DataChangedUIWeb += RefreshUI;
-                  questionManager.FollowDbChangesWeb(questionList);
+                  questionManager.AutoRefreshWeb(questionList);
                 
                 errorModel = new ErrorModel();
-              
+                questionModel.QuestionList = questionList;
+                questionModel.IsDbConnected = DbManager.IsDbConnected();
+
+
             }
             catch (Exception e)
             {
@@ -41,7 +46,7 @@ namespace SurveyConfiguratorWeb.Controllers
         {
             try
             {
-                return View(questionList);
+                return View(questionModel);
             }
             catch (Exception e)
             {

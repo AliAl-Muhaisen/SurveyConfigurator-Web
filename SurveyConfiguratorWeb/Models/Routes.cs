@@ -5,6 +5,9 @@ using System.Web;
 
 namespace SurveyConfiguratorWeb.Models
 {
+    /// <summary>
+    /// contain app routes
+    /// </summary>
     public class Routes
     {
         #region Question Routes
@@ -56,6 +59,7 @@ namespace SurveyConfiguratorWeb.Models
         #region DB_CONNECTION
         public const string DB_CONNECTION = "DbConnection";
         public const string DB_CONNECTION_CREATE = "DbConnection/Create";
+        public const string DB_CONNECTION_CHECK_CONNECTION = DB_CONNECTION+"/Check";
         public const string DB_CONNECTION_TEST = "DbConnection/TestConnection";
         #endregion
 

@@ -61,6 +61,15 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Question.
+        /// </summary>
+        public static string ADD {
+            get {
+                return ResourceManager.GetString("ADD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Survey Configurator.
         /// </summary>
         public static string APP_NAME {
@@ -111,6 +120,15 @@ namespace SurveyConfiguratorWeb.Languages {
         public static string CONFIRM {
             get {
                 return ResourceManager.GetString("CONFIRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection Failed.
+        /// </summary>
+        public static string CONNECTION_FAILED {
+            get {
+                return ResourceManager.GetString("CONNECTION_FAILED", resourceCulture);
             }
         }
         

@@ -9,6 +9,10 @@ using System.Web.Mvc;
 
 namespace SurveyConfiguratorWeb.Models
 {
+
+    /// <summary>
+    /// Convert FormCollection To Object
+    /// </summary>
     public class FormToObj
     {
 
