@@ -7,7 +7,7 @@
 {
 
     <div class="">
-        @Html.Partial("Questions/_Create", Model)
+        @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
         <div class="mb-3">
             <label for="@nameof(Model.FacesNumber)" class="form-label">@Language.FACES_NUMBER</label>
             @Html.TextBoxFor(model => model.FacesNumber, new { @class = "form-control", type = "number", min = "2", max = "100" })

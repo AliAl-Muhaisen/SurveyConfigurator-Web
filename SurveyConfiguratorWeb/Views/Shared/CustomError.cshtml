@@ -1,4 +1,4 @@
-﻿
+﻿@using SurveyConfiguratorWeb.Models
 @model SurveyConfiguratorWeb.Models.ErrorModel
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
        
     </div>
     <div>
-        @Html.Partial("Questions/_BackToList")
+        @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
     </div>
 </body>
 </html>

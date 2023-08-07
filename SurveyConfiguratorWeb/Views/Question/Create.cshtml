@@ -1,5 +1,6 @@
 ﻿@using SurveyConfiguratorApp.Domain.Questions
 @using SurveyConfiguratorWeb.Languages
+@using SurveyConfiguratorWeb.Models
 @{ ViewBag.Title = "Create"; }
 
 <div class="shadow-lg border p-2 rounded-2">
@@ -34,14 +35,14 @@
 
             Question tQuestion = Model is Question ? Model : new Question(); }
         <div id="questionFacesPartial" style="display: none">
-            @Html.Partial("Questions/_CreateQuestionFaces", tQuestionFaces)
+            @Html.Partial(Routes.PATH_QUESTION_FACES_CRAETE_FILE, tQuestionFaces)
         </div>
 
         <div id="questionStarsPartial" style="display: none">
-            @Html.Partial("Questions/_CreateQuestionStars", tQuestionStars)
+            @Html.Partial(Routes.PATH_QUESTION_STARS_CRAETE_FILE, tQuestionStars)
         </div>
         <div id="questionSliderPartial" style="display: none">
-            @Html.Partial("Questions/_CreateQuestionSlider", tQuestionSlider)
+            @Html.Partial(Routes.PATH_QUESTION_SLIDER_CRAETE_FILE, tQuestionSlider)
         </div>
     </div>
 </div>

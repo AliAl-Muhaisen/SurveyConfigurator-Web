@@ -4,7 +4,7 @@
 @using (Html.BeginForm(Routes.CREATE, Routes.QUESTION, FormMethod.Post))
 {
     <div class=" mb-3 py-2" dir="auto">
-        @Html.Partial("Questions/_Create", Model)
+        @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
         <div class="col-12 w-100" dir="auto">
             <label for="@nameof(Model.StartValue)" class="form-label">@Language.START_VALUE</label>
             @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control", type = "number", min = "0", max = "99" })

@@ -1,5 +1,6 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionStars
 @using SurveyConfiguratorWeb.Languages
+@using SurveyConfiguratorWeb.Models
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -10,7 +11,7 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Id)
 
-    @Html.Partial("Questions/_Create", Model)
+    @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
 
     <div class="form-group">
         <label class="control-label col-md-2">@Language.STARS_NUMBER</label>
@@ -29,5 +30,5 @@
 }
 
 <div>
-    @Html.Partial("Questions/_BackToList")
+    @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
 </div>

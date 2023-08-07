@@ -1,5 +1,7 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionFaces
 @using SurveyConfiguratorWeb.Languages
+@using SurveyConfiguratorWeb.Models 
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -11,12 +13,11 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Id)
 
-    @Html.Partial("Questions/_Create",Model)
+    @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
    
 
     <input type="number" name="Id" value="@Model.Id" class="d-none" />
    
-
     <div class="form-group">
         <label for="@nameof(Model.FacesNumber)" class = "control-label col-md-2">@Language.FACES_NUMBER</label>
         <div class="col-md-12">
@@ -34,5 +35,5 @@
 }
 
 <div>
-    @Html.Partial("Questions/_BackToList")
+    @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE))
 </div>

@@ -8,6 +8,9 @@ using System.Web.Mvc;
 
 namespace SurveyConfiguratorWeb.Models
 {
+    /// <summary>
+    /// Handle the validation messages that should appear on the UI
+    /// </summary>
     public class ValidationMessages
     {
         static void QuestionMessages(Question pQuestion, ref ModelStateDictionary pModelState,int pResultCode)

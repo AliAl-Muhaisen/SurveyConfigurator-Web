@@ -6,7 +6,7 @@ using System.Web;
 namespace SurveyConfiguratorWeb.Models
 {
     /// <summary>
-    /// contain app routes
+    /// Contain app routes
     /// </summary>
     public class Routes
     {
@@ -66,7 +66,12 @@ namespace SurveyConfiguratorWeb.Models
 
         #endregion
 
-        #region Path
+        #region Paths
+        public const string PATH_QUESTION_CRAETE_FILE = "Questions/_Create";
+        public const string PATH_QUESTION_FACES_CRAETE_FILE = "Questions/_CreateQuestionFaces";
+        public const string PATH_QUESTION_STARS_CRAETE_FILE = "Questions/_CreateQuestionStars";
+        public const string PATH_QUESTION_SLIDER_CRAETE_FILE = "Questions/_CreateQuestionSlider";
+        public const string PATH_BACK_TO_LIST_FILE = "Questions/_BackToList";
         public const string PATH_DB_CONNECTION_FAILED = "_DbConnectionFailed";
         #endregion
     }

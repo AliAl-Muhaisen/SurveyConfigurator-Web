@@ -1,9 +1,10 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionStars
 @using SurveyConfiguratorWeb.Languages
+@using SurveyConfiguratorWeb.Models
 
-@using (Html.BeginForm("Create", "Question", FormMethod.Post))
+@using (Html.BeginForm(Routes.CREATE, Routes.QUESTION, FormMethod.Post))
 {
-    @Html.Partial("Questions/_Create", Model)
+    @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
     <div class="mb-3">
         <label for="@nameof(Model.StarsNumber)" class="form-label">@Language.STARS_NUMBER</label>
         @Html.TextBoxFor(model => model.StarsNumber, new { @class = "form-control", type = "number", min = "1", max = "10" })
