@@ -20,8 +20,7 @@ namespace SurveyConfiguratorWeb.Models.Questions
             try
             {
                 questionManager = new QuestionManager();
-                //errorModel.Title = Resource.ERROR;
-                //errorModel.Message = Resource.QUESTION_NOT_FOUND;
+
                 errorModel = new ErrorModel();
                
             }

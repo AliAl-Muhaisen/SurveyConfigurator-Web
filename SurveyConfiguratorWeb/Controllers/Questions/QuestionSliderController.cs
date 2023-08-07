@@ -2,6 +2,7 @@
 using SurveyConfiguratorApp.Domain.Questions;
 using SurveyConfiguratorApp.Helper;
 using SurveyConfiguratorApp.Logic;
+using SurveyConfiguratorWeb.Languages;
 using SurveyConfiguratorWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -21,8 +22,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             {
                 questionManager=new QuestionManager();
                 errorModel = new ErrorModel();
-                errorModel.Title = "Error";
-                errorModel.Message = "This Question does not exists";
+      
             }
             catch (Exception e)
             {
