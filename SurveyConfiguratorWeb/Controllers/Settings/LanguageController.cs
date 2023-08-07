@@ -10,14 +10,17 @@ namespace SurveyConfiguratorWeb.Controllers.Settings
 {
     public class LanguageController : Controller
     {
-        // GET: Language
-        public const string  LANGAUGE_NAME_COOKIE= "lang";
+        #region Attributes
+        public const string LANGAUGE_NAME_COOKIE = "lang";
+        #endregion
+        #region Actions & Methods
         public ActionResult Index(string lang)
         {
             try
             {
                 if (!string.IsNullOrEmpty(lang))
                 {
+                    //Update the Current Culture
                     System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo(lang);
                     System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
                     HttpCookie tHttpCookie = new HttpCookie(LANGAUGE_NAME_COOKIE);
@@ -29,7 +32,9 @@ namespace SurveyConfiguratorWeb.Controllers.Settings
             {
                 Log.Error(e);
             }
-           return Redirect(Request.UrlReferrer.ToString());
+            //Refresh the current page
+            return Redirect(Request.UrlReferrer.ToString());
         }
+        #endregion
     }
 }

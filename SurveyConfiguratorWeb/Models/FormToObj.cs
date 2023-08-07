@@ -11,7 +11,7 @@ namespace SurveyConfiguratorWeb.Models
 {
 
     /// <summary>
-    /// Convert FormCollection To Object
+    /// Convert Form Collection To Object
     /// </summary>
     public class FormToObj
     {
@@ -19,6 +19,7 @@ namespace SurveyConfiguratorWeb.Models
 
 
         #region Questions
+        //Form input names for all question types
         const string TEXT = "Text";
         const string ORDER = "Order";
         public const string TYPE_NAME = "TypeName";
@@ -28,6 +29,12 @@ namespace SurveyConfiguratorWeb.Models
         const string END_VALUE = "EndValue";
         const string START_CAPTION = "StartCaption";
         const string END_CAPTION = "EndCaption";
+
+        /// <summary>
+        /// Convert FormCollection to QuestionFaces
+        /// </summary>
+        /// <param name="pFormCollection"></param>
+        /// <returns></returns>
         static public QuestionFaces QuestionFaces(FormCollection pFormCollection)
         {
             try
@@ -42,8 +49,14 @@ namespace SurveyConfiguratorWeb.Models
             {
                 Log.Error(e);
             }
-            return new QuestionFaces();
+            return null;
         }
+
+        /// <summary>
+        /// Convert FormCollection to QuestionStars
+        /// </summary>
+        /// <param name="pFormCollection"></param>
+        /// <returns></returns>
         static public QuestionStars QuestionStars(FormCollection pFormCollection)
         {
             try
@@ -58,8 +71,14 @@ namespace SurveyConfiguratorWeb.Models
             {
                 Log.Error(e);
             }
-            return new QuestionStars();
+            return null;
         }
+
+        /// <summary>
+        /// Convert FormCollection to QuestionSlider
+        /// </summary>
+        /// <param name="pFormCollection"></param>
+        /// <returns></returns>
         static public QuestionSlider QuestionSlider(FormCollection pFormCollection)
         {
             try
@@ -77,13 +96,14 @@ namespace SurveyConfiguratorWeb.Models
             {
                 Log.Error(e);
             }
-            return new QuestionSlider();
+            return null;
         }
         #endregion
 
 
         #region DB Connection
 
+        //Form input names for DbManager Object
         const string SERVER= "Server";
         const string DB= "Database";
         const string USER_NAME= "Username";
@@ -102,7 +122,7 @@ namespace SurveyConfiguratorWeb.Models
             catch (Exception e)
             {
                 Log.Error(e);
-                return new DbManager();
+                return null;
             }
         }
         #endregion

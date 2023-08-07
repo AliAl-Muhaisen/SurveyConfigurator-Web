@@ -14,8 +14,11 @@ namespace SurveyConfiguratorWeb.Controllers.Db
 {
     public class DbConnectionController : Controller
     {
-        // GET: DbConnection
+
+        #region Attributes
         HttpResponseCustom httpResponseCustom;
+        #endregion
+        #region Constructor
         public DbConnectionController()
         {
             try
@@ -24,17 +27,24 @@ namespace SurveyConfiguratorWeb.Controllers.Db
             }
             catch (Exception e)
             {
-                Log.Error(e) ;
+                Log.Error(e);
             }
         }
+        #endregion
 
+        #region Actions & Methods
+
+        /// <summary>
+        /// Render the create page 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Create()
         {
             try
             {
                 DbManager dbManager = new DbManager();
-              
+
                 return View(dbManager);
             }
             catch (Exception e)
@@ -44,42 +54,62 @@ namespace SurveyConfiguratorWeb.Controllers.Db
             }
         }
 
+        /// <summary>
+        /// To save the new config data
+        /// </summary>
+        /// <param name="pFormCollection"></param>
+        /// <returns></returns>
         [HttpPost]
         public JsonResult Create(FormCollection pFormCollection)
         {
             try
-            {
-               
+            { 
+                httpResponseCustom = HttpResponseCustom.BuildError();
                 DbManager tDbManager = FormToObj.DbManager(pFormCollection);
-               
-               bool tResult= tDbManager.SaveConnection();
+                if (tDbManager == null)
+                {
+                    return Json(httpResponseCustom);
+                }
+                bool tResult = tDbManager.SaveConnection();
                 httpResponseCustom = HttpResponseCustom.Build(tResult);
-                RefreshUI(tDbManager.IsConnect());
                 return Json(httpResponseCustom);
             }
             catch (Exception e)
             {
                 Log.Error(e);
-                httpResponseCustom = HttpResponseCustom.BuildError();
+               
                 return Json(httpResponseCustom);
 
             }
         }
-   
-    [HttpPost]
-    public JsonResult TestConnection(FormCollection pFormCollection)
+
+
+
+        /// <summary>
+        /// To Test the connection before save it
+        /// </summary>
+        /// <param name="pFormCollection"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult TestConnection(FormCollection pFormCollection)
         {
             httpResponseCustom = HttpResponseCustom.BuildError();
             try
             {
+                //to convert the pFormCollection to object
                 DbManager tDbManager = FormToObj.DbManager(pFormCollection);
+                if (tDbManager == null)
+                {
+                    return Json(httpResponseCustom);
+                }
                 bool isConnect = tDbManager.IsConnect();
+                // if the data was provided connected successfully
                 if (tDbManager.IsConnect())
                 {
-                   
+                    //save the data
                     return this.Create(pFormCollection);
-                } 
-                RefreshUI(isConnect);
+                }
+                //to notify the ui
                 return Json(httpResponseCustom);
 
             }
@@ -90,43 +120,10 @@ namespace SurveyConfiguratorWeb.Controllers.Db
             }
         }
 
-        public void RefreshUI(bool pIsConnected)
-        {
-            try
-            {
-                var hubContext = GlobalHost.ConnectionManager.GetHubContext<DbHub>();
-                hubContext.Clients.All.UpdateConfigClient(pIsConnected);
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex);
-            }
-        }
 
-        [Route(Routes.DB_CONNECTION_CHECK_CONNECTION)]
-        [HttpGet]
-        public JsonResult CheckConnection()
-        {
-            try
-            {
-                if (DbManager.IsDbConnected()!=ResultCode.SUCCESS)
-                {
-                httpResponseCustom = HttpResponseCustom.BuildError();
-                }
-                else
-                {
-                    httpResponseCustom = HttpResponseCustom.BuildSuccess();
-                }
-               
-            }
-            catch (Exception ex)
-            {
-                httpResponseCustom = HttpResponseCustom.BuildError();
-                Log.Error(ex);
-            }
-            return Json(httpResponseCustom);
-        }
+
+        #endregion
     }
 
-   
+
 }

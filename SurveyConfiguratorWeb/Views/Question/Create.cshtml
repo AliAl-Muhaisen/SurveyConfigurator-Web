@@ -1,59 +1,59 @@
 ﻿@using SurveyConfiguratorApp.Domain.Questions
 @using SurveyConfiguratorWeb.Languages
-@{
-    ViewBag.Title = "Create";
-}
-<div class="my-3 row">
-    <h2>@Language.CREATE</h2>
-    <div class="input-group mb-3 col-12">
-        <label class="input-group-text" for="questionTypes">@Language.QUESTION_TYPE</label>
+@{ ViewBag.Title = "Create"; }
 
-        <select class="form-select" id="questionTypes">
-            <option selected disabled>@(Language.CHOOSE)...</option>
-            @foreach (Question.QuestionTypes type in Enum.GetValues(typeof(Question.QuestionTypes)))
-            {
-                switch (type)
+<div class="shadow-lg border p-2 rounded-2">
+    <div class="my-3 row">
+        <h2>@Language.CREATE</h2>
+        <div class="input-group mb-3 col-12">
+            <label class="input-group-text" for="questionTypes">@Language.QUESTION_TYPE</label>
+
+            <select class="form-select" id="questionTypes">
+                <option selected disabled>@(Language.CHOOSE)...</option>
+                @foreach (Question.QuestionTypes type in Enum.GetValues(typeof(Question.QuestionTypes)))
                 {
-                    case Question.QuestionTypes.FACES:
-        <option value="@type">@Language.FACES</option>
-                        break;
-                    case Question.QuestionTypes.SLIDER:
-        <option value="@type">@Language.SLIDER</option>
-                        break;
-                    case Question.QuestionTypes.STARS:
-        <option value="@type">@Language.STARS</option>
-                        break;
-                    default:
-                        break;
+                    switch (type)
+                    {
+                        case Question.QuestionTypes.FACES:
+    <option value="@type">@Language.FACES</option> break;
+                        case Question.QuestionTypes.SLIDER:
+    <option value="@type">@Language.SLIDER</option> break;
+                        case Question.QuestionTypes.STARS:
+    <option value="@type">@Language.STARS</option>break;
+                        default:
+                            break;
+                    }
+
                 }
 
-            }
+            </select>
+        </div>
+        @{ QuestionFaces tQuestionFaces = Model is QuestionFaces ? Model : new QuestionFaces();
+            QuestionStars tQuestionStars = Model is QuestionStars ? Model : new QuestionStars();
+            QuestionSlider tQuestionSlider = Model is QuestionSlider ? Model : new QuestionSlider();
 
-        </select>
+            Question tQuestion = Model is Question ? Model : new Question(); }
+        <div id="questionFacesPartial" style="display: none">
+            @Html.Partial("Questions/_CreateQuestionFaces", tQuestionFaces)
+        </div>
+
+        <div id="questionStarsPartial" style="display: none">
+            @Html.Partial("Questions/_CreateQuestionStars", tQuestionStars)
+        </div>
+        <div id="questionSliderPartial" style="display: none">
+            @Html.Partial("Questions/_CreateQuestionSlider", tQuestionSlider)
+        </div>
     </div>
 </div>
 
-@{ 
-    QuestionFaces tQuestionFaces =Model is QuestionFaces?Model :new QuestionFaces();
-    QuestionStars tQuestionStars = Model is QuestionStars?Model :new QuestionStars();
-    QuestionSlider tQuestionSlider = Model is QuestionSlider?Model :new QuestionSlider();
-
-    Question tQuestion = Model is Question ? Model : new Question();
-}
-    <div id="questionFacesPartial" style="display: none">
-        @Html.Partial("Questions/_CreateQuestionFaces", tQuestionFaces)
-    </div>
-
-    <div id="questionStarsPartial" style="display: none">
-        @Html.Partial("Questions/_CreateQuestionStars", tQuestionStars)
-    </div>
-    <div id="questionSliderPartial" style="display: none">
-        @Html.Partial("Questions/_CreateQuestionSlider", tQuestionSlider)
-    </div>
 
 
-    @section scripts {
-        <script>
+
+
+
+
+@section scripts {
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             var selectElement = document.getElementById('questionTypes');
             var questionFacesPartial = document.getElementById('questionFacesPartial');
@@ -67,7 +67,7 @@
                 for (let i = 0; i < options.length; i++) {
                     if (options[i].value === questionType) {
                         options[i].selected = true;
-                        break; 
+                        break;
                     }
                 }
             }
@@ -98,7 +98,7 @@
             });
 
         });
-        </script>
-    }
+    </script>
+}
 
 

@@ -18,7 +18,6 @@ namespace SurveyConfiguratorWeb
             {
                     // Enable SignalR hubs
                      app.MapSignalR();
-                   //  app.MapSignalR<QuestionHub>("/questionHub");
             }
             catch (Exception e)
             {

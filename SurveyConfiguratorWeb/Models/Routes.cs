@@ -65,5 +65,9 @@ namespace SurveyConfiguratorWeb.Models
 
 
         #endregion
+
+        #region Path
+        public const string PATH_DB_CONNECTION_FAILED = "_DbConnectionFailed";
+        #endregion
     }
 }

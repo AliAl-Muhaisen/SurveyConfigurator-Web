@@ -14,10 +14,16 @@ namespace SurveyConfiguratorWeb.Controllers
 {
     public class QuestionController : Controller
     {
+        #region Attributes
         public readonly QuestionManager questionManager;
         List<Question> questionList;
         ErrorModel errorModel;
         QuestionModel questionModel;
+
+        HttpResponseCustom httpResponse;
+        #endregion
+
+        #region Constructor
         public QuestionController()
         {
             try
@@ -25,13 +31,15 @@ namespace SurveyConfiguratorWeb.Controllers
                 questionModel = new QuestionModel();
                 questionManager = new QuestionManager();
                 questionList = new List<Question>();
-                questionManager.GetQuestions(ref questionList);
+                int tResult = questionManager.GetQuestions(ref questionList);
+
+                questionModel.QuestionList = questionList;
 
                 QuestionManager.DataChangedUIWeb += RefreshUI;
-                  questionManager.AutoRefreshWeb(questionList);
-                
+                questionManager.AutoRefreshWeb(questionList);
+
                 errorModel = new ErrorModel();
-                questionModel.QuestionList = questionList;
+
                 questionModel.IsDbConnected = DbManager.IsDbConnected();
 
 
@@ -41,7 +49,15 @@ namespace SurveyConfiguratorWeb.Controllers
                 Log.Error(e);
             }
         }
+        #endregion
+
+
+        #region Actions & Methods
         // GET: Question
+        /// <summary>
+        /// Return the main page 
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Index()
         {
             try
@@ -54,6 +70,12 @@ namespace SurveyConfiguratorWeb.Controllers
                 return View(Routes.ERROR);
             }
         }
+
+        /// <summary>
+        /// Delete specific question through AJAX 
+        /// </summary>
+        /// <param name="pID"></param>
+        /// <returns></returns>
         public JsonResult Delete(int pID)
         {
             try
@@ -61,17 +83,27 @@ namespace SurveyConfiguratorWeb.Controllers
                 int result = questionManager.Delete(pID);
                 if (result == ResultCode.SUCCESS)
                 {
-                    return Json(new { success = true, Status = 200 }, JsonRequestBehavior.AllowGet);
+                    httpResponse = HttpResponseCustom.BuildSuccess();
+                    return Json(httpResponse);
+                }
+                else
+                {
+                    httpResponse = HttpResponseCustom.BuildError();
                 }
             }
             catch (Exception e)
             {
                 Log.Error(e);
+                httpResponse = HttpResponseCustom.BuildError();
             }
-            return Json(new { success = false, Status = 404 }, JsonRequestBehavior.AllowGet);
+            return Json(httpResponse);
 
         }
 
+        /// <summary>
+        /// Render the create page 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Create()
         {
@@ -86,15 +118,21 @@ namespace SurveyConfiguratorWeb.Controllers
             }
         }
 
-
+        /// <summary>
+        /// handle the create question, when the user submit the form
+        /// </summary>
+        /// <param name="pFormCollection"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Create(FormCollection pFormCollection)
         {
             try
             {
+                //get the question type
                 string tTypeName = pFormCollection[FormToObj.TYPE_NAME];
+                //convert string to QuestionTypes (enum)
                 Question.QuestionTypes tQuestionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), tTypeName));
-                int result = 0;
+                int tResult = 0;
 
 
                 QuestionFaces tQuestionFaces;
@@ -105,18 +143,32 @@ namespace SurveyConfiguratorWeb.Controllers
                     case Question.QuestionTypes.FACES:
 
                         tQuestionFaces = FormToObj.QuestionFaces(pFormCollection);
-                        result = questionManager.AddQuestionFaces(tQuestionFaces);
-                        if (result != ResultCode.SUCCESS)
+
+                        if (tQuestionFaces == null)
                         {
+                            goto ErrorLabel;
+                        }
+                        tResult = questionManager.AddQuestionFaces(tQuestionFaces);
+                        //Check for validation error,if it is not VALIDATION_ERROR it will be Success or Error
+                        if (tResult == ResultCode.VALIDATION_ERROR)
+                        {
+                            //To display the error messages 
                             ValidationMessages.FacesValidation(ref tQuestionFaces, ModelState, questionManager.ValidationErrorList);
+                            //return the create page with the previous data
                             return View(tQuestionFaces);
                         }
 
                         break;
                     case Question.QuestionTypes.SLIDER:
                         tQuestionSlider = FormToObj.QuestionSlider(pFormCollection);
-                        result = questionManager.AddQuestionSlider(tQuestionSlider);
-                        if (result != ResultCode.SUCCESS)
+                        if (tQuestionSlider == null)
+                        {
+                            goto ErrorLabel;
+                        }
+
+
+                        tResult = questionManager.AddQuestionSlider(tQuestionSlider);
+                        if (tResult == ResultCode.VALIDATION_ERROR)
                         {
                             ValidationMessages.SliderValidation(ref tQuestionSlider, ModelState, questionManager.ValidationErrorList);
                             return View(tQuestionSlider);
@@ -125,8 +177,13 @@ namespace SurveyConfiguratorWeb.Controllers
                         break;
                     case Question.QuestionTypes.STARS:
                         tQuestionStars = FormToObj.QuestionStars(pFormCollection);
-                        result = questionManager.AddQuestionStars(tQuestionStars);
-                        if (result != ResultCode.SUCCESS)
+                        if (tQuestionStars == null)
+                        {
+                            goto ErrorLabel;
+                        }
+
+                        tResult = questionManager.AddQuestionStars(tQuestionStars);
+                        if (tResult == ResultCode.VALIDATION_ERROR)
                         {
                             ValidationMessages.StarsValidation(ref tQuestionStars, ModelState, questionManager.ValidationErrorList);
                             return View(tQuestionStars);
@@ -135,45 +192,60 @@ namespace SurveyConfiguratorWeb.Controllers
                     default:
                         break;
                 }
-                if (result == ResultCode.SUCCESS)
+
+                if (tResult == ResultCode.SUCCESS)
                     return RedirectToAction(Routes.INDEX);
-                return View();
+
             }
             catch (Exception e)
             {
                 Log.Error(e);
+            }
+
+        ErrorLabel:
+            {
                 return View(Routes.ERROR);
             }
-          
+
+
+
         }
 
-        public ActionResult Detail(int id,string type)
+        /// <summary>
+        /// To display the details of the question with the provided id and type
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public ActionResult Detail(int id, string type)
         {
             try
             {
-         Question.QuestionTypes questionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), type));
-            int tResult = questionManager.IsQuestionExists(id);
-            errorModel.Message =Language.DB_RECORD_NOT_EXISTS;
-            if (tResult!=ResultCode.SUCCESS)
-            {
-                return View(Routes.CUSTOM_ERROR, errorModel);
+                //convert string to QuestionTypes (enum)
+                Question.QuestionTypes tQuestionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), type));
+                int tResult = questionManager.IsQuestionExists(id);
 
-            }
-            switch (questionType)
-            {
-                case Question.QuestionTypes.FACES:
-                    return RedirectToAction(Routes.DETAIL, Routes.QUESTION_FACES, new { id = id });
-                  
+                errorModel.Message = Language.DB_RECORD_NOT_EXISTS;
+                if (tResult != ResultCode.SUCCESS)
+                {
+                    return View(Routes.CUSTOM_ERROR, errorModel);
 
-                case Question.QuestionTypes.SLIDER:
-                    return RedirectToAction(Routes.DETAIL,Routes.QUESTION_SLIDER , new { id = id });
+                }
+                switch (tQuestionType)
+                {
+                    case Question.QuestionTypes.FACES:
+                        return RedirectToAction(Routes.DETAIL, Routes.QUESTION_FACES, new { id = id });
 
-                case Question.QuestionTypes.STARS:
-                    return RedirectToAction(Routes.DETAIL, Routes.QUESTION_STARS , new { id = id });
 
-                default:
-                    return View(Routes.ERROR);
-            }
+                    case Question.QuestionTypes.SLIDER:
+                        return RedirectToAction(Routes.DETAIL, Routes.QUESTION_SLIDER, new { id = id });
+
+                    case Question.QuestionTypes.STARS:
+                        return RedirectToAction(Routes.DETAIL, Routes.QUESTION_STARS, new { id = id });
+
+                    default:
+                        return View(Routes.ERROR);
+                }
 
             }
             catch (Exception e)
@@ -181,18 +253,25 @@ namespace SurveyConfiguratorWeb.Controllers
                 Log.Error(e);
                 return View(Routes.ERROR);
             }
-          
-            
+
+
         }
 
+
+        /// <summary>
+        /// Render the Edit page 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         [HttpGet]
-        public ActionResult Edit(int id,string type)
+        public ActionResult Edit(int id, string type)
         {
             try
-            {
+            {   //convert string to QuestionTypes (enum)
                 Question.QuestionTypes tQuestionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), type));
 
-
+                //check if the question still exists
                 int result = questionManager.IsQuestionExists(id);
 
                 switch (result)
@@ -201,10 +280,10 @@ namespace SurveyConfiguratorWeb.Controllers
                         return View(Routes.ERROR);
                     case ResultCode.DB_RECORD_NOT_EXISTS:
                         return View(Routes.CUSTOM_ERROR, errorModel);
-                    
+
                 }
 
-
+                //Redirect 
                 switch (tQuestionType)
                 {
                     case Question.QuestionTypes.FACES:
@@ -229,22 +308,6 @@ namespace SurveyConfiguratorWeb.Controllers
             }
             return View(Routes.ERROR);
         }
-       
-
-        private void QuestionManager_DataChangedUI(object sender, EventArgs e)
-        {
-            try
-            {
-            var hubContext = GlobalHost.ConnectionManager.GetHubContext<QuestionHub>();
-
-            hubContext.Clients.All.NotifyClients();
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex);
-            }
-            
-        }
 
 
         //The Initialize method is a method of the Controller class in ASP.NET MVC. It is called automatically before any action method is executed for a controller
@@ -252,7 +315,7 @@ namespace SurveyConfiguratorWeb.Controllers
         {
             try
             {
-           
+
             }
             catch (Exception e)
             {
@@ -260,28 +323,29 @@ namespace SurveyConfiguratorWeb.Controllers
             }
             base.Initialize(requestContext);
 
-           
-        }
 
+        }
+        /// <summary>
+        /// help to handle the Auto Refresh
+        /// </summary>
+        /// <param name="pQuestions"></param>
         public void RefreshUI(List<Question> pQuestions)
         {
             try
             {
-                var hubContext = GlobalHost.ConnectionManager.GetHubContext<QuestionHub>();
+                // Get the hub context for the QuestionHub
+                var tHubContext = GlobalHost.ConnectionManager.GetHubContext<QuestionHub>();
+                // Call the 'RefreshQuestionsClient' method on all connected clients in the 'QuestionHub'
+                // The 'RefreshQuestionsClient' method is a client-side method that needs to be defined in JS code to handle the received data.
 
-                hubContext.Clients.All.RefreshQuestionsClient(pQuestions);
+                tHubContext.Clients.All.RefreshQuestionsClient(pQuestions);
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
             }
         }
-
-        public ActionResult Error()
-        {
-            return View();
-        }
-
+        #endregion
 
     }
 }

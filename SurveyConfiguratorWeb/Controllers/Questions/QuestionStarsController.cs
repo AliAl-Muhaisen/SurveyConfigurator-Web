@@ -13,9 +13,13 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
 {
     public class QuestionStarsController : Controller
     {
+        #region Attributes
+
         public readonly QuestionManager questionManager;
         ErrorModel errorModel;
+        #endregion
 
+        #region Constructor
         public QuestionStarsController()
         {
             try
@@ -28,21 +32,15 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
                 Log.Error(e);
             }
         }
-        // GET: QuestionStars
-        public ActionResult Index()
-        {
-            try
-            {
-                return View();
-            }
-            catch (Exception e)
-            {
-                Log.Error(e);
-                return View(Routes.ERROR);
-            }
-            
-        }
+        #endregion
 
+        #region Actions & Methods
+
+        /// <summary>
+        /// Render the detail page of the Stars Question
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route(Routes.QUESTION_STARS_DETAIL)]
         public ActionResult Detail(int id)
         {
@@ -50,7 +48,10 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             {
                  QuestionStars tQuestionStars = new QuestionStars();
                 tQuestionStars.SetId(id);
-                int tResult=questionManager.GetQuestionStars(ref tQuestionStars);
+                // Call the 'GetQuestionStars' method of the 'questionManager' to retrieve the QuestionStars data
+                int tResult =questionManager.GetQuestionStars(ref tQuestionStars);
+
+                // Check the result of the retrieval operation
                 if (tResult != ResultCode.SUCCESS)
                 {
                     return View(Routes.CUSTOM_ERROR, errorModel);
@@ -66,25 +67,13 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
            
         }
 
-        [HttpPost]
-        [Route(Routes.QUESTION_STARS_CRAETE)]
-        public ActionResult Create(QuestionStars pQuestionStars)
-        {
-            try
-            {
-            questionManager.AddQuestionStars(pQuestionStars);
-           
-            return RedirectToAction(Routes.CREATE,Routes.QUESTION);
-            }
-            catch (Exception e)
-            {
-                Log.Error(e);
-                return View(Routes.ERROR);
-            }
-           
-        }
-        [Route(Routes.QUESTION_STARS_EDIT)]
 
+        /// <summary>
+        /// Render the Edit page of the question stars 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route(Routes.QUESTION_STARS_EDIT)]
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -92,7 +81,14 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             {
                  QuestionStars tQuestionStars = new QuestionStars();
                 tQuestionStars.SetId(id);
-                questionManager.GetQuestionStars(ref tQuestionStars);
+
+                int tResult = questionManager.GetQuestionStars(ref tQuestionStars);
+                // Check if the 'GetQuestionStars' method was not successful (result is an error)
+                if (tResult != ResultCode.SUCCESS)
+                {
+                    // If there was an error retrieving the data, return a custom error view
+                    return View(Routes.CUSTOM_ERROR, errorModel);
+                }
                 return View(tQuestionStars);
             }
             catch (Exception e)
@@ -103,6 +99,12 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
          
         }
 
+
+        /// <summary>
+        ///  Handle the [Edit] question, when the user submit the form
+        /// </summary>
+        /// <param name="tQuestionStars"></param>
+        /// <returns></returns>
         [Route(Routes.QUESTION_STARS_EDIT)]
         [HttpPost]
         public ActionResult Edit(QuestionStars tQuestionStars)
@@ -110,17 +112,22 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
             try
             {
                  int tResult = questionManager.UpdateQuestionStars(tQuestionStars);
+                // Check the result of the update operation
                 switch (tResult)
                 {
                     case ResultCode.SUCCESS:
+                        // If the update was successful, redirect to the index page of the Question controller
                         return RedirectToAction(Routes.INDEX, Routes.QUESTION);
                     case ResultCode.DB_RECORD_NOT_EXISTS:
+                        // If the record to update does not exist, return a custom error view
                         return View(Routes.CUSTOM_ERROR, errorModel);
 
                     case ResultCode.VALIDATION_ERROR:
+                        // If there are validation errors in the QuestionFaces object, call the 'FacesValidation' method to populate ModelState with validation errors
                         ValidationMessages.StarsValidation(ref tQuestionStars, ModelState, questionManager.ValidationErrorList);
                         return View(tQuestionStars);
                     default:
+                        // For any other error, return the default error view
                         return View(Routes.ERROR);
                 }
             }
@@ -130,8 +137,7 @@ namespace SurveyConfiguratorWeb.Controllers.Questions
                 return View(Routes.ERROR);
             }
 
-           
-
         }
+        #endregion
     }
 }

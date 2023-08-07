@@ -14,7 +14,7 @@
 <div class="row">
     @{ if (Model.IsDbConnected == ResultCode.SUCCESS)
         {
-                <div class="alert alert-warning" role="alert" id="emptyTableWarning">
+                <div class="alert alert-warning my-3" role="alert" id="emptyTableWarning">
                     <h4 class="alert-heading">@Language.EMPTY_TABLE</h4>
                     <p>@Language.EMPTY_TABLE_MESSAGE</p>
 
@@ -22,7 +22,7 @@
                 <a class="btn btn-dark col-12 col-lg-2 col-md-4 mt-2" href="/@Routes.QUESTION_CRAETE"><i class="fa-solid fa-plus"></i> @Language.ADD </a>           }
             else
             {
-                @Html.Partial("_DbConnectionFailed")
+                @Html.Partial(Routes.PATH_DB_CONNECTION_FAILED)
             }
         }
 </div>
@@ -290,7 +290,7 @@
                 });
 
                 const body = await response.json();
-                if (body.success) {
+                if (body.Success) {
                             SuccessFlash("@Language.DELETE_SUCCESSFUL")
                         removeElementById(questionId);
                         // Find the index of the question with the specified Id in the array
