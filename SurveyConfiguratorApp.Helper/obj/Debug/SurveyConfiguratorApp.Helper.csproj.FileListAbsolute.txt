@@ -1,0 +1,12 @@
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorApp.Helper\bin\Debug\SurveyConfiguratorApp.Helper.dll
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorApp.Helper\bin\Debug\SurveyConfiguratorApp.Helper.pdb
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.csproj.AssemblyReference.cache
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.csproj.CoreCompileInputs.cache
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.dll
+C:\Users\a.al-muhaisen\source\repos\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.pdb
+C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Helper\bin\Debug\SurveyConfiguratorApp.Helper.dll
+C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Helper\bin\Debug\SurveyConfiguratorApp.Helper.pdb
+C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.csproj.CoreCompileInputs.cache
+C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.dll
+C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.pdb
+C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.csproj.AssemblyReference.cache
