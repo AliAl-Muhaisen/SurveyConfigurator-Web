@@ -181,7 +181,7 @@
     <value>لا توجد بيانات لعرض.</value>
   </data>
   <data name="END_CAPTION" xml:space="preserve">
-    <value>نهاية التسمية التوضيحية</value>
+    <value>شرح النهاية</value>
   </data>
   <data name="END_VALUE" xml:space="preserve">
     <value>قيمة النهاية</value>
@@ -268,7 +268,7 @@
     <value>عدد النجوم</value>
   </data>
   <data name="START_CAPTION" xml:space="preserve">
-    <value>بدء التسمية التوضيحية</value>
+    <value>شرح البداية</value>
   </data>
   <data name="START_VALUE" xml:space="preserve">
     <value>قيمه البدايه</value>

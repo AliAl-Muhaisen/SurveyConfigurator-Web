@@ -5,36 +5,40 @@
 {
     <div class=" mb-3 py-2" dir="auto">
         @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
-        <div class="col-12 w-100" dir="auto">
-            <label for="@nameof(Model.StartValue)" class="form-label">@Language.START_VALUE</label>
-            @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control", type = "number", min = "0", max = "99" })
+        <div class="col-12 w-100 my-2">
+
+            <div class="input-group" dir="auto">
+                <label for="@nameof(Model.StartValue)" class="input-group-text side-form-label">@Language.START_VALUE</label>
+                @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control", type = "number", min = "0", max = "99" })
+            </div>
             @Html.ValidationMessageFor(model => model.StartValue, "", new { @class = "text-danger" })
-
         </div>
-        <div class="col-12" dir="auto">
-            <label for="@nameof(Model.EndValue)" class="form-label">@Language.END_VALUE</label>
-            @Html.TextBoxFor(model => model.EndValue, new { @class = "form-control", type = "number", min = "1", max = "100", value = "100" })
-            @Html.ValidationMessageFor(model => model.EndValue, "", new { @class = "text-danger" })
+        
+        <div class="col-12 my-2" dir="auto">
+            <div class="input-group ">
+                <label for="@nameof(Model.EndValue)" class="input-group-text side-form-label">@Language.END_VALUE</label>
+                @Html.TextBoxFor(model => model.EndValue, new { @class = "form-control", type = "number", min = "1", max = "100", value = "100" })
 
+            </div>
+            @Html.ValidationMessageFor(model => model.EndValue, "", new { @class = "text-danger" })
 
         </div>
  
-        <div  class="col-md-12 mt-2">
-            <div class="form-group" dir="auto">
-                <label for="@nameof(Model.StartCaption)" class="form-label">@Language.START_CAPTION</label>
+        <div class="col-md-12 my-2">
+            <div class="input-group" dir="auto">
+                <label for="@nameof(Model.StartCaption)" class="input-group-text side-form-label">@Language.START_CAPTION</label>
                 @Html.TextAreaFor(model => model.StartCaption, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.StartCaption, "", new { @class = "text-danger" })
 
             </div>
+            @Html.ValidationMessageFor(model => model.StartCaption, "", new { @class = "text-danger" })
+
         </div>
-        <div  class="col-md-12 mt-2">
-            <div class="form-group" dir="auto">
-                <label for="@nameof(Model.EndCaption)" class="form-label">@Language.END_CAPTION</label>
+        <div class="col-md-12  my-2">
+            <div class="input-group" dir="auto">
+                <label for="@nameof(Model.EndCaption)" class="input-group-text side-form-label">@Language.END_CAPTION</label>
                 @Html.TextAreaFor(model => model.EndCaption, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.EndCaption, "", new { @class = "text-danger" })
-
-
             </div>
+            @Html.ValidationMessageFor(model => model.EndCaption, "", new { @class = "text-danger" })
         </div>
         
         

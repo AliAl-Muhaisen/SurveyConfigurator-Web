@@ -1,17 +1,23 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.Question
-    @using SurveyConfiguratorWeb.Languages
+@using SurveyConfiguratorWeb.Languages
 <div>
-    <div>
-        <label for="@nameof(Model.Text)" class="form-label"> @Language.TEXT</label>
-        @Html.TextAreaFor(model => model.Text, new { @class = "md-textarea form-control" })
-        @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
-    </div>
+    <div class="my-2 ">
+        <div class="input-group ">
+            <label for="@nameof(Model.Text)" class="input-group-text side-form-label"> @Language.TEXT</label>
+            @Html.TextAreaFor(model => model.Text, new { @class = "md-textarea form-control" })
+        </div>
+        @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger mb-2" })
 
-
-    <div class="mb-3">
-        <label for="@nameof(Model.Order)" class="form-label"> @Language.ORDER</label>
-        @Html.TextBoxFor(model => model.Order, new { @class = "form-control", type = "number", min = "1", max = "100" })
-        @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
     </div>
+    
+
+    <div class="my-2 ">
+        <div class="input-group">
+            <label for="@nameof(Model.Order)" class="input-group-text side-form-label"> @Language.ORDER</label>
+            @Html.TextBoxFor(model => model.Order, new { @class = "form-control", type = "number", min = "1", max = "100" })
+        </div>
+        @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger mb-2" })
+    </div>
+    
     @Html.HiddenFor(model => model.TypeName)
 </div>

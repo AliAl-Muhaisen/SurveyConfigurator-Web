@@ -10,3 +10,9 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.side-form-label
+{
+    min-width:130px !important;
+    max-width:130px !important;
+}
