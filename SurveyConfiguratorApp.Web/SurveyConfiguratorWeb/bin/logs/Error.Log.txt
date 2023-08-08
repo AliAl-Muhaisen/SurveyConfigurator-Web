@@ -157,3 +157,55 @@ Message: Connection String Updated <*-_-*><-_->
 
 
 
+-----   Error   -----
+DateTime: 21/01/45 05:25:04 م
+Type: System.InvalidOperationException
+Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+
+
+
+-----   Error   -----
+DateTime: 21/01/45 05:26:16 م
+Type: System.InvalidOperationException
+Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+
+
+
+-----   Error   -----
+DateTime: 21/01/45 05:26:17 م
+Type: System.InvalidOperationException
+Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+
+
+
+-----   Error   -----
+DateTime: 21/01/45 05:31:34 م
+Type: System.InvalidOperationException
+Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+
+
+

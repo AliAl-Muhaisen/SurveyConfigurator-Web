@@ -13,13 +13,14 @@
 
     @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
 
-    <div class="form-group">
-        <label class="control-label col-md-2">@Language.STARS_NUMBER</label>
-        <div class="col-md-12">
-            @Html.EditorFor(model => model.StarsNumber, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.StarsNumber, "", new { @class = "text-danger" })
-        </div>
+<div class="col-md-12  my-2">
+    <div class=" input-group">
+        <label class="input-group-text side-form-label">@Language.STARS_NUMBER</label>
+        @Html.EditorFor(model => model.StarsNumber, new { htmlAttributes = new { @class = "form-control" } })
     </div>
+    @Html.ValidationMessageFor(model => model.StarsNumber, "", new { @class = "text-danger mb-1" })
+
+</div>
 
     <div class="form-group my-3">
         <div class="col-md-offset-2 col-md-12">
