@@ -17,6 +17,9 @@ namespace SurveyConfiguratorWeb
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        /// <summary>
+        /// App Start
+        /// </summary>
         protected void Application_Start()
         {
             try
@@ -34,6 +37,12 @@ namespace SurveyConfiguratorWeb
             
         }
 
+
+        /// <summary>
+        /// handle server request, middleware
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="e"></param>
         protected void Application_BeginRequest(object obj,EventArgs e)
         {
             try
@@ -59,6 +68,12 @@ namespace SurveyConfiguratorWeb
             }
         }
 
+
+        /// <summary>
+        /// Handle Error request
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Application_Error(object sender, EventArgs e)
         {
             try

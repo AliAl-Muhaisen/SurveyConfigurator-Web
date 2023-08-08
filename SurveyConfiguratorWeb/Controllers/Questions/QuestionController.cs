@@ -36,7 +36,7 @@ namespace SurveyConfiguratorWeb.Controllers
                 questionModel.QuestionList = questionList;
 
                 QuestionManager.DataChangedUIWeb += RefreshUI;
-                questionManager.AutoRefreshWeb(questionList);
+                questionManager.AutoRefreshWeb(questionModel.QuestionList);
 
                 errorModel = new ErrorModel();
 

@@ -1,0 +1,33 @@
+-----   Error   -----
+DateTime: 8/8/2023 11:47:21 AM
+Type: System.InvalidOperationException
+Message: ExecuteNonQuery: Connection property has not been initialized.
+Stack Trace:    at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.Delete(Int32 pID) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 133
+
+
+
+-----   Error   -----
+DateTime: 8/8/2023 11:56:54 AM
+Type: System.InvalidOperationException
+Message: Invalid operation. The connection is closed.
+Stack Trace:    at System.Data.SqlClient.SqlConnection.GetOpenConnection()
+   at System.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at System.Data.SqlClient.SqlConnection.BeginTransaction()
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.Delete(Int32 pID) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 125
+
+
+
+-----   Error   -----
+DateTime: 8/8/2023 11:57:26 AM
+Type: System.InvalidOperationException
+Message: Invalid operation. The connection is closed.
+Stack Trace:    at System.Data.SqlClient.SqlConnection.GetOpenConnection()
+   at System.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at System.Data.SqlClient.SqlConnection.BeginTransaction()
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.Delete(Int32 pID) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 125
+
+
+

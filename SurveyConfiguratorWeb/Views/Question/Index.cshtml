@@ -14,21 +14,21 @@
 <div class="row">
     @{ if (Model.IsDbConnected == ResultCode.SUCCESS)
         {
-                <div class="alert alert-warning my-3" role="alert" id="emptyTableWarning">
-                    <h4 class="alert-heading">@Language.EMPTY_TABLE</h4>
-                    <p>@Language.EMPTY_TABLE_MESSAGE</p>
+            <div class="alert alert-warning my-3" role="alert" id="emptyTableWarning">
+                <h4 class="alert-heading">@Language.EMPTY_TABLE</h4>
+                <p>@Language.EMPTY_TABLE_MESSAGE</p>
 
-                </div>
-                <a class="btn btn-dark col-12 col-lg-2 col-md-4 mt-2" href="/@Routes.QUESTION_CRAETE"><i class="fa-solid fa-plus"></i> @Language.ADD </a>           }
-            else
-            {
-                @Html.Partial(Routes.PATH_DB_CONNECTION_FAILED)
-            }
+            </div>
+            <a class="btn btn-dark col-12 col-lg-2 col-md-4 mt-2" href="/@Routes.QUESTION_CRAETE"><i class="fa-solid fa-plus"></i> @Language.ADD </a> }
+        else
+        {
+            @Html.Partial(Routes.PATH_DB_CONNECTION_FAILED)
         }
+    }
 </div>
 <div class="row">
-   
-    
+
+
     <div id="tableQuestions" class="col-md-12 col-12 ">
 
     </div>
@@ -42,7 +42,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-danger text-white" dir="auto">
-                <h5 class="modal-title"  id="exampleModalLabel"> @Language.DELETE</h5>
+                <h5 class="modal-title" id="exampleModalLabel"> @Language.DELETE</h5>
                 @*<button type="button"  class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>*@
             </div>
             <div class="modal-body">
@@ -78,7 +78,7 @@
             try {
                 const tAlert = document.getElementById("emptyTableWarning");
                 const tQuestionTable = document.getElementById("tableQuestions");
-                
+
                 if (questionList.length > 0) {
                     tAlert.style.display = "none";
                     tQuestionTable.style.display = "block";
@@ -134,9 +134,9 @@
                     }
                     th.innerHTML = columnName;
 
-                       
-                   
-                  
+
+
+
                     tr.appendChild(th);
                 }
                 thead.appendChild(tr);
@@ -242,11 +242,11 @@
                 let deleteTag = document.createElement('a');
                 deleteTag.classList.add(...classes);
                 deleteTag.innerHTML = "@Language.DELETE";
-                deleteTag.onclick = () => handelDeleteTableRow(id);
+            deleteTag.onclick = () => handelDeleteTableRow(id);
 
-                tdOps.appendChild(deleteTag);
-                tdOps.appendChild(updateTag);
                 tdOps.appendChild(detailTag);
+                tdOps.appendChild(updateTag);
+                tdOps.appendChild(deleteTag);
                 parentTag.appendChild(tdOps);
         } catch (e) {
             console.log(e);
@@ -290,6 +290,7 @@
                 });
 
                 const body = await response.json();
+                console.info(body);
                 if (body.Success) {
                             SuccessFlash("@Language.DELETE_SUCCESSFUL")
                         removeElementById(questionId);
@@ -403,9 +404,9 @@
         var hub = $.connection.questionHub;
 
         hub.client.refreshQuestionsClient = function (questionList) {
-            console.table(questionList);
+          
             removeTableBody();
-            
+
             CreateTableBody(null,questionList);
             }
         $(function () {
@@ -419,6 +420,6 @@
 
     </script>
 
-   
+
 
 }

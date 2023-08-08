@@ -10,6 +10,9 @@ namespace SurveyConfiguratorWeb.Models
     /// </summary>
     public class Routes
     {
+        public const string SLASH = "/";
+
+
         #region Question Routes
 
         public const string QUESTION_CRAETE = "Question/Create";
