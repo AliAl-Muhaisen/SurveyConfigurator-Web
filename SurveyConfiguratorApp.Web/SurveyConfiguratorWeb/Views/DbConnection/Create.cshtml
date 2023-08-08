@@ -37,12 +37,24 @@
         </div>
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group row">
-            <div class="col-md-2 my-sm-1 my-0">
-                <input type="button" value=" @Language.SAVE" class="btn btn-primary w-100 d-block" onclick="HandleSaveConnection()" />
-            </div>
-           
+    <div class="form-group row">
+        <div class="my-1 d-block col-md-2 ">
+            <input type="button" value=" @Language.TEST" class="btn btn-warning d-block w-100 text-white" onclick="HandleTestConnection()" />
         </div>
+
+
+        <div class="col-12 row justify-content-end">
+            <div class="col-md-2 col-6 my-md-0 my-1">
+                <input type="button" value=" @Language.SAVE" class="btn btn-primary w-100" onclick="HandleSaveConnection()" />
+            </div>
+            <div class="col-md-2 col-6 my-md-0 my-1">
+                <a href="@Routes.SLASH" class="btn btn-danger w-100">@Language.CANCEL</a>
+            </div>
+
+        </div>
+       
+
+    </div>
     </div>
 }
 
@@ -83,9 +95,8 @@
     <script>
         const ConfirmModal = new bootstrap.Modal(document.getElementById('ConfirmSave'), {});
 
-        const HandleSaveConnection = async () => {
+        const HandleTestConnection = async() => {
             try {
-
                 const tUrlTest = "/@Routes.DB_CONNECTION_TEST";
                 var formData = new FormData(document.getElementById('ConfigForm'));
                 ShowOverlay();
@@ -95,9 +106,23 @@
                 })
                 const tData = await tResponse.json();
                await HideOverlay();
-                HandleFlashConnectionMsg(tData);
+                if (tData?.Success) {
+                SuccessFlash("@Language.TEST_CONNECTION");
+                    }
+                else if (!tData?.Success) {
+                        ErrorFlash("@Language.TEST_CONNECTION_FAILED");
+                    }
+                return tData;
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        const HandleSaveConnection = async () => {
+            try {
 
-               
+
+                let tData =await HandleTestConnection();
+
                 if (!tData?.Success) {
                     ConfirmModal.show();
                 }

@@ -32,10 +32,10 @@ namespace SurveyConfiguratorWeb.Models
                         pModelState.AddModelError(nameof(pQuestion.Text), Language.VALIDATION_ERROR_QUESTION_TEXT);
                         break;
                     case ResultCode.VALIDATION_ERROR_LONG_TEXT:
-                        pModelState.AddModelError(nameof(pQuestion.Text), Language.VALIDATION_ERROR_SHORT_TEXT);
+                        pModelState.AddModelError(nameof(pQuestion.Text), Language.VALIDATION_ERROR_LONG_TEXT);
                         break;
                     case ResultCode.VALIDATION_ERROR_SHORT_TEXT:
-                        pModelState.AddModelError(nameof(pQuestion.Text), Language.VALIDATION_ERROR_LONG_TEXT);
+                        pModelState.AddModelError(nameof(pQuestion.Text), Language.VALIDATION_ERROR_SHORT_TEXT);
                         break;
                     default:
                         break;

@@ -169,7 +169,7 @@
     <value>Delete Successfully</value>
   </data>
   <data name="DETAIL" xml:space="preserve">
-    <value>Detail</value>
+    <value>Details</value>
   </data>
   <data name="EDIT" xml:space="preserve">
     <value>Edit</value>
@@ -281,6 +281,9 @@
   </data>
   <data name="SUCCESS" xml:space="preserve">
     <value>Success</value>
+  </data>
+  <data name="TEST" xml:space="preserve">
+    <value>Test</value>
   </data>
   <data name="TEST_CONNECTION" xml:space="preserve">
     <value>Connected Successfully</value>

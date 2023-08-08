@@ -214,7 +214,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Detail.
+        ///   Looks up a localized string similar to Details.
         /// </summary>
         public static string DETAIL {
             get {
@@ -552,6 +552,15 @@ namespace SurveyConfiguratorWeb.Languages {
         public static string SUCCESS {
             get {
                 return ResourceManager.GetString("SUCCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test.
+        /// </summary>
+        public static string TEST {
+            get {
+                return ResourceManager.GetString("TEST", resourceCulture);
             }
         }
         

@@ -282,6 +282,9 @@
   <data name="SUCCESS" xml:space="preserve">
     <value>نجح</value>
   </data>
+  <data name="TEST" xml:space="preserve">
+    <value>تجربة</value>
+  </data>
   <data name="TEST_CONNECTION" xml:space="preserve">
     <value>تم الاتصال بنجاح</value>
   </data>
