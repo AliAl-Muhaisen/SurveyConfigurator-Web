@@ -10,28 +10,31 @@
 }
 
 
+<div class="">
+    <div class="row">
+        @{ if (Model.IsDbConnected == ResultCode.SUCCESS)
+            {
+                <div class="alert alert-warning my-3" role="alert" id="emptyTableWarning">
+                    <h4 class="alert-heading">@Language.EMPTY_TABLE</h4>
+                    <p>@Language.EMPTY_TABLE_MESSAGE</p>
 
-<div class="row">
-    @{ if (Model.IsDbConnected == ResultCode.SUCCESS)
-        {
-            <div class="alert alert-warning my-3" role="alert" id="emptyTableWarning">
-                <h4 class="alert-heading">@Language.EMPTY_TABLE</h4>
-                <p>@Language.EMPTY_TABLE_MESSAGE</p>
-
-            </div>
-            <a class="btn btn-dark col-12 col-lg-2 col-md-4 mt-2" href="/@Routes.QUESTION_CRAETE"><i class="fa-solid fa-plus"></i> @Language.ADD </a> }
-        else
-        {
-            @Html.Partial(Routes.PATH_DB_CONNECTION_FAILED)
+                </div>
+                <a class="btn btn-dark col-12 col-lg-2 col-md-4 mt-2" href="/@Routes.QUESTION_CRAETE"><i class="fa-solid fa-plus"></i> @Language.ADD </a> }
+            else
+            {
+                @Html.Partial(Routes.PATH_DB_CONNECTION_FAILED)
+            }
         }
-    }
-</div>
-<div class="row">
-
-
-    <div id="tableQuestions" class="col-md-12 col-12 ">
-
     </div>
+    <div class="row">
+
+
+        <div id="tableQuestions" class="col-md-12 col-12 ">
+
+        </div>
+    </div>
+
+
 </div>
 
 
@@ -107,7 +110,7 @@
             try {
                 const div = document.getElementById('tableQuestions');
                 const table = document.createElement("table");
-                table.classList.add("table", "table-striped", "table-hover", "my-3", "w-100","border","shadow");
+                table.classList.add("table", "table-striped", "table-hover", "my-3", "w-100","border","shadow","bg-white","rounded-1");
                 table.id = "mainQuestionTable";
                 div.classList.add("container");
                 table.setAttribute("dir","auto")

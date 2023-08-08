@@ -1,11 +1,11 @@
 ﻿@model SurveyConfiguratorApp.Logic.DbManager
 @using SurveyConfiguratorWeb.Models
 @using SurveyConfiguratorWeb.Languages
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "ConfigForm",@dir="auto" }))
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "ConfigForm",@dir="auto" ,@class="h-100" }))
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal py-4 row px-2" dir="auto">
+    <div class="form-horizontal py-4 row px-2 my-md-5 my-3 justify-content-between bg-white shadow rounded-2 mx-1 mx-lg-0 h-100 justify-content-center align-items-center" dir="auto">
         <h4> @Language.DB_CONNECTION</h4>
         <hr />
         <div class="my-1 col-12" dir="auto">
