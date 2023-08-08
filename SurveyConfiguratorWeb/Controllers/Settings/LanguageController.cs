@@ -12,6 +12,8 @@ namespace SurveyConfiguratorWeb.Controllers.Settings
     {
         #region Attributes
         public const string LANGAUGE_NAME_COOKIE = "lang";
+        public const string LANGAUGE_CULTURE_NAME_ENGLISH = "en";
+        public const string LANGAUGE_CULTURE_NAME_ARABIC = "ar";
         #endregion
         #region Actions & Methods
         public ActionResult Index(string lang)

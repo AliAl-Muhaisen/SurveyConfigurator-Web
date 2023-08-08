@@ -140,6 +140,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\Settings\Db\DbConnectionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Questions\QuestionController.cs" />
@@ -261,7 +262,6 @@
     <Content Include="Views\QuestionFaces\Detail.cshtml" />
     <Content Include="Views\QuestionStars\Detail.cshtml" />
     <Content Include="Views\QuestionSlider\Detail.cshtml" />
-    <Content Include="Views\Shared\Questions\_QuestionTable.cshtml" />
     <Content Include="Views\QuestionFaces\Edit.cshtml" />
     <Content Include="Views\QuestionStars\Edit.cshtml" />
     <Content Include="Views\QuestionSlider\Edit.cshtml" />
@@ -270,9 +270,11 @@
     <Content Include="Views\DbConnection\Create.cshtml" />
     <Content Include="Views\Shared\_Overlay.cshtml" />
     <Content Include="Views\Shared\_DbConnectionFailed.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Language\" />
   </ItemGroup>

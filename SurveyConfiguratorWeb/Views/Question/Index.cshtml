@@ -403,7 +403,9 @@
         var hub = $.connection.questionHub;
 
         hub.client.refreshQuestionsClient = function (questionList) {
-                removeTableBody();
+            console.table(questionList);
+            removeTableBody();
+            
             CreateTableBody(null,questionList);
             }
         $(function () {

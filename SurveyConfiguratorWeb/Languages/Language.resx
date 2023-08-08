@@ -195,6 +195,9 @@
   <data name="ERROR_GENERAL_MESSAGE_REQUEST" xml:space="preserve">
     <value>An error occurred while processing your request.</value>
   </data>
+  <data name="ERROR_NOT_FOUND_MESSAGE" xml:space="preserve">
+    <value>Sorry, the page you requested was not found.</value>
+  </data>
   <data name="FACES" xml:space="preserve">
     <value>Faces</value>
   </data>

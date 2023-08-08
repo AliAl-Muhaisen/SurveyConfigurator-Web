@@ -195,6 +195,9 @@
   <data name="ERROR_GENERAL_MESSAGE_REQUEST" xml:space="preserve">
     <value>حدث خطأ أثناء معالجة طلبك.</value>
   </data>
+  <data name="ERROR_NOT_FOUND_MESSAGE" xml:space="preserve">
+    <value>عذرا، الصفحة التي طلبتها غير موجودة.</value>
+  </data>
   <data name="FACES" xml:space="preserve">
     <value>اوجه</value>
   </data>

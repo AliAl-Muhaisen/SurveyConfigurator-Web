@@ -295,6 +295,15 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, the page you requested was not found..
+        /// </summary>
+        public static string ERROR_NOT_FOUND_MESSAGE {
+            get {
+                return ResourceManager.GetString("ERROR_NOT_FOUND_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Faces.
         /// </summary>
         public static string FACES {

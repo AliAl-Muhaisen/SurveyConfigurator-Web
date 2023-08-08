@@ -16,11 +16,12 @@
         * {
             box-sizing: content-box;
         }
+      
     </style>
     @Styles.Render("~/Content/css")
 
 </head>
-<body dir="auto">
+<body dir="auto" style="background-color: rgba(0, 0, 0, 0.05) !important;">
     <header class="" dir="auto">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" dir="auto">
             <div class="container" dir="auto">
@@ -78,9 +79,9 @@
             </div>
         </nav>
     </header>
-    <main dir="auto">
+    <main dir="auto" style=" ">
 
-        <div class="container body-content" dir="auto">
+        <div class="container body-content " dir="auto">
             @RenderBody()
         </div>
     </main>
@@ -99,26 +100,6 @@
     <script src="~/Scripts/flashMessages.js"></script>
     @RenderSection("scripts", required: false)
 
-   <script>
-
-       @*const CheckConnection = async() => {
-           try {
-               const Url = "/@Routes.DB_CONNECTION_CHECK_CONNECTION";
-               const tResponse = await fetch(Url, {
-                   method: "GET",
-                   headers: {
-                       "Content-Type": "application/json",
-                   },
-               });
-               const tBody = await tResponse.json();
-               console.log(tBody);
-           } catch (e) {
-               console.log(e);
-           }
-       }*@
-
-       //document.addEventListener('DOMContentLoaded', CheckConnection);
-
-   </script>
+   <
 </body>
 </html>

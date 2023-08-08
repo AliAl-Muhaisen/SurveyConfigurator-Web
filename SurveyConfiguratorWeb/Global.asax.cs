@@ -19,10 +19,18 @@ namespace SurveyConfiguratorWeb
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            try
+            {
+                 AreaRegistration.RegisterAllAreas();
+                FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+                RouteConfig.RegisterRoutes(RouteTable.Routes);
+                BundleConfig.RegisterBundles(BundleTable.Bundles);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+          
             
         }
 
@@ -39,8 +47,8 @@ namespace SurveyConfiguratorWeb
                 }
                 else
                 {
-                    Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en");
-                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+                    Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(LanguageController.LANGAUGE_CULTURE_NAME_ENGLISH);
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(LanguageController.LANGAUGE_CULTURE_NAME_ENGLISH);
                 }
 
               
@@ -49,6 +57,37 @@ namespace SurveyConfiguratorWeb
             {
                 Log.Error(ex);
             }
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            try
+            {
+                //get the last error was thrown
+                Exception tException = Server.GetLastError();
+
+                if (tException is HttpException)
+                {
+                    HttpException tHttpException = (HttpException)tException;
+                    int tHttpCode = tHttpException.GetHttpCode();
+
+                    switch (tHttpCode)
+                    {
+                        case 404:
+                            Response.Redirect(Routes.ERROR_NOTFOUND);
+                            break;
+                        default:
+                            Response.Redirect(Routes.ERROR);
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                Response.Redirect(Routes.ERROR);
+            }
+           
         }
     }
 }

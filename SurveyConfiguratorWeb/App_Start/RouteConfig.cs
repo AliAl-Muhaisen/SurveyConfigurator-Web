@@ -27,12 +27,19 @@ namespace SurveyConfiguratorWeb
                     url: "{controller}/{action}/{id}",
                     defaults: new { controller = "Question", action = "Index", id = UrlParameter.Optional }
                 );
+
+                routes.MapRoute(
+                name: "Error",
+                url: "Error/{action}",
+                defaults: new { controller = "Error" }
+                   );
+
             }
             catch (System.Exception e)
             {
                 Log.Error(e);
             }
-           
+
 
         }
     }

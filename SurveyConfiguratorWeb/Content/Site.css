@@ -1,6 +1,9 @@
 ﻿body {
     min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    
 }
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {

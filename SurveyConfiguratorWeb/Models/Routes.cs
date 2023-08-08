@@ -35,6 +35,8 @@ namespace SurveyConfiguratorWeb.Models
 
         #region Error
         public const string ERROR = "Error";
+        public const string ERROR_NOTFOUND = "~/Error/NotFound";
+        public const string ERROR_SERVER = "~/Error/ServerError";
         public const string CUSTOM_ERROR = "CustomError";
         #endregion
 
