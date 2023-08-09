@@ -33,3 +33,14 @@ C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp
 C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\obj\Debug\SurveyConfiguratorApp.Data.csproj.CopyComplete
 C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\obj\Debug\SurveyConfiguratorApp.Data.dll
 C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\obj\Debug\SurveyConfiguratorApp.Data.pdb
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\bin\Debug\SurveyConfiguratorApp.Data.dll
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\bin\Debug\SurveyConfiguratorApp.Data.pdb
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\bin\Debug\SurveyConfiguratorApp.Domain.dll
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\bin\Debug\SurveyConfiguratorApp.Helper.dll
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\bin\Debug\SurveyConfiguratorApp.Domain.pdb
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\bin\Debug\SurveyConfiguratorApp.Helper.pdb
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\obj\Debug\SurveyConfiguratorApp.Data.csproj.AssemblyReference.cache
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\obj\Debug\SurveyConfiguratorApp.Data.csproj.CoreCompileInputs.cache
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\obj\Debug\SurveyConfiguratorApp.Data.csproj.CopyComplete
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\obj\Debug\SurveyConfiguratorApp.Data.dll
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Data\obj\Debug\SurveyConfiguratorApp.Data.pdb

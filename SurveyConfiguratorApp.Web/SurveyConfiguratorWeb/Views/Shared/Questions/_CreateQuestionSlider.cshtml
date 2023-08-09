@@ -2,7 +2,6 @@
 @using SurveyConfiguratorWeb.Models
 
 
-@using (Html.BeginForm(Routes.CREATE, Routes.QUESTION, FormMethod.Post))
-{
-   @Html.Partial(Routes.PATH_QUESTION_SLIDER_INPUTS_FILE)    
-}
+
+   @Html.Partial(Routes.PATH_QUESTION_SLIDER_INPUTS_FILE,Model)    
+

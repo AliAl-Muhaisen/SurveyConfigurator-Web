@@ -16,3 +16,9 @@ C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp
 C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.csproj.CoreCompileInputs.cache
 C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.dll
 C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.pdb
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Helper\bin\Debug\SurveyConfiguratorApp.Helper.dll
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Helper\bin\Debug\SurveyConfiguratorApp.Helper.pdb
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.csproj.AssemblyReference.cache
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.csproj.CoreCompileInputs.cache
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.dll
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Helper\obj\Debug\SurveyConfiguratorApp.Helper.pdb

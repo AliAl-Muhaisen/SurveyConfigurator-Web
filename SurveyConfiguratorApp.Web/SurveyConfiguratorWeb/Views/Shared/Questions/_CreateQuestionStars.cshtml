@@ -1,8 +1,6 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionStars
 @using SurveyConfiguratorWeb.Models
 
-@using (Html.BeginForm(Routes.CREATE, Routes.QUESTION, FormMethod.Post))
-{
 
-    @Html.Partial(Routes.PATH_QUESTION_STARS_INPUTS_FILE)
-}
+
+    @Html.Partial(Routes.PATH_QUESTION_STARS_INPUTS_FILE,Model)

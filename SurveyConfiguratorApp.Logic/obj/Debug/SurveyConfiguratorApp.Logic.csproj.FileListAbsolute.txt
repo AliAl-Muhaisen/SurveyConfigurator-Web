@@ -43,3 +43,16 @@ C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp
 C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\bin\Debug\SurveyConfiguratorApp.Domain.pdb
 C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\bin\Debug\SurveyConfiguratorApp.Helper.pdb
 C:\Users\a.al-muhaisen\source\repos\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\obj\Debug\SurveyConfiguratorApp.Logic.csproj.CopyComplete
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\bin\Debug\SurveyConfiguratorApp.Logic.dll
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\bin\Debug\SurveyConfiguratorApp.Logic.pdb
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\bin\Debug\SurveyConfiguratorApp.Data.dll
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\bin\Debug\SurveyConfiguratorApp.Domain.dll
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\bin\Debug\SurveyConfiguratorApp.Helper.dll
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\bin\Debug\SurveyConfiguratorApp.Data.pdb
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\bin\Debug\SurveyConfiguratorApp.Domain.pdb
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\bin\Debug\SurveyConfiguratorApp.Helper.pdb
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\obj\Debug\SurveyConfiguratorApp.Logic.csproj.AssemblyReference.cache
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\obj\Debug\SurveyConfiguratorApp.Logic.csproj.CoreCompileInputs.cache
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\obj\Debug\SurveyConfiguratorApp.Logic.csproj.CopyComplete
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\obj\Debug\SurveyConfiguratorApp.Logic.dll
+C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Logic\obj\Debug\SurveyConfiguratorApp.Logic.pdb

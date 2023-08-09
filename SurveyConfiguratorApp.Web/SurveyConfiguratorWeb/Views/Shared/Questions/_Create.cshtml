@@ -7,7 +7,7 @@
             @Html.TextAreaFor(model => model.Text, new { @class = "md-textarea form-control", onkeydown = "CheckText(this);", onkeyup = "CheckText(this);" })
         </div>
 
-        @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger mb-2" })
+        @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger mb-2",id= "errorTextLabelBE" })
         <small class="text-danger" id="errorTextLabel"></small>
 
 
@@ -20,10 +20,10 @@
             @Html.TextBoxFor(model => model.Order, new { @class = "form-control", type = "number", min = "1", max = "100", onkeydown = "CheckOrderNumber(this);", onkeyup = "CheckOrderNumber(this);" })
         </div>
         <small class="text-danger" id="errorOrderLabel"></small>
-        @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger mb-2" })
+        @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger mb-2",id= "errorOrderLabelBE" })
     </div>
 
-    @Html.HiddenFor(model => model.TypeName)
+   
 </div>
 @section scripts{
     
@@ -35,11 +35,11 @@
 
     function CheckText(input) {
         try {
-            console.log("CheckText called")
+            const errorTextLabelBE = document.getElementById("errorTextLabelBE");
             let tInputValue = (input.value);
             const tErrorLabel = document.getElementById("errorTextLabel");
             let tTextLength = tInputValue.trim().length;
-
+            isValidText = false;
             if (tInputValue == null || tTextLength == 0) {
                 tErrorLabel.innerHTML = "@Language.VALIDATION_ERROR_QUESTION_TEXT";
             }
@@ -58,9 +58,11 @@
 
             //handle border 
             if (isValidText) {
+                
                 HandleBorderInput(input, true);
             }
             else {
+                errorTextLabelBE.style.display = 'none';
                 HandleBorderInput(input, false);
             }
         } catch (e) {
@@ -70,9 +72,12 @@
     function CheckOrderNumber(input) {
         try {
 
+            const errorOrderLabelBE = document.getElementById("errorOrderLabelBE");
 
             let tInputValue = (input.value);
             const tErrorLabel = document.getElementById("errorOrderLabel");
+
+            isValidOrder = false;
             if (isNaN(tInputValue)) {
                 tErrorLabel.innerHTML = "@Language.NOT_NUMBER";
             }
@@ -95,6 +100,7 @@
                 HandleBorderInput(input, true);
             }
             else {
+                errorOrderLabelBE.style.display = "none";
                 HandleBorderInput(input, false);
             }
         } catch (e) {

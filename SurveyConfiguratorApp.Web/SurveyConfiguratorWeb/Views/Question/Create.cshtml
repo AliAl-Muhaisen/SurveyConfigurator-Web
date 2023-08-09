@@ -18,11 +18,14 @@
                     switch (type)
                     {
                         case Question.QuestionTypes.FACES:
-    <option value="@type">@Language.FACES</option> break;
+                            <option value="@type">@Language.FACES</option>
+                            break;
                         case Question.QuestionTypes.SLIDER:
-    <option value="@type">@Language.SLIDER</option> break;
+                            <option value="@type">@Language.SLIDER</option>
+                            break;
                         case Question.QuestionTypes.STARS:
-    <option value="@type">@Language.STARS</option>break;
+                            <option value="@type">@Language.STARS</option>
+                            break;
                         default:
                             break;
                     }
@@ -37,7 +40,12 @@
 
             Question tQuestion = Model is Question ? Model : new Question(); }
 
-
+        @using (Html.BeginForm(Routes.CREATE, Routes.QUESTION, FormMethod.Post, new { @novalidate = "novalidate" }))
+        {
+    <div class="mb-3 py-2">
+      
+        <input type="string" name="TypeName" value=""  hidden id="TypeName"/>
+        @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, tQuestion)
         <div id="questionFacesPartial" style="display: none" data-view-type="faces">
             @Html.Partial(Routes.PATH_QUESTION_FACES_CRAETE_FILE, tQuestionFaces)
         </div>
@@ -48,7 +56,12 @@
         <div id="questionSliderPartial" style="display: none" data-view-type="slider">
             @Html.Partial(Routes.PATH_QUESTION_SLIDER_CRAETE_FILE, tQuestionSlider)
         </div>
+
     </div>
+           
+        }
+
+        </div>
 </div>
 
 
@@ -64,6 +77,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const TypeNameHidden = document.getElementById("TypeName");
             var selectElement = document.getElementById('questionTypes');
             var questionFacesPartial = document.getElementById('questionFacesPartial');
             var questionStarsPartial = document.getElementById('questionStarsPartial');
@@ -84,13 +98,18 @@
                 SelectQuestionTypeView(selectedValue);
                     switch (selectedValue) {
                     case "@Question.QuestionTypes.FACES":
-                        questionFacesPartial.style.display = 'block';
+                            questionFacesPartial.style.display = 'block';
+                                TypeNameHidden.value = "@Question.QuestionTypes.FACES";
                         break;
                     case "@Question.QuestionTypes.STARS":
-                        questionStarsPartial.style.display = 'block';
+                            questionStarsPartial.style.display = 'block';
+                            TypeNameHidden.value = "@Question.QuestionTypes.STARS"
+
                         break;
                     case "@Question.QuestionTypes.SLIDER":
-                        questionSliderPartial.style.display = 'block';
+                            questionSliderPartial.style.display = 'block';
+                            TypeNameHidden.value = "@Question.QuestionTypes.SLIDER"
+
                         break;
                     default:
                 }

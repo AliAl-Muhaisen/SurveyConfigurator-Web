@@ -1,274 +1,189 @@
 -----   Info   -----
-DateTime: 8/8/2023 4:11:34 PM
-Message: Connection String Updated <*-_-*><-_->
+DateTime: 22/01/45 05:05:26 م
+Message: TypeName
+Text
+Order
+FacesNumber
+StarsNumber
+StartValue
+EndValue
+StartCaption
+EndCaption
 
-
-
------   Info   -----
-DateTime: 8/8/2023 4:11:36 PM
-Message: Connection String Updated <*-_-*><-_->
-
-
-
------   Error   -----
-DateTime: 8/8/2023 4:12:36 PM
-Type: System.Data.SqlClient.SqlException
-Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
-Stack Trace:    at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at SurveyConfiguratorApp.Logic.DbManager.IsConnect() in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Logic\DbManager.cs:line 87
-
-
-
------   Error   -----
-DateTime: 8/8/2023 4:12:36 PM
-Type: System.Data.SqlClient.SqlException
-Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
-Stack Trace:    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at SurveyConfiguratorApp.Logic.DbManager.IsConnect() in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Logic\DbManager.cs:line 87
 
 
 
 -----   Info   -----
-DateTime: 8/8/2023 4:16:54 PM
-Message: Connection String Updated <*-_-*><-_->
+DateTime: 22/01/45 05:05:26 م
+Message: Trype Name: FACES
 
 
 
 -----   Info   -----
-DateTime: 8/8/2023 4:16:56 PM
-Message: Connection String Updated <*-_-*><-_->
+DateTime: 22/01/45 05:09:20 م
+Message: TypeName
+Text
+Order
+FacesNumber
+StarsNumber
+StartValue
+EndValue
+StartCaption
+EndCaption
 
-
-
------   Info   -----
-DateTime: 8/8/2023 4:20:50 PM
-Message: Connection String Updated <*-_-*><-_->
-
-
-
------   Info   -----
-DateTime: 8/8/2023 4:20:56 PM
-Message: Connection String Updated <*-_-*><-_->
 
 
 
 -----   Info   -----
-DateTime: 8/8/2023 4:21:08 PM
-Message: Connection String Updated <*-_-*><-_->
-
-
-
------   Error   -----
-DateTime: 8/8/2023 4:21:42 PM
-Type: System.Data.SqlClient.SqlException
-Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
-Stack Trace:    at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at SurveyConfiguratorApp.Logic.DbManager.IsConnect() in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Logic\DbManager.cs:line 87
-
-
-
------   Error   -----
-DateTime: 8/8/2023 4:21:42 PM
-Type: System.Data.SqlClient.SqlException
-Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
-Stack Trace:    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at SurveyConfiguratorApp.Logic.DbManager.IsConnect() in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Logic\DbManager.cs:line 87
-
-
-
------   Error   -----
-DateTime: 8/8/2023 4:22:07 PM
-Type: System.Data.SqlClient.SqlException
-Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
-Stack Trace:    at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at SurveyConfiguratorApp.Logic.DbManager.IsConnect() in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Logic\DbManager.cs:line 87
-
-
-
------   Error   -----
-DateTime: 8/8/2023 4:22:07 PM
-Type: System.Data.SqlClient.SqlException
-Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
-Stack Trace:    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at SurveyConfiguratorApp.Logic.DbManager.IsConnect() in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Logic\DbManager.cs:line 87
+DateTime: 22/01/45 05:09:20 م
+Message: Trype Name: STARS
 
 
 
 -----   Info   -----
-DateTime: 8/8/2023 4:32:59 PM
-Message: Connection String Updated <*-_-*><-_->
+DateTime: 22/01/45 05:26:12 م
+Message: TypeName
+Text
+Order
+FacesNumber
+StarsNumber
+StartValue
+EndValue
+StartCaption
+EndCaption
 
 
 
------   Error   -----
-DateTime: 21/01/45 05:25:04 م
-Type: System.InvalidOperationException
-Message: Invalid attempt to read when no data is present.
-Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
-   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
-   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+
+-----   Info   -----
+DateTime: 22/01/45 05:26:12 م
+Message: Trype Name: STARS
 
 
 
------   Error   -----
-DateTime: 21/01/45 05:26:16 م
-Type: System.InvalidOperationException
-Message: Invalid attempt to read when no data is present.
-Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
-   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
-   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+-----   Info   -----
+DateTime: 22/01/45 05:27:17 م
+Message: TypeName
+Text
+Order
+FacesNumber
+StarsNumber
+StartValue
+EndValue
+StartCaption
+EndCaption
 
 
 
------   Error   -----
-DateTime: 21/01/45 05:26:17 م
-Type: System.InvalidOperationException
-Message: Invalid attempt to read when no data is present.
-Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
-   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
-   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+
+-----   Info   -----
+DateTime: 22/01/45 05:27:17 م
+Message: Trype Name: STARS
 
 
 
------   Error   -----
-DateTime: 21/01/45 05:31:34 م
-Type: System.InvalidOperationException
-Message: Invalid attempt to read when no data is present.
-Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
-   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
-   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+-----   Info   -----
+DateTime: 22/01/45 05:27:24 م
+Message: TypeName
+Text
+Order
+FacesNumber
+StarsNumber
+StartValue
+EndValue
+StartCaption
+EndCaption
 
 
 
------   Error   -----
-DateTime: 8/9/2023 9:28:36 AM
-Type: System.InvalidOperationException
-Message: Invalid attempt to read when no data is present.
-Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
-   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
-   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+
+-----   Info   -----
+DateTime: 22/01/45 05:27:24 م
+Message: Trype Name: SLIDER
 
 
 
------   Error   -----
-DateTime: 8/9/2023 9:30:31 AM
-Type: System.InvalidOperationException
-Message: Invalid attempt to read when no data is present.
-Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
-   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
-   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 255
+-----   Info   -----
+DateTime: 22/01/45 05:28:10 م
+Message: TypeName
+Text
+Order
+FacesNumber
+StarsNumber
+StartValue
+EndValue
+StartCaption
+EndCaption
 
 
 
------   Error   -----
-DateTime: 8/9/2023 9:39:02 AM
-Type: System.InvalidOperationException
-Message: Invalid attempt to read when no data is present.
-Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
-   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
-   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 255
+
+-----   Info   -----
+DateTime: 22/01/45 05:28:10 م
+Message: Trype Name: SLIDER
 
 
 
------   Error   -----
-DateTime: 8/9/2023 9:44:11 AM
-Type: System.InvalidOperationException
-Message: Invalid attempt to call MetaData when reader is closed.
-Stack Trace:    at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlDataReader.CheckMetaDataIsReady()
-   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+-----   Info   -----
+DateTime: 22/01/45 05:30:41 م
+Message: TypeName
+Text
+Order
+FacesNumber
+StarsNumber
+StartValue
+EndValue
+StartCaption
+EndCaption
 
 
 
------   Error   -----
-DateTime: 8/9/2023 9:53:39 AM
-Type: System.InvalidOperationException
-Message: Invalid attempt to call MetaData when reader is closed.
-Stack Trace:    at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlDataReader.CheckMetaDataIsReady()
-   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+
+-----   Info   -----
+DateTime: 22/01/45 05:30:41 م
+Message: Trype Name: SLIDER
+
+
+
+-----   Info   -----
+DateTime: 22/01/45 05:31:14 م
+Message: TypeName
+Text
+Order
+FacesNumber
+StarsNumber
+StartValue
+EndValue
+StartCaption
+EndCaption
+
+
+
+
+-----   Info   -----
+DateTime: 22/01/45 05:31:14 م
+Message: Trype Name: SLIDER
+
+
+
+-----   Info   -----
+DateTime: 22/01/45 05:32:46 م
+Message: TypeName
+Text
+Order
+FacesNumber
+StarsNumber
+StartValue
+EndValue
+StartCaption
+EndCaption
+
+
+
+
+-----   Info   -----
+DateTime: 22/01/45 05:32:46 م
+Message: Trype Name: SLIDER
 
 
 
