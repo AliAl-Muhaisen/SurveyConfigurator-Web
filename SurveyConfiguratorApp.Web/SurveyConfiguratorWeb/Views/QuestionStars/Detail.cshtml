@@ -4,35 +4,54 @@
 <div class="my-3">
     <h4> @Language.QUESTION_STARS</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Language.TEXT
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Text)
-        </dd>
+    <div class="row" dir="auto">
+        <div class="col-12 row">
+            <div class="col-md-2">
+                <p class="fw-bold">
+                    @Language.TEXT
+                </p>
 
+            </div>
+            <div class="col-md-10">
+                <p>
+                    @Html.DisplayFor(model => model.Text)
+                </p>
+            </div>
+        </div>
 
-        <dt>
-            @Language.ORDER
-        </dt>
+        <div class="col-12 row">
+            <div class="col-md-2">
+                <p class="fw-bold">
+                    @Language.ORDER
+                </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Order)
-        </dd>
+            </div>
+            <div class="col-md-10">
+                <p>
+                    @Html.DisplayFor(model => model.Order)
+                </p>
+            </div>
+        </div>
+        <div class="col-12 row">
+            <div class="col-md-2">
+                <p class="fw-bold">
+                    @Language.STARS_NUMBER
+                </p>
 
-        <dt>
-            @Language.STARS_NUMBER
-        </dt>
+            </div>
+            <div class="col-md-10">
+                <p>
+                    @Html.DisplayFor(model => model.StarsNumber)
+                </p>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StarsNumber)
-        </dd>
+    </div>
 
-    </dl>
+    <p>
+        @Html.ActionLink(Language.EDIT, Routes.EDIT, new { id = Model.Id }) |
+        @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
+    </p>
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.Partial("Questions/_BackToList")
-</p>

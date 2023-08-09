@@ -1,44 +1,56 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionFaces
 @using SurveyConfiguratorWeb.Languages
 @using SurveyConfiguratorWeb.Models
-<div>
+<div class="my-3">
     <h4>@Language.QUESTION_FACES</h4>
     <hr />
-    <dl class="dl-horizontal my-2" dir="auto">
-        <dt>
-            @Language.TEXT
-          
-        </dt>
+    <div class="row" dir="auto">
+        <div class="col-12 row">
+            <div class="col-md-2">
+                <p class="fw-bold">
+                    @Language.TEXT
+                </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Text)
-        </dd>
+            </div>
+            <div class="col-md-10">
+                <p>
+                    @Html.DisplayFor(model => model.Text)
+                </p>
+            </div>
+        </div>
 
-        <dt>
-            @Language.TYPE
-        </dt>
+       
+        <div class="col-12 row">
+            <div class="col-md-2">
+                <p class="fw-bold">
+                    @Language.ORDER
+                </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.TypeName)
-        </dd>
+            </div>
+            <div class="col-md-10">
+                <p>
+                    @Html.DisplayFor(model => model.Order)
+                </p>
+            </div>
+        </div>
 
-        <dt>
-            @Language.ORDER
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Order)
-        </dd>
+        <div class="col-12 row">
+            <div class="col-md-2">
+                <p class="fw-bold">
+                    @Language.FACES_NUMBER
+                </p>
 
-        <dt>
-            @Language.FACES_NUMBER
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FacesNumber)
-        </dd>
-
-    </dl>
+            </div>
+            <div class="col-md-10">
+                <p>
+                    @Html.DisplayFor(model => model.FacesNumber)
+                </p>
+            </div>
+        </div>
+ 
+    </div>
+   
 </div>
 <p>
     @Html.ActionLink(Language.EDIT, Routes.EDIT, new { id = Model.Id }) |

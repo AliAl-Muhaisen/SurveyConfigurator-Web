@@ -4,58 +4,93 @@
 <div class="my-3">
     <h4>@Language.QUESTION_SLIDER</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Language.TEXT
-            
-        </dt>
+    <div class="row" dir="auto">
+        <div class="col-12 row">
+            <div class="col-md-2">
+                <p class="fw-bold">
+                    @Language.TEXT
+                </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Text)
-        </dd>
+            </div>
+            <div class="col-md-10">
+                <p>
+                    @Html.DisplayFor(model => model.Text)
+                </p>
+            </div>
+        </div>
 
 
-        <dt>
-            @Language.ORDER
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Order)
-        </dd>
+        <div class="col-12 row">
+            <div class="col-md-2">
+                <p class="fw-bold">
+                    @Language.ORDER
+                </p>
 
-        <dt>
-            @Language.START_VALUE
-        </dt>
+            </div>
+            <div class="col-md-10">
+                <p>
+                    @Html.DisplayFor(model => model.Order)
+                </p>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartValue)
-        </dd>
+        <div class="col-md-2">
+            <p class="fw-bold">
+                @Language.START_VALUE
+            </p>
 
-        <dt>
-            @Language.END_VALUE
-        </dt>
+        </div>
+        <div class="col-md-10">
+            <p>
+                @Html.DisplayFor(model => model.StartValue)
+            </p>
+        </div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-md-2">
+            <p class="fw-bold">
+                @Language.END_VALUE
+            </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.EndValue)
-        </dd>
+        </div>
+        <div class="col-md-10">
+            <p>
+                @Html.DisplayFor(model => model.EndValue)
+            </p>
+        </div>
+    </div>
 
-        <dt>
-            @Language.START_CAPTION
-        </dt>
+    <div class="col-12 row">
+        <div class="col-md-2">
+            <p class="fw-bold">
+                @Language.START_CAPTION
+            </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartCaption)
-        </dd>
+        </div>
+        <div class="col-md-10">
+            <p>
+                @Html.DisplayFor(model => model.StartCaption)
+            </p>
+        </div>
+    </div>
 
-        <dt>
-            @Language.END_CAPTION
-        </dt>
+    <div class="col-12 row">
+        <div class="col-md-2">
+            <p class="fw-bold">
+                @Language.END_CAPTION
+            </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.EndCaption)
-        </dd>
+        </div>
+        <div class="col-md-10">
+            <p>
+                @Html.DisplayFor(model => model.EndCaption)
+            </p>
+        </div>
+    </div>
 
-    </dl>
+
+
 </div>
 <p>
     @Html.ActionLink(Language.EDIT, Routes.EDIT, new { id = Model.Id }) |

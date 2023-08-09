@@ -209,3 +209,66 @@ Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 co
 
 
 
+-----   Error   -----
+DateTime: 8/9/2023 9:28:36 AM
+Type: System.InvalidOperationException
+Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+
+
+
+-----   Error   -----
+DateTime: 8/9/2023 9:30:31 AM
+Type: System.InvalidOperationException
+Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 255
+
+
+
+-----   Error   -----
+DateTime: 8/9/2023 9:39:02 AM
+Type: System.InvalidOperationException
+Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 255
+
+
+
+-----   Error   -----
+DateTime: 8/9/2023 9:44:11 AM
+Type: System.InvalidOperationException
+Message: Invalid attempt to call MetaData when reader is closed.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlDataReader.CheckMetaDataIsReady()
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+
+
+
+-----   Error   -----
+DateTime: 8/9/2023 9:53:39 AM
+Type: System.InvalidOperationException
+Message: Invalid attempt to call MetaData when reader is closed.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlDataReader.CheckMetaDataIsReady()
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at SurveyConfiguratorApp.Data.Questions.DbQuestion.GetQuestions(List`1& pQuestionsList) in C:\Users\a.al-muhaisen\source\repos\SurveyTask\SurveyConfiguratorApp.Data\Questions\DbQuestion.cs:line 248
+
+
+
