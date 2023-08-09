@@ -1,0 +1,19 @@
+﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionStars
+@using SurveyConfiguratorWeb.Languages
+@using SurveyConfiguratorWeb.Models
+
+<div>
+    @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
+    <div class="my-2">
+        <div class="input-group">
+            <label for="@nameof(Model.StarsNumber)" class="input-group-text side-form-label">@Language.STARS_NUMBER</label>
+            @Html.TextBoxFor(model => model.StarsNumber, new { @class = "form-control", type = "number", min = "1", max = "10" })
+        </div>
+        @Html.ValidationMessageFor(model => model.StarsNumber, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="w-100 col-12 text-center justify-content-center">
+        <input type="submit" value="@Language.SAVE" class="btn btn-primary col-md-12  text-center" />
+
+    </div>
+</div>

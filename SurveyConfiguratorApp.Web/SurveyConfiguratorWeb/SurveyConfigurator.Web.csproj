@@ -242,6 +242,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Question\QuestionScript.js" />
+    <Content Include="Scripts\Question\QuestionValidation.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -271,6 +272,9 @@
     <Content Include="Views\Shared\_Overlay.cshtml" />
     <Content Include="Views\Shared\_DbConnectionFailed.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Shared\Questions\QuestionsInput\_InputsQuestionFaces.cshtml" />
+    <Content Include="Views\Shared\Questions\QuestionsInput\_InputsQuestionStars.cshtml" />
+    <Content Include="Views\Shared\Questions\QuestionsInput\_InputsQuestionSlider.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,63 @@
+﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionFaces
+@using SurveyConfiguratorWeb.Languages
+@using SurveyConfiguratorWeb.Models
+
+
+<div class="">
+    @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
+    <div class="mb-3">
+        <div class="input-group">
+            <label for="@nameof(Model.FacesNumber)" class="input-group-text side-form-label">@Language.FACES_NUMBER</label>
+            @Html.TextBoxFor(model => model.FacesNumber, new { @class = "form-control", type = "number", min = "2", max = "100", onkeydown = "CheckFacesNumber(this);", onkeyup = "CheckFacesNumber(this);" })
+        </div>
+        @Html.ValidationMessageFor(model => model.FacesNumber, "", new { @class = "text-danger" })
+             <small class="text-danger" id="errorFacesNumberLabel"></small>
+    </div>
+    <div class="w-100 col-12">
+        <input type="submit" value="@Language.SAVE" class="btn btn-primary col-md-12  text-center" />
+
+    </div>
+</div>
+<script>
+    const FACES_MAX_VALUE = 5;
+    const FACES_MIN_VALUE = 2;
+    let isValidFacesNumber = false;
+    function CheckFacesNumber(input) {
+        try {
+            let tFacesNumberInput = (input.value);
+
+            const tErrorLabel = document.getElementById("errorFacesNumberLabel");
+            if (isNaN(tFacesNumberInput)) {
+                tErrorLabel.innerHTML = "@Language.NOT_NUMBER";
+            }
+            let tFacesNumberValue = parseInt(tFacesNumberInput);
+
+             if (tFacesNumberInput == null || tFacesNumberInput.trim().length == 0) {
+                tErrorLabel.innerHTML = "@Language.REQUIRED";
+            }
+
+             else if (tFacesNumberValue < FACES_MIN_VALUE) {
+                tErrorLabel.innerHTML = "@Language.VALIDATION_ERROR_QUESTION_FACES";
+
+            }
+            else if (tFacesNumberValue > FACES_MAX_VALUE) {
+                tErrorLabel.innerHTML = "@Language.VALIDATION_ERROR_QUESTION_FACES"
+            }
+            else {
+                isValidFacesNumber = true;
+                tErrorLabel.innerHTML = null
+            }
+
+            //handle border
+            if (isValidFacesNumber) {
+                HandleBorderInput(input, true);
+            }
+            else {
+                HandleBorderInput(input, false);
+            }
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+</script>

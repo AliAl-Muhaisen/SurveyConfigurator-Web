@@ -4,20 +4,117 @@
     <div class="my-2 ">
         <div class="input-group ">
             <label for="@nameof(Model.Text)" class="input-group-text side-form-label"> @Language.TEXT</label>
-            @Html.TextAreaFor(model => model.Text, new { @class = "md-textarea form-control" })
+            @Html.TextAreaFor(model => model.Text, new { @class = "md-textarea form-control", onkeydown = "CheckText(this);", onkeyup = "CheckText(this);" })
         </div>
+
         @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger mb-2" })
+        <small class="text-danger" id="errorTextLabel"></small>
+
 
     </div>
-    
+
 
     <div class="my-2 ">
         <div class="input-group">
             <label for="@nameof(Model.Order)" class="input-group-text side-form-label"> @Language.ORDER</label>
-            @Html.TextBoxFor(model => model.Order, new { @class = "form-control", type = "number", min = "1", max = "100" })
+            @Html.TextBoxFor(model => model.Order, new { @class = "form-control", type = "number", min = "1", max = "100", onkeydown = "CheckOrderNumber(this);", onkeyup = "CheckOrderNumber(this);" })
         </div>
+        <small class="text-danger" id="errorOrderLabel"></small>
         @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger mb-2" })
     </div>
-    
+
     @Html.HiddenFor(model => model.TypeName)
 </div>
+<script>
+        const QUESTION_TEXT_MAX_LENGTH = 1500;
+        const QUESTION_TEXT_MIN_LENGTH = 10;
+        const QUESTION_TEXT_CAPTION_MIN_LENGTH = 3;
+        const QUESTION_TEXT_CAPTION_MAX_LENGTH = 3;
+        const QUESTION_ORDER_MAX_VALUE = 100;
+        const QUESTION_ORDER_MIN_VALUE = 1;
+        let isValidOrder = false;
+        let isValidText = false;
+
+
+    function CheckText(input) {
+        try {
+            let tInputValue = (input.value);
+            const tErrorLabel = document.getElementById("errorTextLabel");
+            let tTextLength = tInputValue.trim().length;
+
+            if (tInputValue == null || tTextLength == 0) {
+                tErrorLabel.innerHTML = "@Language.VALIDATION_ERROR_QUESTION_TEXT";
+            }
+
+            else if (tTextLength < QUESTION_TEXT_MIN_LENGTH) {
+                tErrorLabel.innerHTML = "@Language.VALIDATION_ERROR_SHORT_TEXT";
+             }
+            else if (tTextLength > QUESTION_TEXT_MAX_LENGTH) {
+                tErrorLabel.innerHTML = "@Language.VALIDATION_ERROR_LONG_TEXT";
+            }
+            else {
+                tErrorLabel.innerHTML = null;
+                isValidText = true;
+            }
+
+
+            //handle border 
+            if (isValidText) {
+                HandleBorderInput(input, true);
+            }
+            else {
+                HandleBorderInput(input, false);
+            }
+        } catch (e) {
+
+        }
+    }
+    function CheckOrderNumber(input) {
+        try {
+
+
+            let tInputValue = (input.value);
+            const tErrorLabel = document.getElementById("errorOrderLabel");
+            if (isNaN(tInputValue)) {
+                tErrorLabel.innerHTML = "@Language.NOT_NUMBER";
+            }
+            tInputValue = parseInt(tInputValue);
+
+            if (tInputValue < QUESTION_ORDER_MIN_VALUE) {
+                tErrorLabel.innerHTML = "@Language.VALIDATION_ERROR_ORDER_MIN";
+
+            }
+            else if (tInputValue > QUESTION_ORDER_MAX_VALUE) {
+                tErrorLabel.innerHTML = "@Language.VALIDATION_ERROR_ORDER_MAX"
+            }
+            else {
+                isValidOrder = true;
+                tErrorLabel.innerHTML = null
+            }
+
+            //handle border 
+            if (isValidOrder) {
+                HandleBorderInput(input, true);
+            }
+            else {
+                HandleBorderInput(input, false);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+
+    function HandleBorderInput(inputs, isSuccess) {
+        if (isSuccess) {
+            inputs.classList.remove('border-danger');
+            inputs.classList.add('border-success');
+        }
+        else {
+            inputs.classList.remove('border-success');
+            inputs.classList.add('border-danger');
+        }
+    }
+
+</script>
+

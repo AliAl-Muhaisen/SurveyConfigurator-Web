@@ -349,6 +349,15 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid number.
+        /// </summary>
+        public static string NOT_NUMBER {
+            get {
+                return ResourceManager.GetString("NOT_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         public static string OK {

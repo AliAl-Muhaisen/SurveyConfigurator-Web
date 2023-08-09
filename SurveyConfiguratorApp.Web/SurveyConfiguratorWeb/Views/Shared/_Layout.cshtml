@@ -1,7 +1,7 @@
 ﻿@using SurveyConfiguratorWeb.Models
 @using SurveyConfiguratorWeb.Languages
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,9 +34,9 @@
                     <ul class="navbar-nav m-auto mb-2 mb-lg-0 justify-content-start">
                         <li class="nav-item d-flex">
                             <a href="/" class="nav-link active "><i class="fa-solid fa-house" style="color: #ffffff;"></i> @Language.HOME</a>
-                            </li>
-                       
-                       
+                        </li>
+
+
                     </ul>
                     <div>
 
@@ -65,7 +65,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-gear d-none d-md-block"  style="color: #ffffff;"></i>  <p class="d-md-none d-inline ">@Language.SETTINGS</p>
+                                <i class="fa-solid fa-gear d-none d-md-block" style="color: #ffffff;"></i>  <p class="d-md-none d-inline ">@Language.SETTINGS</p>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink2" dir="auto">
                                 <li>
@@ -98,6 +98,7 @@
     @Scripts.Render("~/bundles/jquery")
     <script src="~/Scripts/flash.js"></script>
     <script src="~/Scripts/flashMessages.js"></script>
+
     @RenderSection("scripts", required: false)
 
 

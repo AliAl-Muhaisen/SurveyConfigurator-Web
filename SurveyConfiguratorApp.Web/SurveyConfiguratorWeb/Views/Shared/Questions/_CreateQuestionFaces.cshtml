@@ -1,25 +1,10 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionFaces
-@using SurveyConfiguratorWeb.Languages
 @using SurveyConfiguratorWeb.Models
 
 
 @using (Html.BeginForm(Routes.CREATE, Routes.QUESTION, FormMethod.Post))
 {
 
-    <div class="">
-        @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
-        <div class="mb-3">
-            <div class="input-group">
-                <label for="@nameof(Model.FacesNumber)" class="input-group-text side-form-label">@Language.FACES_NUMBER</label>
-                @Html.TextBoxFor(model => model.FacesNumber, new { @class = "form-control", type = "number", min = "2", max = "100" })
-            </div>
-            @Html.ValidationMessageFor(model => model.FacesNumber, "", new { @class = "text-danger" })
+@Html.Partial(Routes.PATH_QUESTION_FACES_INPUTS_FILE)}
 
-        </div>
-        <div class="w-100 col-12">
-            <input type="submit" value="@Language.SAVE" class="btn btn-primary col-md-12  text-center" />
 
-        </div>
-    </div>
-
-} 

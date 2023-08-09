@@ -213,6 +213,9 @@
   <data name="LANGUAGE" xml:space="preserve">
     <value>اللغة</value>
   </data>
+  <data name="NOT_NUMBER" xml:space="preserve">
+    <value>من فضلك أدخل رقما صالحا</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>حسنا</value>
   </data>
