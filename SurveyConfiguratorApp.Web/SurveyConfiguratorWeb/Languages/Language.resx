@@ -337,9 +337,9 @@
     <value>Caption Text Is Required</value>
   </data>
   <data name="VALIDATION_ERROR_SLIDER_END_VALUE" xml:space="preserve">
-    <value>End Value should be greater than the Min Value</value>
+    <value>End Value should be greater than the Min Value and less than or equal 100</value>
   </data>
   <data name="VALIDATION_ERROR_SLIDER_START_VALUE" xml:space="preserve">
-    <value>Min Value should be less than Max Value</value>
+    <value>Min Value should be less than Max Value greater than or equal 0.</value>
   </data>
 </root>

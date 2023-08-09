@@ -88,10 +88,10 @@ namespace SurveyConfiguratorWeb
 
                     switch (tHttpCode)
                     {
-                        case 404:
+                        case ResultCode.PAGE_NOT_FOUND:
                             Response.Redirect(Routes.ERROR_NOTFOUND);
                             break;
-                        default:
+                        case ResultCode.SERVER_DOWN:
                             Response.Redirect(Routes.ERROR);
                             break;
                     }
@@ -100,7 +100,6 @@ namespace SurveyConfiguratorWeb
             catch (Exception ex)
             {
                 Log.Error(ex);
-                Response.Redirect(Routes.ERROR);
             }
            
         }

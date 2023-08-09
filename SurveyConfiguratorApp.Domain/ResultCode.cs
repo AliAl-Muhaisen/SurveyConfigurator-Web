@@ -60,5 +60,10 @@ namespace SurveyConfiguratorApp.Domain
 
         #endregion
 
+
+        #region Status Code
+        public const int PAGE_NOT_FOUND = 404;
+        public const int SERVER_DOWN = 500;
+        #endregion
     }
 }

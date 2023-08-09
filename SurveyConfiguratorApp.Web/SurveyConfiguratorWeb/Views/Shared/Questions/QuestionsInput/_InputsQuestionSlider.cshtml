@@ -8,19 +8,19 @@
 
         <div class="input-group" dir="auto">
             <label for="@nameof(Model.StartValue)" class="input-group-text side-form-label">@Language.START_VALUE</label>
-            @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control", type = "number", min = "0", max = "99", id = "StartValue", onkeyup = "CheckSliderValue(this);", onkeydown = "CheckSliderValue(this);" })
+            @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control", type = "number", min = "0", max = "99", id = "StartValue", onkeyup = "CheckSliderStartValue(this);", onkeydown = "CheckSliderStartValue(this);" })
         </div>
-        @Html.ValidationMessageFor(model => model.StartValue, "", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(model => model.StartValue, "", new { @class = "text-danger", id = "errorLabelStartValueBE" })
         <small class="text-danger" id="errorLabelStartValue"></small>
     </div>
 
     <div class="col-12 my-2" dir="auto">
         <div class="input-group">
             <label for="@nameof(Model.EndValue)" class="input-group-text side-form-label">@Language.END_VALUE</label>
-            @Html.TextBoxFor(model => model.EndValue, new { @class = "form-control", type = "number", min = "1", max = "100", value = "100", id = "EndValue" })
+            @Html.TextBoxFor(model => model.EndValue, new { @class = "form-control", type = "number", min = "1", max = "100", value = "100", id = "EndValue" ,onkeydown= "CheckSliderEndValue(this);",onkeyup= "CheckSliderEndValue(this);" })
 
         </div>
-        @Html.ValidationMessageFor(model => model.EndValue, "", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(model => model.EndValue, "", new { @class = "text-danger",id= "errorLabelEndValueBE" })
         <small class="text-danger" id="errorLabelEndValue"></small>
 
     </div>
@@ -31,7 +31,7 @@
             @Html.TextAreaFor(model => model.StartCaption, new { @class = "form-control", onkeydown = "CheckStartCaption(this);", onkeyup = "CheckStartCaption(this);" })
 
         </div>
-        @Html.ValidationMessageFor(model => model.StartCaption, "", new { @class = "text-danger",id= "errorLabelStartCaptionBE" })
+        @Html.ValidationMessageFor(model => model.StartCaption, "", new { @class = "text-danger", id = "errorLabelStartCaptionBE" })
         <small class="text-danger" id="errorLabelStartCaption"></small>
 
 
@@ -41,7 +41,7 @@
             <label for="@nameof(Model.EndCaption)" class="input-group-text side-form-label">@Language.END_CAPTION</label>
             @Html.TextAreaFor(model => model.EndCaption, new { @class = "form-control", onkeydown = "CheckEndCaption(this);", onkeyup = "CheckEndCaption(this);" })
         </div>
-        @Html.ValidationMessageFor(model => model.EndCaption, "", new { @class = "text-danger",id= "errorLabelEndCaptionBE" })
+        @Html.ValidationMessageFor(model => model.EndCaption, "", new { @class = "text-danger", id = "errorLabelEndCaptionBE" })
         <small class="text-danger" id="errorLabelEndCaption"></small>
 
     </div>
@@ -50,29 +50,24 @@
     <div class="w-100 col-12 my-3">
         <input type="submit" value="@Language.SAVE" class="btn btn-primary col-12 text-center" />
     </div>
-</div>
-@section scripts{
-    
-    
-    }
-<script>
+    <script>
 
 
-    function CheckSliderValue(inputStartValue) {
+    function CheckSliderStartValue(inputStartValue) {
         try {
             isValidStartValueNumber = false;
 
             const StartValue = inputStartValue.value;
 
-            const EndValue = document.getElementById("EndValue").value;
 
             const tErrorLabelStartValue = document.getElementById("errorLabelStartValue");
-          //  const tErrorLabelEndValue = document.getElementById("errorLabelEndValue");
+            const tErrorLabelStartValueBE = document.getElementById("errorLabelStartValueBE");
             if (isNaN(StartValue)) {
                 tErrorLabelStartValue.innerHTML = "@Language.NOT_NUMBER";
+
                 }
             let tStartValue = parseInt(StartValue);
-
+            let EndValue = document.getElementById("EndValue").value;
 
             if (StartValue == null || StartValue.trim().length == 0) {
                 tErrorLabelStartValue.innerHTML = "@Language.REQUIRED";
@@ -82,8 +77,11 @@
                 tErrorLabelStartValue.innerHTML = "@Language.VALIDATION_ERROR_SLIDER_START_VALUE";
 
             }
-            else if (tStartValue > EndValue) {
-                tErrorLabelStartValue.innerHTML = "@Language.VALIDATION_ERROR_QUESTION_STARS"
+            else if (EndValue != null && tStartValue > parseInt(EndValue)) {
+                tErrorLabelStartValue.innerHTML = "@Language.VALIDATION_ERROR_SLIDER_START_VALUE"
+            }
+            else if (tStartValue > SLIDER_MAX_VALUE-1) {
+                tErrorLabelStartValue.innerHTML = "@Language.VALIDATION_ERROR_SLIDER_START_VALUE"
             }
             else {
                 isValidStartValueNumber = true;
@@ -92,33 +90,28 @@
 
             //handle border
             if (isValidStartValueNumber) {
-                HandleBorderInput(input, true);
+                HandleBorderInput(inputStartValue, true);
             }
             else {
-                HandleBorderInput(input, false);
+                HandleBorderInput(inputStartValue, false);
+                tErrorLabelStartValueBE.style.display = "none";
             }
 
-        } catch (e) {
-
-        }
-
-
-
-    }
-    function CheckSliderValue(captionInput) {
-        try {
-            HandleCaptionValidation(captionInput,"","")
         } catch (e) {
             console.error(e);
         }
+
+
+
     }
+
 
     function HandleCaptionValidation(captionInput,errorLabelId,errorLabelBEId) {
         try {
             let isValid = false;
            let captionText = captionInput.value.trim();
-            errorLabel = document.getElementById(errorLabelId);
-            errorLabelDB = document.getElementById(errorLabelBEId);
+           let errorLabel = document.getElementById(errorLabelId);
+           let errorLabelDB = document.getElementById(errorLabelBEId);
             if (captionText == null || captionText.length == 0) {
                 errorLabel.innerHTML = "@Language.VALIDATION_ERROR_SLIDER_CAPTION";
             }
@@ -129,7 +122,7 @@
                 errorLabel.innerHTML = "@Language.STRING_LENGTH_LONG";
             }
             else {
-                errorLabel.innerHTML = null;
+                errorLabel.innerHTML = "";
                 isValid = true;
             }
 
@@ -164,4 +157,63 @@
             console.error(e);
         }
     }
-</script>
+        function CheckSliderEndValue(inputEndValue) {
+        try {
+            isValidEndValueNumber = false;
+
+            const EndValue = inputEndValue.value;
+
+
+            const tErrorLabelEndValue = document.getElementById("errorLabelEndValue");
+            const tErrorLabelEndValueBE = document.getElementById("errorLabelEndValueBE");
+            if (isNaN(EndValue)) {
+                tErrorLabelEndValue.innerHTML = "@Language.NOT_NUMBER";
+
+                }
+            let tEndValue = parseInt(EndValue);
+
+            let StartValue = document.getElementById("StartValue").value;
+
+            if (EndValue == null || EndValue.trim().length == 0) {
+                tErrorLabelEndValue.innerHTML = "@Language.REQUIRED";
+            }
+
+            else if (tEndValue <= SLIDER_MIN_VALUE) {
+                tErrorLabelEndValue.innerHTML = "@Language.VALIDATION_ERROR_SLIDER_END_VALUE";
+
+            }
+            else if (StartValue != null && tEndValue < parseInt(StartValue)) {
+                tErrorLabelEndValue.innerHTML = "@Language.VALIDATION_ERROR_SLIDER_END_VALUE"
+            }
+            else if (tEndValue > SLIDER_MAX_VALUE) {
+                tErrorLabelEndValue.innerHTML = "@Language.VALIDATION_ERROR_SLIDER_END_VALUE"
+            }
+            else {
+                isValidEndValueNumber = true;
+                tErrorLabelEndValue.innerHTML = null
+            }
+
+            //handle border
+            if (isValidEndValueNumber) {
+                HandleBorderInput(inputEndValue, true);
+            }
+            else {
+                HandleBorderInput(inputEndValue, false);
+                tErrorLabelEndValueBE.style.display = "none";
+            }
+
+        } catch (e) {
+            console.error(e);
+        }
+
+
+
+    }
+
+
+    </script>
+</div>
+@section scripts{
+    
+    
+    }

@@ -337,9 +337,9 @@
     <value>مطلوب نص التسمية التوضيحية</value>
   </data>
   <data name="VALIDATION_ERROR_SLIDER_END_VALUE" xml:space="preserve">
-    <value>يجب أن تكون القيمة النهائية أكبر من القيمة الدنيا</value>
+    <value>يجب أن تكون القيمة النهائية أكبر من الحد الأدنى للقيمة وأقل من أو تساوي 100.</value>
   </data>
   <data name="VALIDATION_ERROR_SLIDER_START_VALUE" xml:space="preserve">
-    <value>يجب أن تكون القيمة الدنيا أقل من القيمة القصوى</value>
+    <value>يجب أن تكون القيمة الدنيا أقل من القيمة القصوى أكبر من أو تساوي 0.</value>
   </data>
 </root>

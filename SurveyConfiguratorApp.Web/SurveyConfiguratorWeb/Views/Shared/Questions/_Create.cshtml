@@ -31,7 +31,7 @@
     
     }
 <script>
-   
+
 
     function CheckText(input) {
         try {
@@ -56,9 +56,9 @@
             }
 
 
-            //handle border 
+            //handle border
             if (isValidText) {
-                
+
                 HandleBorderInput(input, true);
             }
             else {
@@ -74,7 +74,7 @@
 
             const errorOrderLabelBE = document.getElementById("errorOrderLabelBE");
 
-            let tInputValue = (input.value);
+            let tInputValue = input.value;
             const tErrorLabel = document.getElementById("errorOrderLabel");
 
             isValidOrder = false;
@@ -90,12 +90,15 @@
             else if (tInputValue > QUESTION_ORDER_MAX_VALUE) {
                 tErrorLabel.innerHTML = "@Language.VALIDATION_ERROR_ORDER_MAX"
             }
+            else if (input == null || input.value.trim().length == 0) {
+                tErrorLabel.innerHTML = "@Language.REQUIRED";
+            }
             else {
                 isValidOrder = true;
                 tErrorLabel.innerHTML = null
             }
 
-            //handle border 
+            //handle border
             if (isValidOrder) {
                 HandleBorderInput(input, true);
             }
@@ -109,7 +112,7 @@
     }
 
 
-   
+
 
 </script>
 

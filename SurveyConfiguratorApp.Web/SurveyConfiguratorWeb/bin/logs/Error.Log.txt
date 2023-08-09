@@ -187,3 +187,56 @@ Message: Trype Name: SLIDER
 
 
 
+-----   Info   -----
+DateTime: 8/10/2023 12:29:03 AM
+Message: TypeName
+Text
+Order
+FacesNumber
+StarsNumber
+StartValue
+EndValue
+StartCaption
+EndCaption
+
+
+
+
+-----   Info   -----
+DateTime: 8/10/2023 12:29:03 AM
+Message: Trype Name: FACES
+
+
+
+-----   Error   -----
+DateTime: 8/10/2023 12:29:03 AM
+Type: System.FormatException
+Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at SurveyConfiguratorWeb.Models.FormToObj.QuestionFaces(FormCollection pFormCollection) in C:\Users\a.al-muhaisen\Desktop\Survey web\SurveyConfigurator-Web\SurveyConfiguratorApp.Web\SurveyConfiguratorWeb\Models\FormToObj.cs:line 44
+
+
+
+-----   Info   -----
+DateTime: 8/10/2023 12:36:01 AM
+Message: TypeName
+Text
+Order
+FacesNumber
+StarsNumber
+StartValue
+EndValue
+StartCaption
+EndCaption
+
+
+
+
+-----   Info   -----
+DateTime: 8/10/2023 12:36:01 AM
+Message: Trype Name: FACES
+
+
+

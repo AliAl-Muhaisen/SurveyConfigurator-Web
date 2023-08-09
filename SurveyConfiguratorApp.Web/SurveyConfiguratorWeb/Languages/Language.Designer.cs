@@ -718,7 +718,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to End Value should be greater than the Min Value.
+        ///   Looks up a localized string similar to End Value should be greater than the Min Value and less than or equal 100.
         /// </summary>
         public static string VALIDATION_ERROR_SLIDER_END_VALUE {
             get {
@@ -727,7 +727,7 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Min Value should be less than Max Value.
+        ///   Looks up a localized string similar to Min Value should be less than Max Value greater than or equal 0..
         /// </summary>
         public static string VALIDATION_ERROR_SLIDER_START_VALUE {
             get {

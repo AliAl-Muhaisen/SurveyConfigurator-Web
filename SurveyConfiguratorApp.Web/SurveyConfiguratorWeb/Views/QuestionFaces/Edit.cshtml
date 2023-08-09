@@ -1,40 +1,42 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionFaces
 @using SurveyConfiguratorWeb.Languages
-@using SurveyConfiguratorWeb.Models 
+@using SurveyConfiguratorWeb.Models
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal my-3">
-    <h4>@Language.QUESTION_FACES</h4>
-    <hr />
-    @Html.HiddenFor(model => model.Id)
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.Id)
+    <div class="form-horizontal my-3">
+        <h4>@Language.QUESTION_FACES</h4>
+        <hr />
+        @Html.HiddenFor(model => model.Id)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
 
-    @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
-   
+        @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
 
-    <input type="number" name="Id" value="@Model.Id" class="d-none" />
-   
-    <div class="my-2 col-md-12 ">
-        <div class="input-group">
-            <label for="@nameof(Model.FacesNumber)" class="input-group-text side-form-label">@Language.FACES_NUMBER</label>
-            @Html.EditorFor(model => model.FacesNumber, new { htmlAttributes = new { @class = "form-control" } })
+
+        <input type="number" name="Id" value="@Model.Id" class="d-none" />
+
+        <div class="my-2 col-md-12 ">
+            <div class="input-group">
+                <label for="@nameof(Model.FacesNumber)" class="input-group-text side-form-label">@Language.FACES_NUMBER</label>
+                @Html.EditorFor(model => model.FacesNumber, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(model => model.FacesNumber, "", new { @class = "text-danger mb-2" })
+
         </div>
-        @Html.ValidationMessageFor(model => model.FacesNumber, "", new { @class = "text-danger mb-2" })
 
-    </div>
-
-    <div class="form-group my-2 mt-3">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="@Language.SAVE" class="btn btn-primary" />
+        <div class="form-group my-2 mt-3">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Language.SAVE" class="btn btn-primary" />
+            </div>
         </div>
     </div>
-</div>
 }
 
 <div>
     @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
 </div>
+<script src="~/Scripts/Question/QuestionValidation.js"></script>
+
