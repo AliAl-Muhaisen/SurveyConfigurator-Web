@@ -7,9 +7,10 @@
     <div class="my-2">
         <div class="input-group">
             <label for="@nameof(Model.StarsNumber)" class="input-group-text side-form-label">@Language.STARS_NUMBER</label>
-            @Html.TextBoxFor(model => model.StarsNumber, new { @class = "form-control", type = "number", min = "1", max = "10" })
+            @Html.TextBoxFor(model => model.StarsNumber, new { @class = "form-control", type = "number", min = "1", max = "10" ,onkeydown = "CheckStarsNumber(this);", onkeyup = "CheckStarsNumber(this);" })
         </div>
         @Html.ValidationMessageFor(model => model.StarsNumber, "", new { @class = "text-danger" })
+    <small class="text-danger" id="errorStarsNumberLabel"></small>
     </div>
 
     <div class="w-100 col-12 text-center justify-content-center">
@@ -17,3 +18,47 @@
 
     </div>
 </div>
+
+<script>
+    const STARS_MAX_VALUE = 10;
+    const STARS_MIN_VALUE = 1;
+    let isValidStarsNumber = false;
+    function CheckStarsNumber(input) {
+        try {
+            let tStarsNumberInput = (input.value);
+
+            const tErrorLabel = document.getElementById("errorStarsNumberLabel");
+            if (isNaN(tStarsNumberInput)) {
+                tErrorLabel.innerHTML = "@Language.NOT_NUMBER";
+            }
+            let tStarsNumberValue = parseInt(tStarsNumberInput);
+
+            if (tStarsNumberInput == null || tStarsNumberInput.trim().length == 0) {
+                tErrorLabel.innerHTML = "@Language.REQUIRED";
+            }
+
+            else if (tStarsNumberValue < STARS_MIN_VALUE) {
+                tErrorLabel.innerHTML = "@Language.VALIDATION_ERROR_QUESTION_STARS";
+
+            }
+            else if (tStarsNumberValue > STARS_MAX_VALUE) {
+                tErrorLabel.innerHTML = "@Language.VALIDATION_ERROR_QUESTION_STARS"
+            }
+            else {
+                isValidStarsNumber = true;
+                tErrorLabel.innerHTML = null
+            }
+
+            //handle border
+            if (isValidStarsNumber) {
+                HandleBorderInput(input, true);
+            }
+            else {
+                HandleBorderInput(input, false);
+            }
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+</script>
