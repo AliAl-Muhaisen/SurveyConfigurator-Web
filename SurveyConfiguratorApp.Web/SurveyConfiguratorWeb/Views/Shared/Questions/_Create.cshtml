@@ -25,19 +25,17 @@
 
     @Html.HiddenFor(model => model.TypeName)
 </div>
+@section scripts{
+    
+    
+    
+    }
 <script>
-        const QUESTION_TEXT_MAX_LENGTH = 1500;
-        const QUESTION_TEXT_MIN_LENGTH = 10;
-        const QUESTION_TEXT_CAPTION_MIN_LENGTH = 3;
-        const QUESTION_TEXT_CAPTION_MAX_LENGTH = 3;
-        const QUESTION_ORDER_MAX_VALUE = 100;
-        const QUESTION_ORDER_MIN_VALUE = 1;
-        let isValidOrder = false;
-        let isValidText = false;
-
+   
 
     function CheckText(input) {
         try {
+            console.log("CheckText called")
             let tInputValue = (input.value);
             const tErrorLabel = document.getElementById("errorTextLabel");
             let tTextLength = tInputValue.trim().length;
@@ -105,16 +103,7 @@
     }
 
 
-    function HandleBorderInput(inputs, isSuccess) {
-        if (isSuccess) {
-            inputs.classList.remove('border-danger');
-            inputs.classList.add('border-success');
-        }
-        else {
-            inputs.classList.remove('border-success');
-            inputs.classList.add('border-danger');
-        }
-    }
+   
 
 </script>
 

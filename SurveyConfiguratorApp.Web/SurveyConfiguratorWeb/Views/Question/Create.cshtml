@@ -3,6 +3,8 @@
 @using SurveyConfiguratorWeb.Models
 @{ ViewBag.Title = "Create"; }
 
+
+
 <div class="shadow-lg border p-2 rounded-2 my-3 my-md-5 bg-white">
     <div class="my-3 row p-1 p-md-2">
         <h2>@Language.CREATE</h2>
@@ -34,14 +36,16 @@
             QuestionSlider tQuestionSlider = Model is QuestionSlider ? Model : new QuestionSlider();
 
             Question tQuestion = Model is Question ? Model : new Question(); }
-        <div id="questionFacesPartial" style="display: none">
+
+
+        <div id="questionFacesPartial" style="display: none" data-view-type="faces">
             @Html.Partial(Routes.PATH_QUESTION_FACES_CRAETE_FILE, tQuestionFaces)
         </div>
 
-        <div id="questionStarsPartial" style="display: none">
+        <div id="questionStarsPartial" style="display: none" data-view-type="stars">
             @Html.Partial(Routes.PATH_QUESTION_STARS_CRAETE_FILE, tQuestionStars)
         </div>
-        <div id="questionSliderPartial" style="display: none">
+        <div id="questionSliderPartial" style="display: none" data-view-type="slider">
             @Html.Partial(Routes.PATH_QUESTION_SLIDER_CRAETE_FILE, tQuestionSlider)
         </div>
     </div>
@@ -53,7 +57,11 @@
 
 
 
+
+
 @section scripts {
+    <script src="~/Scripts/Question/QuestionValidation.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var selectElement = document.getElementById('questionTypes');
@@ -97,7 +105,8 @@
                 ChangeSelectedView(selectedValue);
 
             });
-
+            var initialSelectedValue = selectElement.value;
+            selectElement.dispatchEvent(new Event('change'));
         });
     </script>
 }

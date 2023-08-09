@@ -20,11 +20,10 @@
 </div>
 
 <script>
-    const STARS_MAX_VALUE = 10;
-    const STARS_MIN_VALUE = 1;
-    let isValidStarsNumber = false;
+  
     function CheckStarsNumber(input) {
         try {
+            isValidStarsNumber = false;
             let tStarsNumberInput = (input.value);
 
             const tErrorLabel = document.getElementById("errorStarsNumberLabel");

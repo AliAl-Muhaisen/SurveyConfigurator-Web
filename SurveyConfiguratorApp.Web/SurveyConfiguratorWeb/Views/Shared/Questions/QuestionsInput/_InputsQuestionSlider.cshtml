@@ -9,18 +9,20 @@
 
         <div class="input-group" dir="auto">
             <label for="@nameof(Model.StartValue)" class="input-group-text side-form-label">@Language.START_VALUE</label>
-            @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control", type = "number", min = "0", max = "99" })
+            @Html.TextBoxFor(model => model.StartValue, new { @class = "form-control", type = "number", min = "0", max = "99",id= "StartValue",onkeyup= "CheckSliderValue(this);", onkeydown = "CheckSliderValue(this);" })
         </div>
         @Html.ValidationMessageFor(model => model.StartValue, "", new { @class = "text-danger" })
+    <small class="text-danger" id="errorLabelStartValue"></small>
     </div>
 
     <div class="col-12 my-2" dir="auto">
-        <div class="input-group ">
+        <div class="input-group">
             <label for="@nameof(Model.EndValue)" class="input-group-text side-form-label">@Language.END_VALUE</label>
-            @Html.TextBoxFor(model => model.EndValue, new { @class = "form-control", type = "number", min = "1", max = "100", value = "100" })
+            @Html.TextBoxFor(model => model.EndValue, new { @class = "form-control", type = "number", min = "1", max = "100", value = "100",id= "EndValue" })
 
         </div>
         @Html.ValidationMessageFor(model => model.EndValue, "", new { @class = "text-danger" })
+        <small class="text-danger" id="errorLabelEndValue"></small>
 
     </div>
 
@@ -31,6 +33,8 @@
 
         </div>
         @Html.ValidationMessageFor(model => model.StartCaption, "", new { @class = "text-danger" })
+        <small class="text-danger" id="errorLabelStartCaption"></small>
+
 
     </div>
     <div class="col-md-12  my-2">
@@ -39,6 +43,8 @@
             @Html.TextAreaFor(model => model.EndCaption, new { @class = "form-control" })
         </div>
         @Html.ValidationMessageFor(model => model.EndCaption, "", new { @class = "text-danger" })
+        <small class="text-danger" id="errorLabelEndCaption"></small>
+
     </div>
 
 
@@ -46,4 +52,66 @@
         <input type="submit" value="@Language.SAVE" class="btn btn-primary col-12 text-center" />
     </div>
 </div>
+@section scripts{
+    
+    
+    }
+<script>
 
+
+    function CheckSliderValue(inputStartValue) {
+        try {
+            isValidStartValueNumber = false;
+
+            const StartValue = inputStartValue.value;
+            
+            const EndValue = document.getElementById("EndValue").value;
+
+            const tErrorLabelStartValue = document.getElementById("errorLabelStartValue");
+          //  const tErrorLabelEndValue = document.getElementById("errorLabelEndValue");
+            if (isNaN(StartValue)) {
+                tErrorLabelStartValue.innerHTML = "@Language.NOT_NUMBER";
+                }
+            let tStartValue = parseInt(StartValue);
+
+
+            if (StartValue == null || StartValue.trim().length == 0) {
+                tErrorLabelStartValue.innerHTML = "@Language.REQUIRED";
+            }
+
+            else if (tStartValue < SLIDER_MIN_VALUE) {
+                tErrorLabelStartValue.innerHTML = "@Language.VALIDATION_ERROR_SLIDER_START_VALUE";
+
+            }
+            else if (tStartValue > EndValue) {
+                tErrorLabelStartValue.innerHTML = "@Language.VALIDATION_ERROR_QUESTION_STARS"
+            }
+            else {
+                isValidStartValueNumber = true;
+                tErrorLabelStartValue.innerHTML = null
+            }
+
+            //handle border
+            if (isValidStartValueNumber) {
+                HandleBorderInput(input, true);
+            }
+            else {
+                HandleBorderInput(input, false);
+            }
+
+        } catch (e) {
+
+        }
+
+
+
+    }
+    function CheckSliderValue(input) {
+        try {
+            
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+</script>
