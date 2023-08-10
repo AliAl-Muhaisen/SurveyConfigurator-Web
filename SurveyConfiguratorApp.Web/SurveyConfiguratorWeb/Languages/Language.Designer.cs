@@ -331,6 +331,15 @@ namespace SurveyConfiguratorWeb.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to en.
+        /// </summary>
+        public static string HTML_LANG_ATTRIBUTE {
+            get {
+                return ResourceManager.GetString("HTML_LANG_ATTRIBUTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connection Failed.
         /// </summary>
         public static string LABEL_STATUS {

@@ -207,6 +207,9 @@
   <data name="HOME" xml:space="preserve">
     <value>الرئيسية</value>
   </data>
+  <data name="HTML_LANG_ATTRIBUTE" xml:space="preserve">
+    <value>ar</value>
+  </data>
   <data name="LABEL_STATUS" xml:space="preserve">
     <value>فشل الاتصال</value>
   </data>
