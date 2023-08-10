@@ -2,65 +2,28 @@
 @using SurveyConfiguratorWeb.Languages
 @using SurveyConfiguratorWeb.Models
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<div class="shadow border p-2 rounded-2 my-3 my-md-5 bg-white">
 
-    <div class=" row my-3">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class=" row">
         <h4>@Language.QUESTION_SLIDER</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
         @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
 
-
-        <div class="form-group col-md-12 my-2">
-            <div class="input-group">
-                <label for="@nameof(Model.StartValue)" class="input-group-text side-form-label">@Language.START_VALUE</label>
-                @Html.EditorFor(model => model.StartValue, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-            @Html.ValidationMessageFor(model => model.StartValue, "", new { @class = "text-danger  mb-2" })
-
-        </div>
-
-        <div class="col-md-12 my-2">
-            <div class="input-group">
-                <label for="@nameof(Model.EndValue)" class="input-group-text side-form-label">@Language.END_VALUE</label>
-                @Html.EditorFor(model => model.EndValue, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-            @Html.ValidationMessageFor(model => model.EndValue, "", new { @class = "text-danger  mb-2" })
-        </div>
+        @Html.Partial(Routes.PATH_QUESTION_SLIDER_CRAETE_FILE, Model)
 
 
-        <div>
-            <div class=" my-2 col-md-12">
-
-                <div class="input-group">
-                    <label for="@nameof(Model.StartCaption)" class="input-group-text side-form-label">@Language.START_CAPTION</label>
-                    @Html.EditorFor(model => model.StartCaption, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-                @Html.ValidationMessageFor(model => model.StartCaption, "", new { @class = "text-danger  mb-2" })
-
-            </div>
-        </div>
-        <div class=" col-md-12 my-2">
-            <div class="input-group">
-                <label for="@nameof(Model.EndCaption)" class="input-group-text side-form-label">@Language.END_CAPTION</label>
-                @Html.EditorFor(model => model.EndCaption, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-            @Html.ValidationMessageFor(model => model.EndCaption, "", new { @class = "text-danger mb-2" })
-
-        </div>
-
-        <div class="form-group my-3">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="@Language.SAVE" class="btn btn-primary" />
-            </div>
-        </div>
     </div>
-}
+    }
 
-<div>
-    @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
+    <div>
+        @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
+    </div>
 </div>
+
 <script src="~/Scripts/Question/QuestionValidation.js"></script>

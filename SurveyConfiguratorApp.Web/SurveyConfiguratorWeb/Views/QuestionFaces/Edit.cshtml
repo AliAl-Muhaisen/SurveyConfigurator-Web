@@ -1,12 +1,12 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionFaces
 @using SurveyConfiguratorWeb.Languages
 @using SurveyConfiguratorWeb.Models
+<div class=" shadow border p-2 rounded-2 my-3 my-md-5 bg-white">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal my-3">
+    <div class="form-horizontal ">
         <h4>@Language.QUESTION_FACES</h4>
         <hr />
         @Html.HiddenFor(model => model.Id)
@@ -17,26 +17,17 @@
 
 
         <input type="number" name="Id" value="@Model.Id" class="d-none" />
+        @Html.Partial(Routes.PATH_QUESTION_FACES_CRAETE_FILE, Model)
+        
 
-        <div class="my-2 col-md-12 ">
-            <div class="input-group">
-                <label for="@nameof(Model.FacesNumber)" class="input-group-text side-form-label">@Language.FACES_NUMBER</label>
-                @Html.EditorFor(model => model.FacesNumber, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-            @Html.ValidationMessageFor(model => model.FacesNumber, "", new { @class = "text-danger mb-2" })
-
-        </div>
-
-        <div class="form-group my-2 mt-3">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="@Language.SAVE" class="btn btn-primary" />
-            </div>
-        </div>
+       
     </div>
-}
+    }
 
-<div>
-    @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
+    <div>
+        @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
+    </div>
 </div>
+
 <script src="~/Scripts/Question/QuestionValidation.js"></script>
 

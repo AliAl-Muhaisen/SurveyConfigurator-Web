@@ -1,7 +1,7 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionSlider
 @using SurveyConfiguratorWeb.Languages
 @using SurveyConfiguratorWeb.Models
-<div class="my-3">
+<div class="my-3 shadow border p-2 p-md-3 rounded-2 my-3 my-md-5 bg-white">
     <h4>@Language.QUESTION_SLIDER</h4>
     <hr />
     <div class="row" dir="auto">
@@ -90,9 +90,9 @@
     </div>
 
 
-
+    <p>
+        @Html.ActionLink(Language.EDIT, Routes.EDIT, new { id = Model.Id }) |
+        @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
+    </p>
 </div>
-<p>
-    @Html.ActionLink(Language.EDIT, Routes.EDIT, new { id = Model.Id }) |
-    @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
-</p>
+

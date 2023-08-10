@@ -1,11 +1,13 @@
 ﻿@model SurveyConfiguratorApp.Domain.Questions.QuestionStars
 @using SurveyConfiguratorWeb.Languages
 @using SurveyConfiguratorWeb.Models
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal my-3" dir="auto">
+<div class="shadow border p-2 rounded-2 my-3 my-md-5 bg-white">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" dir="auto">
         <h4>@Language.QUESTION_STARS</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -13,24 +15,13 @@
 
         @Html.Partial(Routes.PATH_QUESTION_CRAETE_FILE, Model)
 
-        <div class="col-md-12  my-2">
-            <div class=" input-group">
-                <label class="input-group-text side-form-label">@Language.STARS_NUMBER</label>
-                @Html.EditorFor(model => model.StarsNumber, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-            @Html.ValidationMessageFor(model => model.StarsNumber, "", new { @class = "text-danger mb-1" })
-
-        </div>
-
-        <div class="form-group my-3">
-            <div class="col-md-offset-2 col-md-12">
-                <input type="submit" value="@Language.SAVE" class="btn btn-primary" />
-            </div>
-        </div>
+        @Html.Partial(Routes.PATH_QUESTION_STARS_CRAETE_FILE, Model)
     </div>
-}
+    }
 
-<div>
-    @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
+    <div>
+        @Html.Partial(Routes.PATH_BACK_TO_LIST_FILE)
+    </div>
 </div>
+
 <script src="~/Scripts/Question/QuestionValidation.js"></script>
