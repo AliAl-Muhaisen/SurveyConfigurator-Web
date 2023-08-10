@@ -128,15 +128,10 @@ namespace SurveyConfiguratorWeb.Controllers
         {
             try
             {
-                string keys="";
-                foreach (string item in pFormCollection)
-                {
-                    keys += item + "\n";
-                }
-                Log.Info(keys);
+                
                 //get the question type
                 string tTypeName = pFormCollection[FormToObj.TYPE_NAME];
-                Log.Info("Trype Name: " + tTypeName);
+
                 //convert string to QuestionTypes (enum)
                 Question.QuestionTypes tQuestionType = ((Question.QuestionTypes)Enum.Parse(typeof(Question.QuestionTypes), tTypeName));
                 int tResult = 0;
